@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-19</title>
+</head>
+
+<body>
+<h1 style="text-align:center;">第19章 添加JavaScript</h1>
+
+<h3>加载外部脚本</h3>
+<p>
+脚本主要有两种类型，一种是从外部文件（使用纯文本格式）加载的脚本，另一种是嵌入在页面中的脚本，无论是加载外部脚本还是嵌入脚本，均使用script（脚本）元素<br />
+加载外部脚本的方法：<code>&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;</code>这里script.js是外部脚本在服务器上的位置及文件名<br />
+应该尽可能地将脚本元素放在&lt;/body&gt;结束标签之前，而不是放在文档的head元素里，如果放在head元素里，会影响页面显示的速率，如果确实需要在head中加载脚本（参见11.3节），也要将它们放置在所有加载CSS文件的link元素之后<br />
+为了保持组织文件良好，通常将JavaScript文件放在一个子文件夹中，常用的名称包括js、scripts等<br />
+一个页面可以加载多个JavaScript文件，可以包含多个嵌入的脚本，在默认情况下，浏览器会按照脚本在HTML中出现的顺序对它们进行加载和执行<br />
+可以为外部脚本指定任意有效的文件名，只要它们以.js结尾，通常，压缩后的脚本以.min.js作为扩展名，这样可以很清晰地将它们与常规文件区分开来<br />
+对于常规脚本，代码易于阅读，对于压缩后的脚本，浏览器能更快地解析<br />
+如果创建了一个简化文件，一定要确保在HTML中对脚本的引用是正确的，例如，<code>&lt;script src=&quot;behavior.min.js&quot;&gt;</code>，否则，页面仍会加载常规的文件，在不断修改脚本的过程中，也可以让src重新指向常规的文件<br />
+不理解JavaScript的浏览器（数量很少）或用户禁用了JavaScript的浏览器会忽略JavaScript文件，因此要确保页面不依赖于JavaScript为用户提供对内容的可访问性和基本体验<br />
+从技术上说，为页面添加JavaScript还有第三种方式：内联脚本，它是直接在HTML中特定元素属性上指定的JavaScript片段，但应该避免使用它们，内联脚本将HTML和JavaScript纠缠在一起，这与将它们分开的最佳实践不符<br />
+</p>
+
+<h3>添加嵌入脚本</h3>
+<p>
+嵌入脚本位于HTML文档之内，同嵌入样式表很相似，嵌入的脚本包含在script元素内<br />
+嵌入脚本没有src属性，代码位于页面之内，如果要嵌入脚本，应该尽可能地在&lt;/body&gt;结束标签之前这样做<br />
+添加嵌入脚本的步骤：在HTML文档中，输入&lt;script&gt;输入脚本内容&lt;/script&gt;<br />
+每个脚本都按照它们出现在HTML中的顺序依次进行处理，无论是嵌入脚本还是外部脚本<br />
+</p>
+
+<h3>JavaScript事件</h3>
+<p>
+可以编写JavaScript对特定的、预定义的事件（由访问者或浏览器触发）进行响应<br />
+HTML5引入了大量其他的事件处理程序，其中很多都是与audio和video元素相关的，有的触屏设备也开始支持特殊的基于触摸操作的事件处理程序<br />
+</p>
+
+</body>
+</html>

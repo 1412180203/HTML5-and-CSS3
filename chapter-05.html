@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>chapter-05</title>
+  <style>
+    td {
+		padding:2px 10px;
+	}
+    th {
+		border-top:2px #000 solid;
+		border-bottom:1px #000 solid;
+	}
+	tr.last td {
+		border-bottom:1px #000 solid;
+	}
+	td:nth-child(4),td:nth-child(5) {
+		text-align:center;
+	}
+  </style>
+</head>
+
+<body>
+<h1 style="text-align:center;">第5章 图像</h1>
+
+<h3>关于Web图像</h3>
+<p>
+当前Web上用的最广泛的三种格式是GIF、PNG、JPG<br />
+<table cellspacing="0" >
+  <caption>图像格式对比</caption>
+  <tr>
+    <th>格式</th>
+    <th>用法</th>
+    <th>颜色</th>
+    <th>索引色（基本）</th>
+    <th>alpha透明</th>
+  </tr>
+  <tr>
+    <td><em>JPG</em></td>
+    <td>适用于大多数照片，以及其他颜色较多且可接受一些质量损失的图像</td>
+    <td>1600万以上</td>
+    <td>--</td>
+    <td>--</td>
+  </tr>
+  <tr>
+    <td><em>PNG-8</em></td>
+    <td>适用于标识、重复的图案以及其他颜色较少的图像或具有连续颜色的图像</td>
+    <td>256</td>
+    <td>支持</td>
+    <td>支持</td>
+  </tr>
+  <tr>
+    <td><em>PNG-24</em></td>
+    <td>与PNG-8相似，不过支持颜色更多的图像，适用于颜色丰富且质量要求高的照片</td>
+    <td>1600万以上</td>
+    <td>支持</td>
+    <td>--</td>
+  </tr>
+  <tr>
+    <td><em>PNG-32</em></td>
+    <td>与PNG-24相似，不过支持具有alpha透明的图像</td>
+    <td>1600万以上</td>
+    <td>--</td>
+    <td>支持</td>
+  </tr>
+  <tr class="last">
+    <td><em>GIF</em></td>
+    <td>用法与PNG-8相似，在大多数情况下应使用PNG-8</td>
+    <td>256</td>
+    <td>支持</td>
+    <td>--</td>
+  </tr>
+</table><br />
+<dfn>索引色透明</dfn>：一个像素要么是透明的，要么是不透明的<br />
+<dfn>alpha透明</dfn>：可以控制一个像素透明的程度，一个像素可以部分透明<br />
+对于PNG和GIF，应优先选择PNG，因为它对透明度的支持好，压缩算法也更好，产生的文件更小
+</p>
+
+<h3>img 在页面中插入图像</h3>
+<p>
+用img元素可以在页面中放置各种各样的图像，如果图像是页面设计的一部分，而不是内容的一部分，则应使用CSS background-image属性引入改图像，而不是使用img标记<br />
+<img src="corner-market.jpg" alt="corner market" />
+</p>	
+
+<h3>alt 提供替代文本</h3>
+<p>
+使用alt属性，可以为图像添加一段描述性文本，当图像出于某种原因不显示的时候，就将这段文字显示出来<br />
+<img src="huaji.png" alt="要显示的图片" /><br />
+不要用alt文本代替图像的caption，在这种情况下，应考虑将img放入一个figure元素，并添加一个figcaption元素
+</p>
+
+<h3>width height 指定图像尺寸</h3>
+<p>
+可以使用width和height属性来指定图像尺寸，这样如果图像加载过慢，浏览器会预留空间给图片，保持布局稳定<br />
+如果只设置width属性或height属性，图像会等比例的放大会缩小，如果2个属性都设置了，那图像就会根据指定的大小显示，可能会使图片变形。<br />
+<img src="corner-market.jpg" width="100" />
+</p>
+
+<h3 id="icon">为网站添加图标</h3>
+<p>
+我们在浏览器选项卡、历史记录、书签页、收藏夹和地址栏中看到的小图标成为favicon，这个词是favorites ico(收藏夹图标)的简称<br />
+创建一个至少为16×16的图像，将图标的背景设为透明的，并保存为ICO格式，文件名为favicon.ico，ICO文件允许在同一个文件中包含多个不同尺寸的同名文件<br />
+在&lt;head&gt;标签里加上一行<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; /&gt;</code><br />
+还可以创建一个或多个触屏图标，即在苹果及其他触屏设备上将网站添加到主屏幕上时要显示的图标，iPhone和iPod touch的图标大小为57×57或114×114（对于Retina显示屏），iPad的图标大小为72×72或144×144（对于Retina显示屏），Android也支持这些图标<br />
+为触屏设备至少创建一个图像，并保存为PNG格式，命名为：apple-touch-icon.png<br />
+在&lt;head&gt;标签里加上一行<code>&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;apple-touch-icon.png&quot; /&gt;</code>
+</p>
+
+</body>
+</html>

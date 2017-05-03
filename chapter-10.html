@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-10</title>
+  <style>
+    html {
+		font-size:100%;
+	}
+	body {
+		font-size:100%;
+		color:#FFF;
+		background:#000 url(sky.png) fixed repeat-x bottom left;
+		/*等价于上面的background
+		background-color:#000;
+		background-image:url(sky.png);
+		background-repeat:repeat-x;
+		background-attachment:fixed;
+		background-position:bottom left;*/
+	}
+	/*------------------------------------------*/
+    .ff {
+		font-family:"华文彩云"; 
+	}
+	/*------------------------------------------*/
+	.ff2 {
+		font-family:"隶书", "方正姚体", cursive;
+	}
+	/*------------------------------------------*/
+	.ita {
+		font-style:italic;
+	}
+	.bol {
+		font-weight:bold;
+	}
+	/*------------------------------------------*/
+	.size1 {
+		font-size:12px;
+	}
+	.size2 {
+		font-size:100%; /* 16px */
+	}
+	.size3 {
+		font-size:1.25em; /* 20px/16px */
+	}
+	.size4 {
+		font-size:1.4rem;
+	}
+	/*------------------------------------------*/
+	.height1 {
+		line-height:1;
+	}
+	.height2 {
+		line-height:2.5em;
+	}
+	.height3 {
+		line-height:300%;
+	}
+	/*------------------------------------------*/
+	.font1 {
+		font:1.25em/2.5  "华文琥珀", "隶体", cursive;
+	}
+	/*------------------------------------------*/
+	.red {
+		color:red;
+	}
+	/*------------------------------------------*/
+	.ufo {
+		position:fixed;
+		top:0;
+		right:0;
+		max-width:100%;
+	}
+	.starts {
+		width:100%;
+		height:125px;
+		background-image:url(stars.png);
+		background-size:250px 250px;
+		background-position:top;
+		position:fixed;
+	}
+	/*------------------------------------------*/
+	.words {
+		word-spacing:1em;
+	}
+	.letters {
+		letter-spacing:5px;
+	}
+	/*------------------------------------------*/
+	.textindent {
+		text-indent:2em;
+	}
+	.spanindent {
+		text-indent:2em;
+		display:block;
+	}
+	/*------------------------------------------*/
+	.center {
+		text-align:center;
+	}
+	/*------------------------------------------*/
+	.capitalize {
+		text-transform:capitalize;
+	}
+	/*------------------------------------------*/
+	.caps {
+		font-variant:small-caps;
+	}
+	/*------------------------------------------*/
+	.underline {
+		text-decoration:underline;
+	}
+	.overline {
+		text-decoration:overline;
+	}
+	.linethrough {
+		text-decoration:line-through;
+	}
+	/*------------------------------------------*/
+	.normal {
+		white-space:nromal;
+	}
+  </style>
+</head>
+<body>
+<img src="ufo.png" class="ufo" />
+<div class="starts"></div>
+<h1 style="text-align:center;">第10章 为文本添加样式</h1>
+
+<h3>选择字体系列</h3>
+<p>
+步骤：<code>font-family:name;</code><br />
+<span class="ff">对于包含多个单词的字体名称，应该用引号（单引号或双引号）包围起来</span><br />
+虽然font-family属性是继承的，但有几个元素不会继承父元素的字体设置，其中有表单的select、textarea和input元素<br />
+不过可以强制它们继承父元素的字体设置，代码为<code>input, select, textarea { font-family:inherit; }</code><br />
+</p>
+
+<h3>指定替代字体</h3>
+<p>
+<span class="ff2">指定的字体不一定在每个系统上都能显示出来，因此，可以在font-family属性中列举一种以上的字体，浏览器会使用列表中第一个已安装在访问者系统内的字体或Web字体</span><br />
+字体列表成为字体栈，通常字体栈至少包含三个字体<br />
+步骤：<code>font-family:name1, name2, name3;</code>，用一个逗号和空格分隔每个字体，最后以一个表示类属的标准字体(serif、sans-serif、cursive、fantasy或monospace，它们代表首选字体最为接近的风格)结束字体列表，其中cursive、fantasy、monospace分别表示手写字体、装饰字体和等宽字体<br />
+几乎可以确定Arial是万维网上用的最多的字体，因为<code>font-family:arial, helvetica, sans-serif;</code>这条声明可谓随处可见<br />
+但设计师通常更愿意使用Helvetica，但Windows上一般没有这个字体，所以使用<code>font-family:sans-serif</code>会让所以操作系统使用无衬线字体——Windows显示Arial，而OSX显示Helvetica<br />
+</p>
+
+<h3>创建斜体</h3>
+<p>
+<span class="ita">步骤：<code>font-style:italic;或font-style:oblique;</code>，99%的情况下都会使用italic，在所以情况，很难察觉使用oblique和italic的差异</span><br/>
+font-style是继承的，如果想取消从父元素中继承了的斜体，可以使用<code>font-style:normal;</code>
+</p>
+
+<h3>应用粗体格式</h3>
+<p>
+<span class="bol">步骤：<code>font-weight:bold;</code>，也可以输入100~900之间的100的倍数，其中400代表正常粗细，700代表粗体，或者输入bolder（更粗）或lighter（更细）以设置相对当前粗细的值</span><br />
+font-weight是继承的，如果想取消，可以使用<code>font-weight:normal;</code>，有些Web字体服务，如Google Fonts，要求使用<code>font-weight:400;</code>
+</p>
+
+<h3>设置字体大小</h3>
+<p>
+为网页里的文本设置字体大小有两种方法：(1)可直接<span class="size1">使用像素</span>指定要使用的特定字号(2)<span class="size2">使用百分数</span><span class="size3">或者em</span><span class="size4">或者rem指定相对于父元素文本的大小</span><br />
+建议使用em这样的相对单位，相对单位可以有更大的灵活性，有助于建立在各种设备都能显示良好的页面<br />
+使用em或百分数这种方法时，最好在body元素上建立一个基准，即声明<code>body { font-size:100%; }</code>，大多时候，这项设置等价于将字体大小设为16px，即大多数系统的默认字体大小<br />
+font-size是继承的，该属性值传递给其他元素，除非其他元素通过浏览器默认设置了自己的font-size，或在样式表指定了自动的font-size<br />
+<strong>1em=16px，em值=要指定的字体大小/父元素的字体大小</strong>，如果设置段落p的字体大小为17px，则该段落内1em=17px<br />
+大多数情况下，100%的body font-size等于16px，不过有一种例外的情况，即用户对浏览器的设置覆盖了该默认值，例如，如果用户是视障人士，他们可能将默认字体大小设置为22px<br />
+rem(root em的简称)，它同em很像，不过它总是以根元素为参照系设置其他元素的字体大小，而不是父元素，根元素是html元素，因为它包含了body，也就包含了所有内容，这样就简化了字体大小的设置，因为html字体大小通常不会变，不像父元素的大小是不确定的，设置根元素的字体大小：<code>html { font-size:100%; }</code>，虽然现代浏览器对它的支持程度很高，但Internet Explorer知道IE9才开始支持，因此，可以针对旧版本的IE提供以px单位的值，再紧跟着为现代浏览器准备的rem值，例如：<code>p { font-size:17px; font-size:1.0625rem;}</code><br />
+<strong>rem值=要指定的字体大小/根元素字体大小</strong><br />
+<span class="size1">指定特定字体大小：<code>font-size:<var>n</var>px;</code>，或使用关键字指定字体大小，即使用xx-small、x-small、small、medium、large、x-large或xx-large</span><br />
+<span class="size2">根据父元素设置字体大小：<code>font-size:<var>n</var>%;</code></span><span class="size3">或<code>font-size:<var>n</var>em;</code></span><br />
+<span class="size4">根据根元素设置字体大小：<code>font-size:<var>n</var>rem</code></span><br />
+磅(pt)用做打印样式表的单位<br />
+</p>
+
+<h3>设置行高</h3>
+<p>
+行高指的是段落的行距，即段落内每行之间的距离<br />
+<span class="height1">步骤：<code>line-height:<var>n</var>;</code>，这里的n是一个数字，它与元素的字体大小相乘，得出需要的行高</span><br />
+<span class="height2">或者输入a，这里的a是以em、像素或磅为单位的值</span><br />
+<span class="height3">或者输入p%，这里的p%是字体大小的百分数</span><br />
+通常是使用数字设定行高，所有的子元素都会继承这个因子，如果父元素字体大小是16px行高1.5，则行高=16×1.5=24px，子元素的字体大小如果是10px，则行高=10*1.5=15px<br />
+如果使用百分数或em值，那么只会继承产生的行高，如果父元素的字体大小事16px，行高150%，相当于16×150%=24px，那么子元素也是24px<br />
+</p>
+
+<h3>同时设置所有字体值</h3>
+<p>
+可以使用font简写属性同时设置字体样式、粗细、变体、大小、行高和字体系列，font属性是继承的<br >
+使用font简写属性不要求指定所有字体属性，<mark>但至少应该包含字体大小和字体系列属性，先是字体大小，再是字体系列</mark><br />
+<span class="font1">步骤：<code>font:font-size(/line-height) font-family (font-weight font-style font-variant)</code>，其中括号里的是可选的</span><br />
+font-variant表示设置小型大写字母，可选的值有normal(默认值)和small-caps(显示小型大写字母)<br />
+设置时行高是可选的，但它如果出现，就必须紧跟在字体大小和斜杠后面，比如：<code>font:1.25em/2.5 "Palatino Linotype", Palatino, serif;</code>
+</p>
+
+<h3>设置颜色</h3>
+<p>
+可以修改网页中文本的颜色，样式表可以包含颜色名称、十六进制值、RGB、HSL、RGBA和HSLA值的任意组合来定义颜色<br />
+<span class="red">步骤：<code>color:colorname;</code>，这里的colorname可参考第7章中的CSS颜色</span><br />
+除了link元素(a:link)，其他元素都会继承body元素中的color属性，开发人员必须显示设置link元素的color属性<br />
+</p>
+
+<h3>设置背景</h3>
+<p>
+1.修改文本的背景颜色：<code>background-color:transparent或color;</code>，这里transparent表示允许透过父元素的背景颜色，color表示颜色值<br />
+如果您不希望某元素拥有背景色，同时又不希望用户对浏览器的颜色设置影响到您的设计，那么设置 transparent 值还是有必要的。<br />
+2.使用背景图像作为背景：<code>background-image:url(image.png);</code>，这里的image.png是图像相对于样式表所在位置的路径和文件名，或输入none表示不使用图像<br />
+背景图像默认是重复的<br />
+3.重复背景图像：<code>background-repeat:direction</code>，这里的direction可以取四个值：repeat、repeat-x、repeat-y和no-repeat，分别表示同时横向和纵向重复图像、只横向重复图像、只纵向重复图像、不重复图像<br />
+4.控制背景图像是否随页面滚动：<code>background-attachment:fixed或scroll或local</code>，fix表示背景图像会附着在浏览器窗口上，也就是说即使访问者滚动页面，图像任然会继续显示，scroll表示访问者滚动页面时背景图像会移动，local表示只有访问者滚动背景图像所在元素（而不是整个页面）时，背景图像才移动，默认值是scroll<br />
+5.指定元素背景图像的位置：<code>background-position:x y;</code>，其中x和y可以表示为距离左上角的绝对距离或百分数，也可以用left、center、right表示x，用top、center、bottom表示y<br />
+可以在background-position属性中使用负数，例如<code>background-position:-45px 80px;</code>将图片定位在元素左边外侧45像素、顶部内侧80像素<br />
+6.指定元素背景图像的显示尺寸：<code>background-size:value;</code>，属性值可以是：<br />
+contain：在显示图像完整宽度和高度的情况下，尽可能地扩大图像的尺寸，背景图像可能不会填充整个背景区域<br />
+cover：在填充元素整个背景区域的情况下，让图像尽可能地小，图像的一部分可能会超过元素的范围而不可见<br />
+length：设置背景图像的高度和宽度，第一个值设置宽度，第二个值设置高度，如果只设置一个值，则第二个值会被设置为&quot;auto&quot;<br />
+percentage：以父元素的百分比来设置背景图像的宽度和高度，第一个值设置宽度，第二个值设置高度，如果只设置一个值，则第二个值会被设置为&quot;auto&quot;<br />
+7.background-clip和background-origin两个属性分别控制元素背景显示的范围和开始的位置，这两个属性都接受相同的值：content-box包含内容、padding-box包含内容和内边距、border-box包含内容、内边距和边框，background-clip的默认值为border-box，而background-origin的默认值为padding-box，详情请查看W3School的说明<br />
+8.在一条声明中设置所有背景属性：<code>background:</code>指定任何可接受的background属性值<br />
+background-color默认transparent(透明)、background-image默认none(无)、background-repeat默认repeat(重复)、background-attachment默认scroll(滚动)、background-position默认0 0(等价于top left，即左上角)、background-size默认100% 100%(原图大小)<br />
+建议使用background简记法，不必指定所有的属性，没有指定的属性都将设置为默认值
+</p>
+
+<h3>控制间距</h3>
+<p>
+可以增加或减少单词之间或字母之间的距离，前者称为字间距，后者称为字偶距<br />
+<span class="words">1.指定字间距：<code>word-spacing:length;</code>这里的length是一个带单位的数字，如0.4em或5px，例：It is a sentence</span><br />
+<span class="letters">2.指定字偶距：<code>letter-spacing:length;</code>这里的length是一个带单位的数字，如0.4em或0.5px，例：It is a sentence</span><br />
+可以对单词间距和字母间距使用负数，间距可能会受到所选对齐方式和字体系列的影响<br />
+要将字母间距或单词间距设为默认值，可以使用normal或0<br />
+word-spacing和letter-spacing属性是继承的，如果使用em值，那么只有结果大小(即计算出来的值)会被继承<br />
+</p>
+
+<h3>添加缩进</h3>
+<p class="textindent">
+通过设置text-indent属性，可以指定段落第一行前面应该空出多大的间距<br />
+步骤：<code>text-indent:length;</code>这里的length是一个带单位的数字，如1.5em或18px，要忽略缩进，使用0即可<br />
+<span class="spanindent">我们可以为其他元素应用text-indent属性，而不仅是段落元素，但默认情况下对em、strong、cite等内联元素没有效果，可以将它们设置为display:block;或display:inline-block;就可以强制为其应用text-indent属性</span>
+使用负数会产生悬挂缩进，使用悬挂缩进时，可能还需要增加文字框周围的内边距或外边距，从而让容器可容纳伸到外边的文本<br />
+与通常情况一样，em值要根据元素的字体大小进行计算，百分数要根据父元素的宽度进行计算<br />
+text-indent属性是继承的，如果要使用百分数或em值，那么只有生成的大小(即计算出来的值)会被继承<br />
+</p>
+
+<h3>对齐文本</h3>
+<p class="center">
+根据需要，可以让文本左对齐、右对齐、居中对齐或两端对齐<br />
+<span>步骤：<code>text-align:value;</code>，其中value可以是：left表示左对齐、right表示右对齐、center表示居中对齐、justify表示两端对齐，text-align属性是继承的</span><br />
+如果选择让文本两端对齐，要注意单词间距和字母间距有可能受到严重的影响<br />
+text-align对适用于盒模型的元素（如：h1~h6、p等，显示为单独的行）来说是起作用的，但对短语内容元素（如span、strong、em、cite等，显示在行内）来说是不起作用的，可以将它们的样式改为display:blcok;（显示单独的行）或display:inline-block;（这个要设置一定的宽度）
+</p>
+
+<h3>修改文本的大小写</h3>
+<p>
+使用text-transform属性，可以为样式定义文本的大小写，可以将文本显示为首字母大写、全部大写、全部小写或按原样显示<br />
+步骤：<code>text-transform:value;</code>这里value可以是：capitalize让每个单词的首字母大写、uppercase让所有字母大写、lowercase让所有的字母小写、none让文本保持本来的样子<br />
+<span class="capitalize">text-transform属性是继承的，可以将属性值设为none来取消继承的值</span><br />
+</p>
+
+<h3>使用小型大写字母</h3>
+<p>
+<span class="caps">使用font-variant可以调用小型大写字母变体，使一些大写的字母缩小到小写字母的大小,比如It Is A Sentence.</span><br />
+步骤：<code>font-variant:small-caps;</code>，这个属性是继承的，如果要取消，可以令属性值为none<br />
+</p>
+
+<h3>装饰文本</h3>
+<p>
+可以使用text-decoration属性装饰文本，如添加下划线或其他类型的线条<br />
+步骤：<code>text-decoration:value;</code>这里value可以是：<span class="underline">underline下划线</span>、<span class="overline">overline上划线</span>、<span class="linethrough">line-through删除线</span><br />
+text-decoration属性是继承的，可以令属性值为none来取消文本装饰
+</p>
+
+<h3>设置空白属性</h3>
+<p class="normal">
+默认情况下，HTML文档里的多个空格和回车会显示为一个空格或者被忽略，如果要让浏览器显示这些额外的空额，可以使用white-space属性
+步骤：<code>white-space:value;</code>这里value可以是：pre让浏览器显示原文本中的所有空格和回车、nowrap确保所有空格不断行，也就是文本全部显示在一行、normal按正常方式处理空格<br />
+</p>
+</body>
+</html>

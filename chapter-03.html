@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-03</title>
+  <style>
+    .footer {
+		margin-top:2em;
+		text-align:center;
+	}
+  </style>
+</head>
+<body>
+<h1 style="text-align:center;">第3章 基本HTML结构</h1>
+
+<h3>header 创建页眉</h3>
+<header role="banner">
+页眉示例
+</header>
+
+<h3>nav 标记导航</h3>
+<nav role="navigation">
+<a href="index.html">主页</a>&nbsp;
+<a href="http://www.baidu.com/">百度</a>
+</nav>
+
+<h3>main 标记页面的主要区域</h3>
+<main  role="main">
+该元素在一个页面里仅适用一次<br />
+不能将main放置在article、aside、footer、header或nav元素中<br />
+role=&quot;main&quot;可以帮助屏幕阅读器定位页面为主要区域
+</main>
+
+<h3>article 创建文章</h3>
+<article>
+文章内容可以包含任意数量的元素，元素类型包括段落、列表、音频、视频、图像、图形等<br />
+一个article可以包含一个或多个section元素
+</article>
+
+<h3>section 定义区块</h3>
+<section>
+section标记的是页面中的特定区域，是具有相似主题的一组内容<br />
+比如网站的主页可以分为介绍、新闻条目、联系信息等区块
+</section>
+
+<h3>aside 指定附注栏</h3>
+<aside role="complementary">
+内容与主体内容相关性没有那么强，但可以独立存在<br />
+使用aside的例子还包括重要引述、侧栏、指向相关文章的一组链接、广告、nav元素组（如博客的友情链接）、相关产品列表<br />
+HTML5不允许将aside嵌套在address元素内
+</aside>
+
+<h3>footer 创建页脚</h3>
+<footer>
+footer元素代表嵌套它的最近的article、aside、blockquote、body、details、fieldset、figure、nav、section或td元素的页脚<br />
+只有当它的最近的祖先是body时，才是整个页面的页脚，只能对页面级的footer使用role=&quot;contentinfo&quot;，且一个页面只能使用一次<br />
+页脚不一定要位于所有元素的末尾，不过通常是这样的
+</footer>
+
+<h3>div 创建通用容器</h3>
+<div>
+div(division)元素是一个完全没有任何语义含义的容器<br />
+</div>
+
+<h3>role 地标角色</h3>
+<p>
+地标角色可以帮助用户识别页面区域，从而让屏幕阅读器用户可以直接跳到这些区域<br />
+不要在页面上过多的使用地标角色，这样会让屏幕阅读器用户感到累赘，从而降低地标的作用，影响整体体验<br />
+<em>role=&quot;banner&quot;</em>(横幅)<br />
+面向全站的内容，通常显示在页面的顶端，横跨整个页面的宽度<br />
+将其添加到页面级的header元素，每个页面只用一次<br/>
+<em>role=&quot;navigation&quot;</em>(导航)<br />
+文档内不同部分或相关文档的导航性元素（通常为链接）的集合<br />
+应将其添加到每个nav元素，或其他包含导航性链接的容器<br />
+<em>role=&quot;main&quot;</em>(主体)<br />
+文档的主要内容<br />
+最好将其添加到main元素，也可以添加到其他表示主体内容的元素，每个页面只用一次<br />
+<em>role=&quot;complementary&quot;</em>(补充性内容)<br />
+文档中作为主体内容补充的支撑部分，它对区分主体内容是有意义的<br />
+应将其添加到aside元素，或div元素（前提是该div仅包含补充性内容）<br />
+<em>role=&quot;contentinfo&quot;</em>(内容信息)<br />
+包含关于文档信息的大块可感知区域，这类信息的例子包括版权声明和指向隐私权声明的链接等<br />
+应将其添加至整个页面的页脚（通常为footer元素），每个页面只用一次
+</p>
+
+<h3>为元素指定类别或ID名称</h3>
+<p>
+一个元素可以指定多个类别，用空格将不同的类别名称分开<br />
+一个元素只能指定一个ID，且一个页面里不能出现两个相同ID的元素<br />
+在class和id名称中，通常使用短横线分隔多个单词<br />
+</p>
+
+<h3>为元素添加title属性</h3>
+<p title="title属性应用">
+可以使用title属性为网站上任何部分加上提示标签，加上它们之后屏幕阅读器可以为用户朗读title文本，提升无障碍访问功能<br />
+当访问者将鼠标指向加了说明标签的元素时，就会显示title<br />
+</p>
+<footer role="contentinfo" class="footer">
+<p><small>&copy;2017&nbsp;阿明&nbsp;浙ICP备17003356号</small></p>
+</footer>
+</body>
+</html>

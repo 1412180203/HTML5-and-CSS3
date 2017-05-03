@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-04</title>
+</head>
+
+<body>
+<h1 style="text-align:center;">第4章 文本</h1>
+
+<h3>small 指定细则</h3>
+<p>
+small表示细则一类的旁注，通常包括免责声明、注意事项、法律限制、版权信息和署名等<br/>
+small只适用于短语，因此不要用它标记长的法律声明<br />
+<small>&copy;2016 HTML5 & CSS3</small>
+</p>
+
+<h3>strong em 标记重要和强调的文本</h3>
+<p>
+strong元素表示内容的重要性，而em则表示内容的着重点，在HTML5中，em是表示强调的唯一元素，而strong表示的则是重要程度<br />
+不要适用b元素代替strong，也不要适用i元素代替em，尽管它们在浏览器中显示的样式是一样的，但它们的含义却不同<br />
+<strong>这段内容很重要，<strong>这段更重要</strong></strong>，<em>这个是着重点，<em>这个更是着重点</em></em>，<strong><em>这段内容很重要，也是着重点</em></strong>
+</p>
+
+<h3>figure 创建图</h3>
+<p>
+图可以是图表、照片、图形、插图、代码片段，以及其他类似的独立内容<br />
+figcaption是figure的标题，可选，出现在figure内容的开头或结尾处，如果有，必须是figure元素内嵌的第一个或最后一个元素<br />
+可选的figcaption必须与其他内容一起包含在figure里面，不能单独出现在其他位置<br />
+figure元素可以包含多个内容块，但只允许有一个figcaption，浏览器在默认情况下会为figure添加40px宽的左右外边距<br />
+<figure>
+  <img src="chart-revenue.png" width="180" height="143" alt="Revenue chart" />
+  <figcaption>图4-1 Revenue chart</figcaption>
+</figure>
+</p>
+
+<h3>cite 指明引用或参考</h3>
+<p>
+使用cite元素可以指明对某内容源的引用或参考，只用于参考源本身，而不是从中引述的内容，cite元素默认以斜体显示<br />
+例如：<cite>戏剧、脚本或图书的标题，歌曲、电影、照片或雕塑的名称，演唱会或音乐会，规范、报纸或法律文件</cite>等<br />
+对于要从引用来源中引述内容的情况，使用blockquote或e元素标记引述的文本<br />
+</p>
+
+<h3>blockquote q 引述文本</h3>
+<p>
+引述块级文本：
+<blockquote cite="http://www.baidu.com/">
+blockquote元素表示单独存在的引述（通常更长，但也可能不是），它默认显示在新的一行，浏览器默认对blockquote文本进行缩进，如果需要，输入cite=&quot;url&quot;,url为引述来源的地址，它不会显示出来，如果blockquote中仅包含一个单独的段落或短语，可以不必将其包在p中再放入blockquote
+</blockquote>
+引述行内文本：
+<q cite="http://www.baidu.com/">
+q元素用于短的引述，如句子里面的引述，浏览器应对q元素中的文本自动加上特定语言的引号，如果引述文本的语言与页面默认语言不同，就在q元素中加上lang属性，如果需要，输入cite=&quot;url&quot;，url为引述来源的地址
+</q>
+</p>
+
+<h3>time 指定时间</h3>
+<p>
+使用time元素标记时间、日期或时间段，可选的datetime属性则是为机器准备的，该属性需要遵循特定的格式<br />
+如果忽略datetime属性，文本内容就必须是合法的日期或时间格式，如果包含了datetime，文本内容就可以按你希望的任何形式表示日期、时间或时间段了
+不能在time元素中嵌套另一个time元素，也不能在没有datetime属性的time元素中包含其他元素（只能包含文本）<br/>
+有效的时间格式：<br />
+日期和时间：YYYY-MM-DDThh:mm:ss 比如今天是<time datetime"12-25">圣诞节</time>现在是<time datetime="2016-12-25T16:33:00">16:33</time>，小时部分使用24小时制，如果包含时间，秒是可选的<br />
+时间段：nh nm ns 比如<time datetime="2h 30m">2小时30分</time>
+</p>
+
+<h3>abbr 解释缩写词</h3>
+<p>
+比如：<abbr title="中国">CHN</abbr>、<abbr title="美国">USA</abbr>（美国）<br />
+可以使用abbr元素标记缩写词并解释其含义，不必对每个缩写词都使用abbr，只在需要帮助访问者了解该词含义的时候使用<br />
+使用可选的title属性提供缩写词的全称，也可以将全称放在缩写词后面的括号里，当缩写词有title属性时，Firefox和Opera会添加虚线下划线以引起注意
+</p>
+
+<h3>dfn 定义术语</h3>
+<p>
+比如：<dfn>HTML</dfn>：超文本标记语言<br />
+dfn包围要定义的术语，而不是包围定义，后续使用术语时不再需要使用dfn对其进行标记，dfn元素默认以斜体显示，dfn元素及其定义必须挨在一起
+</p>
+
+<h3>sup sub 创建上标和下标</h3>
+<p>
+比如：3<sup>2</sup>=9; H<sub>2</sub>O表示水<br />
+常见的上标包括商标符号、指数和脚注编号等，常见的下标包括化学符号等，上标和下标字符会轻微地扰乱行与行之间均匀的间距，不过可以用CSS解决这个问题
+</p>
+
+<h3>address 添加作者联系信息</h3>
+<p>
+address是用以定义与HTML页面或页面一部分有关的作者、相关人士或组织的联系信息，通常位于页面底部或相关部分内，默认以斜体显示<br />
+如果要为一个article提供作者联系信息，就将光标放在该元素内；如果要提供整个页面的作者联系信息，就将光标放在body中（更常见的做法是放在页面级的footer里）<br />
+HTML5禁止在address里包含以下元素：h1~h6、article、address、aside、footer、header、hgroup、nav、section<br />
+<address>输入作者的电子邮件地址、指向联系信息页的连接等</address>
+</p>
+
+<h3>ins del s标注编辑和不再准确的文本</h3>
+<p>
+<ins>ins元素代表添加内容</ins><br />
+<del>del元素标记已删除内容</del><br />
+<s>s元素标注不再准确或不再相关的内容</s><br />
+del和ins是少有的既可以包围短语内容，又可以包围块级内容的元素<br />
+del和ins都支持两个属性：cite和datetime，cite属性用于提供一个URL，指向说明编辑原因的页面；datetime属性提供编辑的时间
+</p>
+
+<h3>code 标记代码</h3>
+<p>
+code元素表示其中的文本是代码或文件名，用&amp;lt;和&amp;gt;来显示&lt;和&gt;<br />
+比如：<code>response.writer(&quot;Hello World!&quot;);</code>
+</p>
+
+<h3>kbd samp var 计算机相关元素</h3>
+<p>
+kbd元素标记用户输入指示，比如：Type <kbd>tryDemo</kbd> in the User Name field. （默认以等宽字体显示）<br />
+samp元素用于指示程序或系统的示例输出，比如：<samp>Thanks for your order!</samp> （默认以等宽字体显示）<br />
+var元素表示变量或占位符的值，比如：质能方程 <var>E</var>=<var>m</var><var>c</var><sup>2</sup> （默认以斜体显示）
+</p>
+
+<h3>pre 使用预格式化的文本</h3>
+<pre>
+预格式化的文本可以保持文本固有的换行和空格，它是计算机代码示例的理想元素，格式化的文本通常以等宽的字体显示
+pre默认从新一行开始显示，如果要显示包含HTML元素的内容，用&amp;lt;和&amp;gt来表示&lt;和&gt;
+比如：修复使用sub和sup时的行间距问题
+<code>
+  &lt;style&gt;
+    sup, sub {
+      font-size:75%;
+      line-height:0;
+      position:relative;
+      vertical-align:baseline;
+    }
+    sup {
+      top:-0.5em;
+    }
+    sub {
+      bottom:-0.25em;
+    }
+  &lt;/style&gt;
+</code>
+注意，浏览器通常会对pre里面的内容关闭自动换行，因此，如果这些内容很宽，就会影响页面的布局，或产生横向滚动条
+使用一下的CSS规则可以对pre的内容打开自动换行
+<code>
+  pre {
+    white-space: pre-wrap;
+  }
+</code>
+</pre>
+
+<h3>mark 突出显示文本</h3>
+<p>
+mark对特定的词语进行标注，用于提起读者对特定文本片段的注意，对该元素的文字默认加上黄色背景<br />
+<mark>输入希望引起注意的字词</mark>
+</p>
+
+<h3>创建span</h3>
+<p>
+同div一样，span元素没有任何语义，不同的是，span只适合包围字词或短语内容，而div适合包含块级内容<br />
+<span>span元素没有任何默认样式，可以用CSS添加你自己的样式</span>
+</p>
+
+<h3>其他元素</h3>
+<p>
+<em><u>u元素</u></em>：用于非文本注解，仅在cite、em、mark等其他元素语义上不合适的情况下使用u元素，同时，最好改变u文本的样式，以免与同样默认添加下划线的链接文本弄混<br />
+<em>wbr元素<wbr /></em>：表示此处可以在必要的时候进行换行，从而让文本在有限的空间内更具可读性，wbr不会强制换行，而是让浏览器知道哪里可以根据需要进行换行<br />
+<em>ruby、rp和rt元素</em>：旁注标记，通常用于表示生僻字的发音，这些小的注解字符出现在它们标注的字符的上方或右方，ruby元素以及它们的子元素rt和rp是HTML5中为内容添加旁注的机制，rt指明对基准字符进行注解的旁注字符，可选的rp元素用于在不支持ruby的浏览器中的旁注文本周围显示括号<br />
+比如：
+<ruby>
+	北 <rp>(</rp><rt>ㄅㄟˇ</rt><rp>)</rp>
+	京 <rp>(</rp><rt>ㄐㄧㄥ</rt><rp>)</rp>
+</ruby><br />
+<em>meter元素</em>：表示任务的完成进度，可以用meter元素表示分数的值或已知范围的测量结果，最好在meter里包含一些反应当前测量值的文本，供不支持meter的浏览器显示<br />
+比如：工程完成状态：<meter value="0.8" title="80% completed">80% completed	</meter><br />
+<em>progress元素</em>：表示某项任务的完成进度，为了让旧浏览器也能表现进度，最好在progress中包含反映当前进度的文本，progress元素支持三个属性：max、value和form，max属性指定任务的总工作量其值必须大于0；value是任务已完成的量；如果progress没有嵌套在form元素里面，又需要将它们联系起来，可以添加form属性并将其值设为该form的id<br />
+比如：<progress max="100" value="37" title="37% saved">37% saved</progress>
+</p>
+</body>
+</html>

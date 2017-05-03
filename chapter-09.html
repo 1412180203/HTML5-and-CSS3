@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-09</title>
+  <style>
+    mark {
+		color:#60F;
+	}
+	/*-------------------*/
+	.purple {
+		color:#F0F;
+	}
+	#red {
+		color:#F00;
+	}
+	/*-------------------*/
+	p .green {
+		color:#0F0;
+	}
+	body > .aqua {
+		color:#0FF;
+	}
+	.aqua+br+span {
+		color:#FF8000;
+	}
+	.aqua~span {
+		font-weight:bold;
+		font-style:italic;
+	}
+	/*-------------------*/
+	ul li:first-child {
+		color:red;
+	}
+	ul li:last-child {
+		color:green;
+	}
+	ol>:first-child {
+		color:blue;
+	}
+	ol>:last-child {
+		color:yellow;
+	}
+	/*-------------------*/
+	.letter::first-letter {
+		font-weight:bold;
+	}
+	.line::first-line {
+		color:#00F;
+	}
+	/*-------------------*/
+	a:link {
+		color:red;
+	}
+	a:visited {
+		color:orange;
+	}
+	a:focus {
+		color:purple;
+	}
+	a:hover {
+		color:green;
+	}
+	a:active {
+		color:blue;
+	}
+	/*-------------------*/
+	mark[title] {
+		color:#000080;
+	}
+	span[title="value"] {
+		color:red;
+	}
+	span[style~="color:#000;"] {
+		font-style:italic;
+	}
+	span[title|="the"] {
+		color:blue;
+	}
+	span[title^="this"] {
+		color:green;
+	}
+	span[title$="Value"] {
+		color:#F0F;
+	}
+	span[title*=" is "] {
+		color:#900;
+	}
+	table[cellspacing] th {
+		border-top:2px solid #000;
+		border-bottom:1px solid #000;
+	}
+	table[cellspacing] tr:last-child  td{
+		border-bottom:1px solid #000;
+	}
+	/*-------------------*/
+	.selector1,
+	.selector2 {
+		color:#03F;
+		font-style:italic;
+	}
+	/*-------------------*/
+	#other mark:nth-child(2) {
+		background-color:#0FF;
+	}
+	#other mark:nth-of-type(2) {
+		font-style:italic;
+	}
+	#other span:nth-of-type(odd) {
+		color:#F00;
+	}
+	#other span:nth-of-type(even) {
+		color:#00F;
+	}
+  </style>
+</head>
+<body>
+<h1 style="text-align:center;">第9章 定义选择器</h1>
+
+<h3>构造选择器</h3>
+<p>
+选择器决定样式规则应用于哪些元素，选择器可以定义五个不同的标准来选择要进行格式化的元素<br />
+(1)元素的类型或名称，例：<code>h1 { color:red; }</code>，表示对h1元素格式化<br />
+(2)元素所在的上下文，例：<code>h1 em { color:red; }</code>，表示对h1元素中的em元素格式化<br />
+(3)元素的类或ID，例：<code>.error { color:red; }</code>和<code>#gaudi { color:red; }</code>分别表示对开始标签中含有<code>class=&quot;error&quot;</code>的元素和含有<code>id=&quot;gaudi&quot;</code>的元素格式化<br />
+(4)元素的伪类或伪元素，例：<code>a:link { color:red; }</code>选择器属于link伪元素的a元素（即页面上还未访问的链接）<br />
+(5)元素是否有某些属性或值，例：<code>a[title] { color:red; }</code>和<code>a[href=&quot;http://www.baidu.com/&quot;] { color:red; }</code>分别表示对所有具有title属性的a元素和所有指向百度页面的a元素<br />
+</p>
+
+<h3>按名称选择元素</h3>
+<p>
+<mark>输入<code>selector { 样式 }</code>，其中selector是目标元素的类型名称（不含任何属性）</mark><br />
+可以在一个选择器中使用一组元素名称，名称之间用逗号分隔<br />
+通配符*匹配代码中的任何元素名称，例如，可以使用<code>* { border:2px solid green; }</code>会让每个元素都有一个2像素宽的绿色实线边框，因为匹配范围太广，会让浏览器加载页面变慢，因此应该谨慎使用通配符<br />
+</p>
+
+<h3>按类或ID选择元素</h3>
+<p>
+如果已经在元素中标识了class或id，就可以在选择器中使用这个标准，从而只对已标识的元素进行格式化<br />
+类选择要格式化的元素：<span class="purple"><code>.classname { 样式 }</code>，这里classname标识希望应用样式的类</span><br />
+按id选择要格式化的元素：<span id="red"><code>#id { 样式 }</code>，这里的id唯一标识希望应用样式的元素</span><br />
+可以单独使用class和id，也可以同其他选择器标准混在一起使用，例如 <code>h1.news { color:red; }</code>除非必须特别针对目标元素，最好不要在id或class选择器中添加元素名称<br />
+尽量不要使用ID选择器，推荐使用类选择器<br />
+</p>
+
+<h3>按上下文选择元素</h3>
+<p>
+祖先是包含目标元素的任何元素，不管它们之间隔了多少代<br />
+父元素是直接包含另一个元素的元素，它们之间只隔一代，被包含的元素称为子元素<br />
+同胞元素是拥有同一父元素的任何类型的子元素<br />
+相邻同胞元素是直接毗邻的元素，即它们之间没有其他的同胞元素<br />
+CSS相邻同胞结合符可以选择直接跟在指定的同胞元素后面的同胞元素，使用+，比如<code>.aqua+span</code>表示直接跟在class=&quot;aqua&quot;的元素的相邻同胞元素<br />
+普通同胞结合符可以选择那些并非直接出现在另一个同胞元素后面的同胞元素，使用~<br />
+按祖先元素选择要格式化的元素：<span class="green"><code>ancestor descendant { 样式 }</code>，这里ancestor是希望格式化的元素的祖先元素的选择器，descendant是希望格式化的元素的选择器</span><br />
+按父元素选择要格式化的元素：<span class="aqua"><code>parent > child { 样式 }</code>，这里parent是直接包含待格式化元素的元素的选择器，child是要格式化的元素的选择器，将样式表中<code>body > .aqua {}</code>改为<code>p > .aqua {}</code>就能显示样式，因为class=&quot;aqua&quot;的元素的父元素是p，而不是body</span><br />
+按相邻同胞元素选择要格式化的元素：<span><code>sibling+element { 样式 }</code>，这里sibling是包含在同一父亲元素中的，直接出现在目标元素前面的元素的选择器，element是要格式化的元素的选择器</span><br />
+如果样式表是<code>p+p { color:red; }</code>，那么只有直接跟在同胞p元素后面的p元素显示为红色，如果后面还有第三个、第四个以及更多的段落，它们也将显示为红色<br />
+按普通同胞元素选择要格式化的元素：<span class=""><code>sibling~element { 样式 }</code></span><br />
+</p>
+
+<h3>伪类与伪元素</h3>
+伪类是应用于一组HTML元素，而你无需在HTML代码中用类标记它们，例如，使用<code>:first-child</code>可以选择某元素的第一个子元素，你就不用写成<code>class=&quot;first-child&quot;</code>，伪类有：
+<table>
+  <tr>
+    <td>:active</td>
+    <td>向被激活的元素添加样式。</td>
+  </tr>
+  <tr>
+    <td>:focus</td>
+    <td>向拥有键盘输入焦点的元素添加样式。</td>
+  </tr>
+  <tr>
+    <td>:hover</td>
+    <td>当鼠标悬浮在元素上方时，向元素添加样式。</td>
+  </tr>
+  <tr>
+    <td>:link</td>
+    <td>向未被访问的链接添加样式。</td>
+  </tr>
+  <tr>
+    <td>:visited</td>
+    <td>向已被访问的链接添加样式。</td>
+  </tr>
+  <tr>
+    <td>:first-child</td>
+    <td>向元素的第一个子元素添加样式。</td>
+  </tr>
+  <tr>
+    <td>:last-child</td>
+    <td>向元素的最后一个子元素添加样式。</td>
+  </tr>
+  <tr>
+    <td>:lang</td>
+    <td>向带有指定 lang 属性的元素添加样式。</td>
+  </tr>
+</table>
+<br />
+伪元素是HTML中并不存在的元素，例如，定义第一个字母或第一行文字时，并未在HTML中作相应的标记，它们是另一个元素的部分内容，伪元素有：
+<table>
+  <tr>
+    <td>::first-letter</td>
+    <td>向文本的第一个字母添加特殊样式。</td>
+  </tr>
+  <tr>
+    <td>::first-line</td>
+    <td>向文本的首行添加特殊样式。</td>
+  </tr>
+  <tr>
+    <td>::before</td>
+    <td>在元素之前添加内容。</td>
+  </tr>
+  <tr>
+    <td>::after</td>
+    <td>在元素之后添加内容。</td>
+  </tr>
+</table>
+
+<h3>选择第一个或最后一个元素</h3>
+<p>
+使用:first-child或:last-child<strong>伪类</strong><br />
+<code>xxx:first-child { 样式 }或xxx:last-child { 样式 }</code>表示的是对某个元素<strong>作为</strong>其父元素的第一个子元素或最后一个子元素时进行格式化<br />
+<code>xxx>:first-child { 样式 }或xxx>:last-child { 样式 }</code>表示的是对某个元素的第一个子元素或最后一个子元素进行格式化<br />
+<ol>
+  <li>第1项</li>
+  <li>第2项</li>
+  <li>
+    <ul>
+      <li>第3.1项</li>
+      <li>第3.2项</li>
+      <li>第3.3项</li>
+    </ul>
+  </li>
+  <li>第4项</li>
+</ol>
+</p>
+
+<h3>选择元素的第一个字母或者第一行</h3>
+<p class="letter line">
+使用::first-letter或::first-line<strong>伪元素</strong>，分别用来设置<strong>占一行的元素(display:block;，如默认的div与p)</strong>内的首个字符的样式，及第一行的样式<br />
+选择元素的第一个字母：<code class="letter">element::first-letter { 样式 }</code>，这里的element是要对其第一个字母进行格式化的元素的选择器<br />
+选择元素的第一行：<code>element::first-line { 样式 }</code><br />
+只有某些特定的CSS属性可以应用于<code>::first-letter</code>伪元素，包括<code>font、color、background、text-decoration、vertical、align、text-transform、line-height、margin、padding、border、float、clear</code>
+</p>
+
+<h3>按状态选择链接元素</h3>
+<p>
+按状态选择要格式化的链接元素的步骤:<code>a:xxx { 样式 }</code>，这里a表示链接元素的名称，xxx可以是link 设置从未被激活或指向，当前也没有被激活或指向的链接外观、visited 设置访问者已激活过的链接的外观、fouce 前提是链接是通过键盘选择并已准备好激活的、hover 设置光标指向链接时链接的外观、active 设置激活过的链接的外观<br />
+应该始终按照link、visited、focus、hover、active这种顺序定义链接的样式，以避免链接处于多种状态（如已访问和鼠标停留时覆盖属性）<br />
+比如：<a href="index.html">返回首页</a><br />
+要对链接指定样式，不一定要指定伪类，例如，使用<code>a { color:red; }</code>会让链接的所有状态显示为同一种样式，不过最好使用伪类区分状态的样式，方便访问者<br />
+也可以对其他类型的元素使用:active和:hover伪类，例如，设置<code>p:hover { color:red; }</code>以后，鼠标停留在任何段落上段落都会显示为红色<br />
+</p>
+
+<h3>按属性选择元素</h3>
+<p>
+可以对具有给定属性或属性值的元素进行格式化<br />
+<mark title="具有title属性的mark元素">步骤：<code>element[attribute(xxx)] { 样式 }</code>，这里element是要考察其属性的元素的选择器，attribute是选择元素需要考察的属性名称，其中()内xxx是可选的</mark><br />
+<span title="value">当xxx为<code>=&quot;value&quot;</code>时，表示属性值等于这里的value的元素将被选中</span><br />
+<span style="color:#000; font-weight:bold;">当xxx为<code>~=&quot;value&quot;</code>时，表示属性值包含这里的value的元素将被选中，它必须匹配完整的单词，而不是单词的一部分，不同的属性值之间用空格隔开</span><br />
+<span title="the-value">当xxx为<code>|=&quot;value&quot;</code>时，表示属性值等于这里的value或以value-开头的元素将被选中</span><br />
+<span title="thisvalue">当xxx为<code>^=&quot;value&quot;</code>时，表示属性值以这里的value开头的元素将被选中</span><br />
+<span title="ThisValue">当xxx为<code>$=&quot;value&quot;</code>时，表示属性值以这里的value结尾的元素将被选中</span><br />
+<span title="This is value">当xxx为<code>*=&quot;value&quot;</code>时，表示属性值至少包含这里的value一次的元素将被选中，也就是说，value不必是属性值中的完整单词</span><br />
+可以联合使用多种方法，比如<code>a[href][title*="how"] { color:red; }</code>，这个选择器选择所有既有任意href属性，又有任意属性值包含how的title属性的a元素
+<table cellspacing="0" cellpadding="2">
+  <caption>属性选择器参考表</caption>
+  <tr>
+    <th>选择器</th>
+    <th>属性值</th>
+  </tr>
+  <tr>
+    <td><code>[attribute]</code></td>
+    <td>&emsp;匹配指定属性，不论具体值是什么</td>
+  </tr>
+  <tr>
+    <td><code>[attribute="value"]</code></td>
+    <td>&emsp;完全匹配指定属性</td>
+  </tr>
+  <tr>
+    <td><code>[attribute~="value"]</code></td>
+    <td>&emsp;属性值是以空格分隔的多个单词，其中有一个完全匹配指定值</td>
+  </tr>
+  <tr>
+    <td><code>[attribute|="value"]</code></td>
+    <td>&emsp;属性值以value-打头</td>
+  </tr>
+  <tr>
+    <td><code>[attribute^="value"]</code></td>
+    <td>&emsp;属性值以value开头，value为完整的单词或单词的一部分</td>
+  </tr>
+  <tr>
+    <td><code>[attribute$="value"]</code></td>
+    <td>&emsp;属性值以value结尾，value为完整的单词或单词的一部分</td>
+  </tr>
+  <tr>
+    <td><code>[attribute*="value"]</code></td>
+    <td>&emsp;属性值为指定值的子字符串</td>
+  </tr>
+</table>
+</p>
+
+<h3>指定元素组</h3>
+<p>
+<span class="selector1">我们经常需要将相同的样式规则应用于多个元素，可以为每个元素重复地设置样式规则，也可以组合选择器，一次性地设置样式规则</span><br />
+<span class="selector2">步骤：<code>selector1,selector2,selector3 { 样式 }</code>，可以列出任意数量的单独的选择器，无论它们包含的是元素名称、类还是伪元素，只需要用逗号分隔它们即可</span><br />
+不同的选择器不一定非得单独成行，但很多编码人员都遵循这种惯例，易于阅读<br />
+有时，为应用于多个选择器的共同样式创建一个样式规则，再为没有共同点的样式分别创建单独的样式规则是很有用的<br />
+</p>
+
+<h3>其他选择器</h3>
+<p id="other">
+<span><code>:nth-child(n)</code></span>，<mark>选择器匹配属于其父元素的第n个子元素，无论元素的类型</mark><br />
+<span><code>:nth-of-type(n)</code></span>，<mark>选择器匹配属于其父元素的特定类型的第n个子元素的每个元素</mark><br />
+<span>odd和even是可用于匹配下标是奇数或偶数的子元素的关键词，</span><span>第一个子元素的下标是1</span>
+</p>
+
+</body>
+</html>

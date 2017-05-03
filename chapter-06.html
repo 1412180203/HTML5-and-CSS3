@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<title>chapter-06</title>
+</head>
+
+<body>
+<h1 style="text-align:center;">第6章 链接</h1>
+
+<h3>创建指向另一个网页的链接</h3>
+<p>
+href属性指hypertext reference（超文本引用），通常，对指向站内网页的链接使用相对URL，对指向其他网站页面的链接使用绝对URL<br />
+rel属性是可选的，它描述包含链接的页面和链接指向的页面之间的关系<br />
+不要让链接的标签太长，如果链接是句子的一部分，应在链接的标签定义中仅保留关键字<br />
+可以将链接设置为在新的窗口或标签页中打开，但不推荐使用，因为应该让用户决定是否在不同的窗口或标签页打开链接，否则我们就支配了用户的浏览行为<br />
+如果你希望链接总是在不同的窗口或标签页打开，就使用HTML预定义的名称_blank(target=&quot;_blank&quot;)<br />
+<a href="index.html">返回首页</a>&nbsp;&nbsp;<a href="index.html" target="_blank">返回首页</a>
+</p>
+
+<h3>创建锚并链接到锚</h3>
+<p>
+如果要想用户跳至网页的特定区域，可以创建一个锚，并在链接中引用该锚<br />
+创建链接到特定锚的链接：输入<code>&lt;a href=&quot;#anchor-name&quot;&gt;</code>，其中anchor-name是目标的id属性值<br />
+如果锚位于另一个文档，就使用<code>&lt;a href=&quot;page.html#anchor-name&quot;&gt;</code>引用该区域<br />
+如果锚位于另一台服务器上的页面，则输入<code>&lt;a href=&quot;http://www.site.com/directory/page.html#anchor-name&quot;&gt;</code><br />
+<a href="chapter-05.html#icon">为网站添加图标</a>
+</p>
+
+<h3>创建其他类型的链接</h3>
+<p>
+并非只能创建指向其他网页的链接，其实可以创建指向任何URL的链接：RSS源、图像、希望访问者可以下载的文件、电子邮件地址、电话号码等<br />
+建议不要使用指向电子邮件地址的链接，因为垃圾邮件机器人会从网页上搜集这些地址并向其发送垃圾邮件<br />
+<a href="blueflax.jpg">蓝色亚麻</a><br />
+<a href="piano.mp3">MP3音乐</a><br />
+<a href="paddle-steamer.mp4">MP4视频</a><br />
+<a href="mailto:940710020@qq.com">邮件联系 href=&quot;mailto:name@domain.com&quot;</a><br />
+<a href="tel:+8617826852059">电话联系 href=&quot;tel:+86...&quot;</a><br />
+</body>
+</html>

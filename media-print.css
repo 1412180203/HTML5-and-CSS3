@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+span {
+	font-style:italic;
+}
+@media print {
+	span {
+		color:#F00;
+		font-style:normal;
+		font-weight:bold;
+	}
+}

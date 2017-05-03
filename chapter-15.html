@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-15</title>
+  <style>
+	.square {
+		list-style-type:square;
+	}
+	/*-------------------------------------------*/
+	.check {
+		list-style-type:none;
+		margin-left:0;
+		padding-left:1em;
+	}
+	.check li {
+		background:url(checkmark.png) no-repeat 0 0.1em;
+		padding-left:1.75em;
+		line-height:1.7;
+	}
+	/*-------------------------------------------*/
+	.inside {
+		border:1px #000 solid;
+		list-style-position:inside;
+	}
+	.outside {
+		border:1px #000 solid;
+		list-style-position:outside;
+	}
+	.inside li,
+	.outside li {
+		outline:1px #F00 solid;
+	}
+	/*-------------------------------------------*/
+	.style {
+		list-style:none;
+	}
+	/*-------------------------------------------*/
+	nav a {
+		text-decoration:none;
+		color:#FFF;
+		font-size:1.3em;
+		font-weight:bold;
+	}
+	nav ul {
+		display:inline-block;
+		list-style:none;
+		margin:0;
+		padding:0;
+		border-radius:0.5em 0.5em 0 0;
+		background-color:#000;
+	}
+	nav ul li {
+		float:left;
+		width:100px;
+		padding:0.3em 1em;
+		position:relative;
+	}
+	nav ul li ul {
+		display:none;
+		position:absolute;
+		top:100%;
+		left:0;
+		border-radius:0 0 0.5em 0.5em;
+	}
+	nav ul li ul li {
+		padding:0 1em;
+		font-size:0.9em;
+	}
+	nav ul li:hover >:first-child {
+		color:#0FF;
+	}
+	nav ul li:hover ul{
+		display:block;
+	}
+	/*-------------------------------------------*/
+  </style>
+</head>
+<body>
+<h1 style="text-align:center;">第15章 列表</h1>
+
+<h3>创建有序列表和无序列表</h3>
+<p>
+创建有序列表：<code>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;</code>其中ol可以包含start、type、reversed这三个属性，li表示列表项目，可以包含可选的value属性<br />
+创建无序列表：<code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code><br />
+&lt;ol&gt;的reversed属性的作用是指示降序排列的有序列表，<code>&lt;ol reversed&gt;或&lt;ol reversed=&quot;reversed&quot;&gt;</code>支持该属性的浏览器会自动颠倒列表的编号<br />
+有序列表和无序列表在显示时默认都会进行缩进，无论它们在HTML中是否有缩进<br />
+有序列表前面默认显示阿拉伯数字，无序列表前面默认显示实心的圆点<br />
+</p>
+
+<h3>选择标记</h3>
+<p>
+创建列表时，无论是有序列表还是无序列表，都可以选择出现在列表左侧的标记的类型<br />
+选择标记：<code>list-style-type:marker;</code>这里的marker可以是：disc圆点、circle圆圈、square方块、decimal数字、upper-alpha大写字母、lower-alpha小写字母、upper-roman大写罗马数字、lower-roman小写罗马数字<br />
+显示无标记列表：<code>list-style-type:none;</code><br />
+大多数浏览器会让编号右对齐
+<ol start="2" type="a">
+<li>第2项</li>
+<li>第3项</li>
+<li value="5">第5项</li>
+<li>第6项</li>
+</ol>
+
+<ul class="square">
+<li>第1项</li>
+<li>第2项</li>
+<li>第3项</li>
+</ul>
+</p>
+
+<h3>使用定制的标记</h3>
+<p>
+可以使用图像创建自己定制的标记，步骤如下：<br />
+1.在目标列表或列表项的样式规则中，输入：<code>list-style:none;</code>以取消常规的标记<br />
+2.在目标列表的样式规则中，设置margin-left和padding-left属性，指定列表项目缩进的大小<br />
+3.在目标列表的li元素的样式规则中，输入：<code>background:url(image.ext) repeattype horizontal vertical;</code>这里其中image.ext是要作为定制标记的图像的路径和文件名，repeat-type是no-repeat、repeat-x和repeat-y中的一种（通常设为 no-repeat），horizontal和vertical值表示列表项目中背景图像的位置<br />
+4.输入：<code>padding-left:value;</code>这里的value 应不小于背景图像的宽度，以防列表项目的内容覆盖到定制标记的上面<br />
+如果想为列表中的某一个或几个项目应用定制的标记，可以为其添加一个类，再为这个类定义样式规则<br />
+不推荐使用list-style-image属性显示定制标记，因为不同浏览器对它的显示效果并不一致，而且开发者更难控制图像标记的位置
+<ul class="check">
+<li>第1项</li>
+<li>第2项</li>
+<li>第3项</li>
+</ul>
+</p>
+
+<h3>选择列表的起始编号</h3>
+<p>
+1.设置整个列表编号方案的初始值：在ol标签中输入start=&quot;n&quot;，这里n表示列表的初始值<br />
+2.修改有序列表中某项列表的编号：在目标li项目内输入value=&quot;n&quot;这里的n表示该列表项目的值<br />
+如果使用 start 和 type，请始终使用数字,即便决定使用字母或罗马数字对列表进行编号，也应使用数字<br />
+value属性的值会覆盖start属性的值，使用value属性对某列表项目的编号进行修改后，后续的列表项目也会相应地重新编号，列表可以包含一个以上的带value属性的li<br />
+</p>
+
+<h3>控制标记的位置</h3>
+<p>
+默认情况下，列表会从（其父元素的）左侧进行缩进，标记可以位于整个文本块的外面（这是默认情况）<br />
+步骤：在目标列表或列表项目的样式规则中，输入：<code>list-style-position:value;</code>这里value可以是：inside让标记缩在文本块内、ouside让标记显示在列表项目文本的左边（默认值）<br />
+list-style-position可应用于ul、ol或li，结果是一样的，除非针对特殊的li（如某一类的 li）设置不同的样式，从而在一个列表中同时拥有内部标记和外部标记<br />
+list-style-position属性是继承的<br />
+<ul class="outside">
+<li>默认outside</li>
+<li>默认outside</li>
+</ul>
+
+<ul class="inside">
+<li>inside</li>
+<li>inside</li>
+</ul>
+</p>
+
+<h3>同时设置所有的列表样式属性</h3>
+<p>
+步骤：<code>list-style:type position url();</code>这里type表示列表的标记类型，可选、position表示标记位置，可选、url表示列表项目的图像标记，可选<br />
+list-style属性是继承的，可以指定三个list-style属性，也可以指定其中的任意一个，没指定的使用默认值，url默认为none<br />
+<ul class="style">
+<li>第1项</li>
+<li>第2项</li>
+<li>第3项</li>
+</ul>
+</p>
+
+<h3>设置嵌套列表的样式</h3>
+<p>
+可以在一个列表中插入另一个列表，里面的列表就称为嵌套列表<br />
+</p>
+<nav role="navigation">
+  <ul>
+    <li><a href="#">导航1</a></li>
+    <li><a href="#">导航2</a>
+      <ul>
+        <li><a href="#">导航2.1</a></li>
+        <li><a href="#">导航2.2</a></li>
+        <li><a href="#">导航2.3</a></li>
+      </ul>
+    </li>
+    <li><a href="#">导航3</a>
+      <ul>
+        <li><a href="#">导航3.1</a></li>
+        <li><a href="#">导航3.2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">导航4</a></li>
+  </ul>
+</nav>
+
+<h3>创建描述列表</h3>
+<p>
+HTML提供了专门用于描述成组出现的名称（术语）及其值之间关联的列表类型，这种类型在HTML5种称为描述列表<br />
+每个列表都包含在dl中，其中的每个名-值组都有一个或多个dt元素（名称或术语）以及一个或多个dd元素（它们的值）<br />
+在默认情况下，名称（dt）向左对齐，而值（dd）则有缩进<br />
+可以使用 dfn 元素包围 dt 中的名称，指出该列表是用于定义术语的<br />
+可以对描述列表进行嵌套，并通过CSS对它们添加所需的样式，在默认情况下，如果一个dl嵌套在另一个dl中，它会自动进行缩进<br />
+步骤：<code>&lt;dl&gt;&lt;dt&gt;术语或名称&lt;/dt&gt;&lt;dd&gt;描述&lt;/dd&gt;&lt;/dl&gt;</code>这里在&lt;dt&gt;&lt;/dt&gt;中输入需要描述或定义的单词或短语，包括任何额外的语义元素（如dfn），在&lt;dd&gt;&lt;/dd&gt;中输入对术语或名称的描述
+</p>
+<dl>
+  <dt>术语</dt>
+  <dd>描述</dd>
+  <dt>名称</dt>
+  <dd>描述</dd>
+</dl>
+
+</body>
+</html>

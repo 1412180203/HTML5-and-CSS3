@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-07</title>
+  <style>
+    td {
+		width:100px;
+		text-align:center;
+	}
+    div {
+		width:100px;
+		height:100px;
+	}
+  </style>
+</head>
+
+<body>
+<h1 style="text-align:center;">第7章 CSS构造块</h1>
+
+<h3>为样式规则添加注释</h3>
+<p>
+在样式表中，输入/*开始注释，输入*/结束注释，不能将一个注释嵌套在另一个注释内部<br />
+在CSS中添加注释，可以标注样式表的主要区域，或者只是针对某条规则或声明进行解释，有助于他人或自己在以后阅读代码
+</p>
+
+<h3>理想继承</h3>
+<p>
+当你为某个元素应用CSS属性时，这些属性不仅会影响该元素，还会影响其下的分支元素，也就是说，这些下层的元素继承了其祖先元素的属性<br />
+不是所有的属性都会被继承的，对大多数属性来说，还可以使用inherit值强制进行继承<br />
+以下是会被继承的CSS属性<br />
+文本：<br />
+color(颜色，a元素除外)<br />
+direction(方向)<br />
+font(字体)<br />
+font-family(字体系列)<br />
+font-size(字体大小)<br />
+font-style(用于设置斜体)<br />
+font-variant(用于设置小型大写字母)<br />
+font-weight(用于设置粗体)<br />
+letter-spacing(字母间距)<br />
+line-height(行高)<br />
+text-align(用于设置对齐方式)<br />
+text-indent(用于设置首行缩进)<br />
+text-transform(用于修改大小写)<br />
+visibility(可见性)<br />
+white-space(用于指定如何处理空格)<br />
+word-spacing(字间距)<br />
+列表：<br />
+list-style(列表样式)<br />
+list-style-image(用于设置列表指定定制的标记)<br />
+list-style-position(用于确定列表标记的位置)<br />
+list-style-type(用于设置列表的标记)<br />
+表格：<br />
+border-collapse(用户控制表格相邻单元格的边框是否合并为单一边框)<br />
+border-spacing(用于指定表格边框之间的空隙大小)<br />
+caption-side(用于设置表格标题的位置)<br />
+empty-cells(用于设置是否显示表格中的空单元格)<br />
+页面设置(对于印刷物)：<br />
+orphans(用于设置当元素内部发生分页时在页面底部需要保留的最少行数)<br />
+page-break-inside(用于设置元素内部的分页方式)<br />
+widows(用于设置当元素内部发生分页时在页面顶部需要保留的最少行数)<br />
+其他：<br />
+cursor(鼠标指针)<br />
+quotes(用于指定引号样式)<br />
+</p>
+
+<h3>层叠：当规则发生冲突时</h3>
+<p>
+如果一个元素包含一个以上的类名，在HTML中应使用空格分隔不同的类名<br />
+当多条规则同时定义元素的用一个属性时，CSS用层叠的原则来考虑特殊性、顺序和重要性，从而判断相互冲突的规则中哪个规则应该起作用<br />
+1.特殊性<br />
+特殊性规则指定选择器的具体程度，选择器越特殊，规则就越强，特殊性最高的是ID，最低的是元素名本身，建议在样式表中多使用类选择器，避免使用ID选择器<br />
+2.顺序<br />
+晚出现的优先级高，例如，直接应用在HTML元素上的规则（不推荐使用这种做法）比外部样式表或插在HTML文档顶部的出现得更晚（因此优先级更高）<br />
+3.重要性<br />
+可以声明一条特殊的规则覆盖整个系统中的规则，这条规则的重要程度要比其他所有规则高，也可以在某条声明的末尾加上！important，比如<code> p { color:orange !important; } (除非特殊情况下，否则不推荐使用这种方法)</code>
+</p>
+
+<h3>属性的值</h3>
+<p>
+1.inherit<br />
+继承祖先元素的属性，比如article元素设置了一个边框，边框通常不会被继承，因此设置 <code>p { border:inherit; } </code>可以让article里的段落获得相同的边框样式<br />
+2.预定义的值<br />
+大多数CSS属性都有一些可供使用的预定义值，要准确地输入这些值，并且不要加上引号<br />
+3.长度和百分数<br />
+很多CSS属性的值是长度，所有长度都必须包含数字和单位，且它们之间没有空格，有的长度是相对于其他值的，一个em的长度大约与对应元素的字号相等，例如，对元素设置margin-left:2em表示将元素的左外边距设为元素字号的两倍，百分数的工作方式很像em，它们都是相对于其他值的值，百分数通常是相对于父元素的<br />
+4.纯数字<br />
+只有极少数的CSS属性接受不带单位的数字，其中最常见就是line-height、z-index和opacity<br />
+5.URL<br />
+CSS属性中的URL无需使用引号包围，这里相对URL应该相对于样式表的位置，而不是相对于HTML文档的位置<br />
+6.CSS颜色<br />
+目前为止最为常见的定义颜色的方式是使用十六进制格式（通常称为hex）或RGB格式<br />
+CSS3引入了另一种指定颜色的方式HSL，以及通过RGBA和HSLA设置alpha透明度的能力（使用十六进制无法指示alpha透明度）<br />
+<table cellpadding="5">
+  <caption>16种基本颜色关键字</caption>
+  <tr>
+    <td><div style="background-color:aqua;"></div><span>aqua(水绿)<br />#00FFFF</span></td>
+    <td><div style="background-color:black;"></div><span>black(黑)<br />#000000</span></td>
+    <td><div style="background-color:blue;"></div><span>blue(蓝)<br />##0000FF</span></td>
+    <td><div style="background-color:fuchsia;"></div><span>fuchsia(紫红)<br />#FF00FF</span></td>
+  </tr>
+  <tr>
+    <td><div style="background-color:gray;"></div><span>gray(灰)<br />#808080</span></td>
+    <td><div style="background-color:green;"></div><span>green(绿)<br />#008000</span></td>
+    <td><div style="background-color:lime;"></div><span>lime(浅绿)<br />#00FF00</span></td>
+    <td><div style="background-color:maroon;"></div><span>maroon(褐)<br />#800000</span></td>
+  </tr>
+  <tr>
+    <td><div style="background-color:navy;"></div><span>navy(深蓝)<br />#000080</span></td>
+    <td><div style="background-color:olive;"></div><span>olive(橄榄)<br />#808000</span></td>
+    <td><div style="background-color:purple;"></div><span>purple(紫)<br />#800080</span></td>
+    <td><div style="background-color:red;"></div><span>red(红)<br />#FF0000</span></td>
+  </tr>
+  <tr>
+    <td><div style="background-color:silver;"></div><span>silver(银)<br />#C0C0C0</span></td>
+    <td><div style="background-color:teal;"></div><span>teal(深青)<br />#008080</span></td>
+    <td><div style="background-color:white;"></div><span>white(白)<br />#FFFFFF</span></td>
+    <td><div style="background-color:yellow;"></div><span>yellow(黄)<br />#FFFF00</span></td>
+  </tr>
+</table><br />
+7.RGB<br />
+可以通过指定红、绿、蓝的量来构建自己的颜色，可以使用百分数、0~255之间的数字来指定这三种颜色的值，例如，如果创建一种深紫色，可以使用89份红、127份蓝、0份绿，颜色可以写作<span style="color:rgb(89, 0, 127);">rgb(89, 0, 127)或者rgb(35%, 0%, 50%)</span><br />
+8.十六进制<br />
+将红、绿、蓝的值转化为十六进制，然后在前面加一个#，就表示这个颜色的十六进制，比如<span style="color:#59007F;">rgb(89, 0, 127) = #59007F</span><br />
+如果一个十六进制颜色是由三对重复的数字组成的，如#ff3344，可以缩写为#f34<br />
+9.更多CSS3提供的指定颜色的方式：RBGA、HSLA和HSL<br />
+RGBA:<br />
+RGBA在RGB的基础上加了一个代表alpha透明度的A，可以在红、绿、蓝数值后面加上一个用以指定<span style="background-color:rgba(89, 0, 127, 0.5);">透明度的0到1之间的小数</span><br />
+alpha设置越接近0，颜色就越透明，如果设为0，就是<span style="background-color:rgba(89, 0, 127, 0);">完全透明</span>，设为1，就是<span style="background-color:rgba(89, 0, 127, 1);">完全不透明</span><br />
+HSL:<br />
+HSL代表色相(hue)、饱和度(saturation)和亮度(lightness)，其中色相的取值范围为0~360，0和360在顶部汇合，代表同一种颜色：红色，饱和度和亮度的取值均为百分数，范围为0~100%，HSL语法为：hsl(hue, saturation, lightness)，比如：
+<span style="background-color:hsl(0, 100%, 50%);">红色</span>、
+<span style="background-color:hsl(60, 100%, 50%);">黄色</span>、
+<span style="background-color:hsl(120, 100%, 50%);">绿色</span>、
+<span style="background-color:hsl(180, 100%, 50%);">青色</span>、
+<span style="background-color:hsl(240, 100%, 50%);">蓝色</span>、
+<span style="background-color:hsl(300, 100%, 50%);">紫红色</span><br/>
+HSLA:<br />
+HSLA是除RBGA以外为颜色设置alpha透明度的另一种方式，语法为：hsla(hue, saturation, lightness, alpha transparency)，比如：
+<span style="background-color:hsla(95, 100%, 28%, 0.3);">70%的透明度</span>、
+<span style="background-color:hsla(95, 100%, 28%, 0.75);">25%的透明度</span><br />
+<figure>
+  <img src="hue.png" alt="hue" />
+  <figcaption>HSL色相沿顺时针改变，0和360在顶端重合</figcaption>
+</figure>
+</p>
+</body>
+</html>

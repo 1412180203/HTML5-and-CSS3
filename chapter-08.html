@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-08</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
+  <link rel="stylesheet" href="media-print.css" />
+  <style>
+    .test img {
+		border:4px solid #00F;
+	}
+	.green {
+		border:4px solid #0F0 !important;
+	}
+	.yellow {
+		border:4px solid #FF0;
+	}
+  </style>
+  <style media="print">
+    p {
+		color:#F60;
+	}
+  </style>
+</head>
+<body>
+<h1 style="text-align:center;">第8章 操作样式表</h1>
+
+<h3>外部样式表</h3>
+<p>
+在每个希望使用样式表的HTML页面的head部分输入<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;url.css&quot; /&gt;</code><br />
+外部样式表里的URL是相对于服务器上该样式表文件的位置，而不是相对于HTML页面的位置<br />
+可以在页面中使用多个link元素，从而加载多个样式表文件，如果在不同的文件中有显示声明产生冲突，则后面文件中的规则的优先级更高<br />
+外部样式表中的规则可能被HTML文档内的样式覆盖<br />
+可以通过设置media属性将样式表限制在特定类型的输出上<br />
+<img src="palau.jpg" width="250" height="163" alt="" /> <img src="tickets.jpg" width="87" height="163" alt="" />
+</p>
+
+<h3>嵌入样式表</h3>
+<p class="test">
+在HTML文档的head部分输入<code>&lt;style&gt;</code>根据需要，定义任意数量的样式规则，有必要的话添加适量CSS注释，输入<code>&lt;结束嵌入样式表/style&gt;</code>结束嵌入样式表<br />
+当且仅当style元素出现在link元素后面的时候，嵌入样式表中的样式才会覆盖外部样式表中的样式<br />
+<img src="palau.jpg" width="250" height="163" alt="" /> <img src="tickets.jpg" width="87" height="163" alt="" />
+</p>
+
+<h3>内联样式</h3>
+<p>
+在希望进行格式化的HTML元素的开始标签中，输入style=&quot;创建样式规则，使用分号将不同的声明隔开&quot;<br />
+内联样式规则只影响单个元素，它的优先级高于其他所有样式，除非其他地方与冲突的样式标记了!important<br />
+如果要在内联样式声明中指定字体，对于有多个单词的字体名称，要用单引号包围，以避免与style元素的双引号发送冲突<br />
+<img src="palau.jpg" width="250" height="163" alt="" style="border:4px solid #F0F;" />
+<img src="tickets.jpg" width="87" height="163" alt="" />
+</p>
+
+<h3>样式的层叠和顺序</h3>
+<p>
+将多个样式规则应用于同一元素的时候，越晚出现的样式，优先级越高<br />
+内联样式优先级最高，外部样式表和嵌入样式表的优先级取决于出现的顺序，晚出现的优先级高<br />
+标记!important的样式总是具有最高的优先级，无论它出现在最前、最后，还是中间。例如：<code>p { margin-top: 1em !important; }</code>不要，要尽量避免这种用法<br />
+有一种使用!important的合理情形，有时网页会包含一些你无法修改的HTML，例如来自第三方服务的新闻源，如果这些HTML中有一些内联样式与你的设计不符，可以在自己的样式表中使用!important覆盖这些样式<br />
+<img class="green" src="palau.jpg" width="250" height="163" alt=""  style="border:4px solid #F0F;" />
+<img class="yellow" src="tickets.jpg" width="87" height="163" alt=""  style="border:4px solid #F0F;" />
+</p>
+
+<h3>使用与媒体相关的样式表</h3>
+<p>
+可以指定一个只用于特定输出的样式表，如只用于打印，或只用于在浏览器中查看屏幕<br />
+在link或style元素的开始标签中添加media=&quot;output&quot;，其中output可以是print、screen、或all(还有其他一些选项，这三个是最常见的)，多个值之间用逗号分隔<br />
+使用 <code>media=&quot;screen&quot;</code>，在浏览器查看页面时会起作用，使用 <code>media=&quot;print&quot;</code>，在打印页面时会起作用<br />
+<span>也可以在样式表中使用@media规则，这种方法不需要在link元素中指定媒体类型</span><br />
+</p>
+</body>
+</html>

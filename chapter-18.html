@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>chapter-18</title>
+  <style>
+    table {
+		border:1px #000 solid;
+		border-collapse:collapse;
+	}
+	th,
+	td {
+		border:1px #000 solid;
+	}
+  </style>
+</head>
+<body>
+<h1 style="text-align:center;">第18章 表格</h1>
+
+<h3>结构化表格</h3>
+<p>
+table元素是由行组成的，行又是由单元格组成的，每个行（tr）都包含标题单元格（th）或数据单元格（td），或者同时包含这两种单元格，如果认为为整个表格添加一个标题有助于访问者理解该表格，可以提供caption来设置标题，scope属性（是可选的，推荐使用）可以告诉屏幕阅读器和其他辅助设备当前的th是列的标题单元格还是行的标题单元格，抑或是用于其他目的的单元格<br />
+在默认情况下，th文本是以粗体显示的，th和caption文本都是居中对齐的，表格的宽度就是内容所需的宽度<br />
+可以通过指定thead、tbody和tfoot显示地定义表格的不同部分，thead元素可以显式地将一行或多行标题标记为表格的头部、tbody元素用于包围所有的数据行、tfoot元素可以显式地将一行或多行标记为表格的尾部<br />
+创建表格结构的步骤：<br />
+<pre>
+&lt;table&gt;
+  &lt;caption&gt;对表格的描述&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;col&quot;&gt;标题单元格&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;标题单元格&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据单元格&lt;/td&gt;
+      &lt;td&gt;数据单元格&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据单元格&lt;/td&gt;
+      &lt;td&gt;数据单元格&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</pre>
+scope属性的值可以是：col(指定th是列的标题单元格)、 row(指定th是行的标题单元格)、 colgroup(指定th为一组列的标题)、rowgroup(指定th为一组行的标题)<br />
+如果包含了caption元素，那么它必须是table中的第一个元素（caption元素可以包含p和其他文本元素）<br />
+thead、tfoot和tbody元素不会影响表格的布局，也不是必需的，不过推荐使用它们<br />
+如果包含了thead或tfoot，则必须包含tbody，tbody不能位于thead之前，一个table只能拥有一个thead和一个tfoot，但可以有多个tbody元素<br />
+如果table是嵌套在figure元素内除figcaption以外的唯一元素，则可以省略caption，使用figcaption对表格进行描述，不要在table中嵌套figcaption，而应跟往常一样将figcaption放在figure中<br />
+可以设置表格border-collapse:collapse; 让每个td的边框和相邻td的边框之间没有空隙，默认值是border-collapse:separate;<br />
+</p>
+<table>
+  <caption>对表格的描述</caption>
+  <thead>
+    <tr>
+      <th scope="col">标题单元格</th>
+      <th scope="col">标题单元格</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>数据单元格</td>
+      <td>数据单元格</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>数据单元格</td>
+      <td>数据单元格</td>
+    </tr>
+  </tfoot>
+</table>
+
+<h3>让单元格跨越多列或多行</h3>
+<p>
+可以通过colspan和rowspan属性让th或td跨越一个以上的列或行<br />
+步骤：<br />
+在需要定义跨越一个以上的列的单元格的地方添加属性colspan=&quot;n&quot;，这里n是单元格要跨越的列数<br />
+在需要定义跨越一个以上的行的单元格的地方添加属性rowspan=&quot;n&quot;，这里n是单元格要跨越的行数<br />
+</p>
+<table>
+<tr>
+  <td colspan="2">1 2</td>
+  <td>3</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>5</td>
+  <td rowspan="2">6<br />9</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>8</td>
+</tr>
+</table>
+
+</body>
+</html>
