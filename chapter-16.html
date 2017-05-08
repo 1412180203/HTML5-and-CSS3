@@ -1,334 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>chapter-16</title>
-  <style>
-    label {
-		cursor:pointer;
-	}
-    .label label {
-		display:inline-block;
-		text-align:right;
-		width:100px;
-		vertical-align:top;
-	}
-	.btn {
-		background-color:#da820a;
-		border:none;
-		border-radius:4px;
-		box-shadow:2px 2px 2px #333;
-		color:#fff;
-		margin:12px 0 0 26px;
-		padding:8px;
-		text-shadow:1px 1px 0px #777;
-	}
-	caption {
-		font-weight:bold;
-	}
-	td,
-	th {
-		padding:2px 8px
-	}
-	th {
-		border-top:2px #000 solid;
-		border-bottom:1px #000 solid;
-	}
-	tr:last-child td{
-		border-bottom:1px #000 solid;
-	}
-	input:focus,
-	textarea:focus {
-		background-color:#CCC;
-	}
-	input:checked + label {
-		color:#900;
-	}
-	input:disabled {
-		color:#666;
-	}
-	input:required {
-		border:1px #000 solid;
-	}
-	input:invalid:not(:required) {
-		border:1px #F00 solid;
-	}
-	input[type="email"]:invalid {
-		border:1px #F00 solid;
-	}
-  </style>
+    <meta charset="utf-8" />
+    <title>chapter-16</title>
+    <style>
+        label {
+    		cursor:pointer;
+    	}
+        .label label {
+    		display:inline-block;
+    		text-align:right;
+    		width:100px;
+    		vertical-align:top;
+    	}
+    	.btn {
+    		background-color:#da820a;
+    		border:none;
+    		border-radius:4px;
+    		box-shadow:2px 2px 2px #333;
+    		color:#fff;
+    		margin:12px 0 0 26px;
+    		padding:8px;
+    		text-shadow:1px 1px 0px #777;
+    	}
+    	caption {
+    		font-weight:bold;
+    	}
+    	td,
+    	th {
+    		padding:2px 8px
+    	}
+    	th {
+    		border-top:2px #000 solid;
+    		border-bottom:1px #000 solid;
+    	}
+    	tr:last-child td{
+    		border-bottom:1px #000 solid;
+    	}
+    	input:focus,
+    	textarea:focus {
+    		background-color:#CCC;
+    	}
+    	input:checked + label {
+    		color:#900;
+    	}
+    	input:disabled {
+    		color:#666;
+    	}
+    	input:required {
+    		border:1px #000 solid;
+    	}
+    	input:invalid:not(:required) {
+    		border:1px #F00 solid;
+    	}
+    	input[type="email"]:invalid {
+    		border:1px #F00 solid;
+    	}
+        .footer {
+            margin-top:2em;
+            text-align:center;
+        }
+    </style>
 </head>
 
 <body>
-<h1 style="text-align:center;">第16章 表单</h1>
+    <h1 style="text-align:center;">第16章 表单</h1>
 
-<h3>创建表单</h3>
-<p>
-步骤：<code>&lt;form method=&quot;formmethod&quot; action=&quot;script.url&quot;&gt;表单内容&lt;/form&gt;</code>这里formmethod是get或post，script.url是提交表单时要运行的脚本在服务器上的位置<br />
-如果对表单使用method=&quot;get&quot;，那么表单提交后，表单中的数据会显示在浏览器的地址栏里，如果你希望表单提交后从服务器得到信息，就使用get<br />
-如果对表单使用method=&quot;post&quot;，那么提交表单后，表单中的数据不会显示在浏览器的地址栏里，这样更为安全，比起get，使用post可以向服务器发送更多的数据<br />
-可以对form元素应用novalidate属性，关闭表单的HTML5验证特性<br />
-</p>
-
-<h3>对表单元素进行组织</h3>
-<p>
-如果表单上有很多信息需要填写，可以使用fieldset元素将相关的元素组合在一起，使表单更容易理解，还可以使用legend元素为每个fieldset提供一个标题（caption），用于描述每个组的目的，对于一组单选按钮legend元素尤其重要，因为通常如果不配合使用legend，单选按钮就没有明显的上下文<br />
-步骤：<code>&lt;fieldset&gt;&lt;legend&gt;标题&lt;/legend&gt;内容&lt;/fieldset&gt;</code>这里使用fieldset元素对表单进行组织是可选的，legend也是可选的，使用legend必须要有fieldset，并且是fieldset里的第一个元素<br />
-legend 元素可以提高表单的可访问性，对于每个表单字段，屏幕阅读器都会将与之关联的legend文本念出来，从而让访问者了解字段的上下文，但在不同的屏幕阅读器和浏览器上并不完全一样，不同的模式下也不一样，有的浏览器会限制可以对legend添加的样式，或者让添加样式变得更难<br />
-使用h1~h6标题代替legend来识别一些（并非所有）fieldset，这样可以很轻松地对标题添加样式，对于单选按钮，最好总是使用fieldset和legend<br />
-</p>
-
-<h3>创建文本框</h3>
-<p>
-创建文本框的步骤：<br />
-1.如果需要，输入用于让访问者识别文本框的标签：<code>&lt;label for&quot;idlabel&quot;&lt;/label&gt;</code>这里idlabel匹配第4步中的标签<br />
-2.输入：<code>&lt;input type=&quot;text&quot; </code><br />
-3.输入：<code>name=&quot;dataname&quot;</code>这里的dataname是用于让服务器（和脚本）识别输入数据的文本<br />
-4.如果在第 (1) 步中创建了 label，输入：<code>id=&quot;idlabel&quot;</code>这里的idlabel跟第1步中的for属性文本一样<br />
-5.如果需要，输入：<code>value=&quot;default&quot;</code>这里的default是这个字段中最初显示的数据，如果访问者没人输入内容的话，这一数据将被发送到服务器<br />
-6.如果需要，输入：<code>placeholder=&quot;hinttext&quot;</code>这的hinttext是这个字段中最初显示的数据，用于指导用户的输入，当用户开始输入时，文本将会消失<br />
-7.如果需要，输入：<code>required=&quot;required&quot;</code>表示仅在这个字段有值的情况下才能提交表单<br />
-8.如果需要，输入：<code>autofocus或autofocus=&quot;autofocus&quot;</code>如果这是第一个拥有此属性的表单，input元素在页面加载时会默认获得焦点<br />
-9.如果需要，输入：<code>size=&quot;n&quot;</code>这里的n是需要设置的文本框宽度，以字符为单位，也可以使用CSS设置输入框的宽度<br />
-10.如果需要，输入：<code>maxlength=&quot;n&quot;</code>这里的n是该文本框允许输入的最大字符数<br />
-11.输入：<code> /&gt;</code><br />
-必须为每个文本框设置name属性，只有在希望为文本框添加默认值的情况下才需要设置value属性<br />
-页面加载时，最好有一个字段自动获取焦点，这样用户就可以立即开始输入<br />
-无论客户端是否有验证表单，都应该在服务器端验证表单<br />
-如果对form元素或特定的字段添加autocomplete=&quot;off&quot;，就会关闭浏览器的对该表单或该字段的自动填写功能，浏览器就不会根据先前的表单输入给出一些建议文本，也不会保存用户输入的内容<br />
-如果访问者跳过了一个字段，而且你没有为该字段设置默认值，那么当用户提交表单时，发送到服务器的name属性就是未定义的空值<br />
-文本框大小的默认值为20，不过，访问者可以输入更多的字符，直到达到maxlength属性规定的限制，如果需要更大的可以容纳好几行文本的字段，最好使用textarea元素<br />
-</p>
-
-<h3>为表单组件添加说明标签</h3>
-<p>
-步骤：<code>&lt;label for=&quot;idlabel&quot;&gt;标签内容&lt;/label&gt;</code>这里的idlabel是对应表单元素的id属性值<br />
-每个label的for属性与该标签对应的表单字段的id是匹配的，这样可以将该标签与该字段显式关联起来，这对提升表单的可用性和可访问性都有帮助，例如：如果访问者点击了标签，与之对应的表单字段就会获得焦点<br />
-可以使用CSS对标签添加样式，让每个标签都与它旁边的字段对齐<br />
-for、id和name属性都可以拥有任意值，只要没有空格<br />
-还可以将一个表单字段放在一个包含标签文本的label内，例如：<code>&lt;label&gt;First Name:&lt;input type=&quot;text&quot; name=&quot;first_name&quot; /&gt;&lt;/label&gt;</code>这样就不需要使用for和id了，不过，将标签与字段分开是更常见的做法，原因之一是这样更容易添加样式<br />
-</p>
-
-<h3>创建密码框</h3>
-<p>
-密码框与文本框的唯一区别是，密码框中输入的文本会使用圆点或星号进行隐藏<br />
-步骤：<code>&lt;input type=&quot;password&quot; id=&quot;idlabel&quot; name=&quot;dataname&quot; /&gt;</code><br />
-如果需要，在input标签里输入：<code>size=&quot;n&quot; maxlength=&quot;n&quot; required=&quot;required&quot; autofocus=&quot;autofocus&quot;</code><br />
-密码框提供的唯一保护措施就是防止其他人看到用户输入的密码，如果要真正地保护密码，可以使用安全服务器(https://)<br />
-</p>
-
-<h3>创建电子邮件框、搜索框、电话框和URL框</h3>
-<p>
-步骤：<code>&lt;input type=&quot;<var>mold</var>&quot; id=&quot;<var>idlabel</var>&quot; name=&quot;<var>dataname</var>&quot;</code> /&gt;这里mold可以是：email表示电子邮件框、search表示搜索框、tel表示电话框、url表示URL框<br />
-如果需要，在input标签里输入：<code>value=&quot;<var>dafault</var>&quot; placeholder=&quot;<var>hinttext</var>&quot; required=&quot;required&quot;　autofocus=&quot;autofocus&quot; size=&quot;<var>n</var>&quot; maxlength=&quot;<var>n</var>&quot;</code><br />
-现在Chrome、Firefox、IE10和Opera 10+ 都提供了对电子邮件框和URL框的验证功能，浏览器不会检查输入的电子邮件地址或URL是否真实存在，它只检查格式是否正确<br />
-空的电子邮件框、电话框或URL框也会通过验证，除非有required属性，不过，如果对电话框添加了required，但没有为pattern属性提供内容，浏览器仍会要求用户填写内容，但任何文本（包括数字、字母、字符等）都会通过验证<br />
-电子邮件框也可以使用multiple属性，这样就可以输入多个电子邮件地址（以逗号分隔不同的地址）<br />
-这些输入类型也支持 autocomplete 属性<br />
-如果包含了 pattern 属性，一定要明确告诉访问者需要遵循的模式<br />
-</p>
-
-<h3>创建单选按钮</h3>
-<p>
-步骤：<code>&lt;input type=&quot;radio&quot; id=&quot;idlabel&quot; name=&quot;radioset&quot; value=&quot;data&quot; /&gt;</code><br />
-如果需要，在input标签中输入：<code>checked=&quot;checked&quot;</code>让该单选按钮在页面打开时默认处于激活状态，在一组单选按钮中，只能对一个按钮添加这一属性<br />
-同一组单选按钮的name属性值必须相同，这样在同一时间只有其中一个能被选中，value属性也很重要，因为对于单选按钮访问者无法输入值<br />
-</p>
-
-<h3>创建复选框</h3>
-<p>
-步骤：<code>&lt;input type=&quot;checkbox&quot; id=&quot;idlabel name=&quot;boxset&quot;&quot; value=&quot;data&quot; /&gt;</code><br />
-如果需要，在input标签中输入：<code>checked=&quot;checked&quot;</code>让该单选按钮在页面打开时默认处于激活状态，可以对多个复选框添加这一属性<br />
-同一组复选框中的name属性值必须相同<br />
-对于复选框，通常需要为标签设置不同的样式，因为这些标签位于输入元素之后
-</p>
-
-<h3>创建文本区域</h3>
-<p>
-步骤：<code>&lt;textarea id=&quot;idlabel&quot; name=&quot;dataname&quot;&gt;默认文本&lt;/textarea&gt;</code><br />
-如果需要，在textare标签间中输入：<code>maxlength=&quot;n&quot; rows=&quot;n&quot; clos=&quot;n&quot; placeholder=&quot;hinttext&quot;</code>这里rows表示文本区域的高度、cols表示文本区域的宽度<br />
-访问者可以通过拖曳文本区域右下角的斜线改变文本区域的大小，如果设置了<code>textarea { resize: none; }</code>，那么访问者就无法这样操作了<br />　
-</p>
-
-<h3>创建选择框</h3>
-<p>
-1.创建选择框的步骤：<br >
-输入：<code>&lt;select id=&quot;idlabel&quot; name=&quot;dataname&quot;&gt; &lt;option value=&quot;optiondata&quot;&gt;内容&lt;/option&gt; &lt;/select&gt;</code><br />
-如果需要，在select标签中输入：<code>size=&quot;n&quot; multiple=&quot;multiple&quot;</code>这里size表示选择框的高度，以行为单位、multiple表示允许访问者选择一个以上的菜单选择<br />
-如果需要，在option标签中输入：<code>selected=&quot;selected&quot;</code>，指定该选项被默认选中<br />
-默认size为1，如果设置siez=0，则相当于size=4，默认选择菜单中的第一个选择，或HTML中指定了selected=&quot;selected&quot;的选项<br />
-2.对选择框选项进行分组：<br />
-在希望放在同一子菜单中的第一个组选项中的第一个option元素之前输入：<code>&lt;optgroup label=&quot;submenutitle&quot;&gt;</code><br>
-在该组的最后一个option元素之后输入：<code>&lt;/optgroup&gt;</code>
-</p>
-
-<h3>让访问者上传文件</h3>
-<p>
-要让访问者能够上传文件，必须正确地设置enctype属性，对 input 使用 multiple 属性可以允许上传多个文件<br />
-步骤：在form标签中，输入：<code>enctype=&quot;multipart/form-data&quot;</code>这里enctype属性可以确保文件采用正确的格式上传<br />
-输入：<code>&lt;input type=&quot;file&quot; id=&quot;idlabel&quot; name=&quot;dataname&quot; /&gt;</code><br />
-如果需要，在input标签中输入：<code>size=&quot;n&quot; multiple=&quot;multiple&quot;</code>这里设置multiple表示访问者可以上传一个以上的文件<br />
-对于允许上传的表单，在form标签中mothod不能设置为get<br />
-</p>
-
-<h3>创建隐藏字段</h3>
-<p>
-隐藏字段可以用于存储表单中的数据，但它不会显示给访问者，可以认为它们是不可见的文本框，但提交表单的时候，隐藏字段的数据会一起传送给服务器<br />
-步骤：<code>&lt;input type=&quot;hidden&quot; name=&quot;dataname&quot; value=&quot;data&quot; /&gt;</code><br />
-要创建访问者可见但不可修改的表单元素，有两种方法:(1)使用disabled属性 (2)使用readonly属性，与disabled不同的是，readonly可以获得焦点，并选择和复制里面的文本，但不能修改这些文本，readonly只能应用于文本输入框和文本区域<br />
-</p>
-
-<h3>创建提交按钮和重置</h3>
-<p>
-1.创建提交按钮或重置按钮的步骤<br />
-输入：<code>&lt;input type=&quot;submit&quot;(或type=&quot;reset&quot;) value=&quot;submit message&quot; /&gt;</code>这里submit message是将要出现在按钮上的文本<br />
-如果不填写name属性，则提交按钮的名–值对就不会传给脚本，由于通常不需要这一信息，因此不在input标签里写name属性<br />
-2.创建带图像的提交按钮的步骤<br />
-输入：<code>&lt;input type=&quot;image&quot; src=&quot;image.url&quot; alt=&quot;description&quot; /&gt;</code>这里image.url表示图像在服务器上的位置、description表示当图像无法显示时需要出现的文本<br />
-3.创建结合文本和图像的提交按钮或重置按钮<br />
-输入：<code>&lt;button type=&quot;submit&quot;(或type=&quot;reset&quot;)&gt;图片左侧文字&lt;image src=&quot;image.url&quot; alt=&quot;description&quot; /&gt;图片右侧文字&lt;/button&gt;</code><br />
-如果省略value属性，那么根据不同的浏览器，提交按钮就会显示默认的Submit或者Submit Query<br />
-如果有多个提交按钮，可以为每个按钮设置name属性和value属性，从而让脚本知道用户按下的是哪个按钮，否则，最好省略name属性<br />
-HTML5对type=&quot;email&quot;和type=&quot;URL&quot;的input添加了自动验证功能，对提交按钮使用formnovalidate属性可以关闭该功能，如<code>&lt;input type=&quot;submit&quot; formnovalidate /&gt;</code>
-</p>
-
-<h3>根据状态为表单设置样式</h3>
-<p>
-页面一开始加载就会应用:invalid状态，因此，根据你所设置的状态，有可能会出现一些意外的结果，例如，如果规则是<code>input:invalid { background-color:pink; }</code>，那么必填的input字段在用户填写任何内容之前就会显示粉红色的背景（任何标记为required但值为空的字段会被认为处于无效状态），为了将必填字段排除在该规则之外，可以使用:not 伪类，如<code>input:invalid:not(:required) { border:1px solid red; }</code><br />
-</p>
-<table cellspacing="0">
-  <caption>伪类</caption>
-  <tr>
-    <th>选择器</th>
-    <th>应用</th>
-  </tr>
-  <tr>
-    <td>:focus</td>
-    <td>获得焦点的字段</td>
-  </tr>
-  <tr>
-    <td>:checked</td>
-    <td>选中的单选按钮或复选框</td>
-  </tr>
-  <tr>
-    <td>:disabled</td>
-    <td>具有disabled属性的字段</td>
-  </tr>
-  <tr>
-    <td>:enable</td>
-    <td>与:disabled相反</td>
-  </tr>
-  <tr>
-    <td>:required</td>
-    <td>具有required属性的字段</td>
-  </tr>
-  <tr>
-    <td>:optional</td>
-    <td>与:required相反</td>
-  </tr>
-  <tr>
-    <td>:invalid</td>
-    <td>其值与pattern属性给出的模式不匹配的字段、或值不是有效电子邮件格式的电子邮件框，值不是有效URL格式的URL框、以及任何标记为required但值为空的字段</td>
-  </tr>
-  <tr>
-    <td>:valid</td>
-    <td>与:invalid相反</td>
-  </tr>
-</table><br />
-
-
-<form method="get" action="" enctype="multipart/form-data">
-  <fieldset class="label">
-    <h2>Account</h2>
+    <h3>创建表单</h3>
     <p>
-      <label for="first-name">First Name*:</label>
-      <input type="text" id="first-name" name="first_name" required="required" />
+        步骤：<code>&lt;form method=&quot;formmethod&quot; action=&quot;script.url&quot;&gt;表单内容&lt;/form&gt;</code>这里formmethod是get或post，script.url是提交表单时要运行的脚本在服务器上的位置<br />
+        如果对表单使用method=&quot;get&quot;，那么表单提交后，表单中的数据会显示在浏览器的地址栏里，如果你希望表单提交后从服务器得到信息，就使用get<br />
+        如果对表单使用method=&quot;post&quot;，那么提交表单后，表单中的数据不会显示在浏览器的地址栏里，这样更为安全，比起get，使用post可以向服务器发送更多的数据<br />
+        可以对form元素应用novalidate属性，关闭表单的HTML5验证特性<br />
     </p>
-    <p>
-      <label for="last-name">Last Name:</label>
-      <input type="text" id="last-name" name="last_name" />
-    </p>
-    <p>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" />
-    </p>
-    <p>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="youname@example.com" />
-    </p>
-    <p>
-      <label for="url">Websit URL:</label>
-      <input type="url" id="url" name="url" placeholder="http://www.xyz.com/" />
-    </p>
-    <p>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" placeholder="enter 11 phone number" pattern="((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)" />
-    </p>
-    <p>
-      <label for="intro">Introduce:</label>
-      <textarea id="intro" name="intro" rows="5" cols="20" placeholder="introduce yourself"></textarea>
-    </p>
-    <p>
-      <label for="country">Country:</label>
-      <input type="text" id="country" name="country" value="China" readonly="readonly" />
-    </p>
-    <p>
-      <label for="university">University:</label>
-      <input type="text" id="university" name="university" value="ZheJiang GongShang University" disabled="disabled" />
-    </p>
-    <p>
-      <label for="city">City:</label>
-      <select id="city" name="city">
-        <optgroup label="HangZhou">
-          <option>ShaoXing</option>
-          <option>WenZhou</option>
-        </optgroup>
-        <optgroup label="FuJian">
-          <option>FuZhou</option>
-          <option selected="selected">QuanZhou</option>
-        </optgroup>
-        <optgroup label="ShanXi">
-          <option>XiAn</option>
-          <option>BaoJi</option>
-        </optgroup>
-      </select>
-    </p>
-    <p>
-      <label for="picture">Picture:</label>
-      <input type="file" id="picture" name="picture" multiple="multiple" />
-    </p>
-    <p>
-      <input type="hidden" name="hidden" value="0" />
-    </p>
-  </fieldset>
-  <fieldset role="search">
-    <p>
-      <label for="search">Search:</label>
-      <input type="search" id="search" name="search"/>
-    </p>
-  </fieldset>
-  <fieldset>
-    <legend>Gender:</legend>
-    <input type="radio" id="gender-male" name="gender" value="male" />
-    <label for="gender-male">Male</label>
-    <input type="radio" id="gender-female" name="gender" value="female" />
-    <label for="gender-female">Female</label>
-  </fieldset>
-  <fieldset>
-    <h2>Hobby</h2>
-    <div>
-      <input type="checkbox" id="soccer" name="hobbies" checked="checked" value="soccer" />
-      <label for="soccer">soccer</label>
-      <input type="checkbox" id="basketball" name="hobbies" value="basketball" />
-      <label for="basketball">basketball</label>
-      <input type="checkbox" id="pingpong" name="hobbies" value="pingpong" />
-      <label for="pingpong">pingpong</label>
-    </div>
-  </fieldset>
-  <button type="submit"><img src="submit.png" width="20" />Submit</button>&nbsp;&nbsp;&nbsp;
-  <input type="image" src="submit.png" />&nbsp;&nbsp;&nbsp;
-  <input type="reset" value="Reset" class="btn" />
-</form>
 
+    <h3>对表单元素进行组织</h3>
+    <p>
+        如果表单上有很多信息需要填写，可以使用fieldset元素将相关的元素组合在一起，使表单更容易理解，还可以使用legend元素为每个fieldset提供一个标题（caption），用于描述每个组的目的，对于一组单选按钮legend元素尤其重要，因为通常如果不配合使用legend，单选按钮就没有明显的上下文<br />
+        步骤：<code>&lt;fieldset&gt;&lt;legend&gt;标题&lt;/legend&gt;内容&lt;/fieldset&gt;</code>这里使用fieldset元素对表单进行组织是可选的，legend也是可选的，使用legend必须要有fieldset，并且是fieldset里的第一个元素<br />
+        legend 元素可以提高表单的可访问性，对于每个表单字段，屏幕阅读器都会将与之关联的legend文本念出来，从而让访问者了解字段的上下文，但在不同的屏幕阅读器和浏览器上并不完全一样，不同的模式下也不一样，有的浏览器会限制可以对legend添加的样式，或者让添加样式变得更难<br />
+        使用h1~h6标题代替legend来识别一些（并非所有）fieldset，这样可以很轻松地对标题添加样式，对于单选按钮，最好总是使用fieldset和legend<br />
+    </p>
+
+    <h3>创建文本框</h3>
+    <p>
+        创建文本框的步骤：<br />
+        1.如果需要，输入用于让访问者识别文本框的标签：<code>&lt;label for&quot;idlabel&quot;&lt;/label&gt;</code>这里idlabel匹配第4步中的标签<br />
+        2.输入：<code>&lt;input type=&quot;text&quot; </code><br />
+        3.输入：<code>name=&quot;dataname&quot;</code>这里的dataname是用于让服务器（和脚本）识别输入数据的文本<br />
+        4.如果在第 (1) 步中创建了 label，输入：<code>id=&quot;idlabel&quot;</code>这里的idlabel跟第1步中的for属性文本一样<br />
+        5.如果需要，输入：<code>value=&quot;default&quot;</code>这里的default是这个字段中最初显示的数据，如果访问者没人输入内容的话，这一数据将被发送到服务器<br />
+        6.如果需要，输入：<code>placeholder=&quot;hinttext&quot;</code>这的hinttext是这个字段中最初显示的数据，用于指导用户的输入，当用户开始输入时，文本将会消失<br />
+        7.如果需要，输入：<code>required=&quot;required&quot;</code>表示仅在这个字段有值的情况下才能提交表单<br />
+        8.如果需要，输入：<code>autofocus或autofocus=&quot;autofocus&quot;</code>如果这是第一个拥有此属性的表单，input元素在页面加载时会默认获得焦点<br />
+        9.如果需要，输入：<code>size=&quot;n&quot;</code>这里的n是需要设置的文本框宽度，以字符为单位，也可以使用CSS设置输入框的宽度<br />
+        10.如果需要，输入：<code>maxlength=&quot;n&quot;</code>这里的n是该文本框允许输入的最大字符数<br />
+        11.输入：<code> /&gt;</code><br />
+        必须为每个文本框设置name属性，只有在希望为文本框添加默认值的情况下才需要设置value属性<br />
+        页面加载时，最好有一个字段自动获取焦点，这样用户就可以立即开始输入<br />
+        无论客户端是否有验证表单，都应该在服务器端验证表单<br />
+        如果对form元素或特定的字段添加autocomplete=&quot;off&quot;，就会关闭浏览器的对该表单或该字段的自动填写功能，浏览器就不会根据先前的表单输入给出一些建议文本，也不会保存用户输入的内容<br />
+        如果访问者跳过了一个字段，而且你没有为该字段设置默认值，那么当用户提交表单时，发送到服务器的name属性就是未定义的空值<br />
+        文本框大小的默认值为20，不过，访问者可以输入更多的字符，直到达到maxlength属性规定的限制，如果需要更大的可以容纳好几行文本的字段，最好使用textarea元素<br />
+    </p>
+
+    <h3>为表单组件添加说明标签</h3>
+    <p>
+        步骤：<code>&lt;label for=&quot;idlabel&quot;&gt;标签内容&lt;/label&gt;</code>这里的idlabel是对应表单元素的id属性值<br />
+        每个label的for属性与该标签对应的表单字段的id是匹配的，这样可以将该标签与该字段显式关联起来，这对提升表单的可用性和可访问性都有帮助，例如：如果访问者点击了标签，与之对应的表单字段就会获得焦点<br />
+        可以使用CSS对标签添加样式，让每个标签都与它旁边的字段对齐<br />
+        for、id和name属性都可以拥有任意值，只要没有空格<br />
+        还可以将一个表单字段放在一个包含标签文本的label内，例如：<code>&lt;label&gt;First Name:&lt;input type=&quot;text&quot; name=&quot;first_name&quot; /&gt;&lt;/label&gt;</code>这样就不需要使用for和id了，不过，将标签与字段分开是更常见的做法，原因之一是这样更容易添加样式<br />
+    </p>
+
+    <h3>创建密码框</h3>
+    <p>
+        密码框与文本框的唯一区别是，密码框中输入的文本会使用圆点或星号进行隐藏<br />
+        步骤：<code>&lt;input type=&quot;password&quot; id=&quot;idlabel&quot; name=&quot;dataname&quot; /&gt;</code><br />
+        如果需要，在input标签里输入：<code>size=&quot;n&quot; maxlength=&quot;n&quot; required=&quot;required&quot; autofocus=&quot;autofocus&quot;</code><br />
+        密码框提供的唯一保护措施就是防止其他人看到用户输入的密码，如果要真正地保护密码，可以使用安全服务器(https://)<br />
+    </p>
+
+    <h3>创建电子邮件框、搜索框、电话框和URL框</h3>
+    <p>
+        步骤：<code>&lt;input type=&quot;<var>mold</var>&quot; id=&quot;<var>idlabel</var>&quot; name=&quot;<var>dataname</var>&quot;</code> /&gt;这里mold可以是：email表示电子邮件框、search表示搜索框、tel表示电话框、url表示URL框<br />
+        如果需要，在input标签里输入：<code>value=&quot;<var>dafault</var>&quot; placeholder=&quot;<var>hinttext</var>&quot; required=&quot;required&quot;　autofocus=&quot;autofocus&quot; size=&quot;<var>n</var>&quot; maxlength=&quot;<var>n</var>&quot;</code><br />
+        现在Chrome、Firefox、IE10和Opera 10+ 都提供了对电子邮件框和URL框的验证功能，浏览器不会检查输入的电子邮件地址或URL是否真实存在，它只检查格式是否正确<br />
+        空的电子邮件框、电话框或URL框也会通过验证，除非有required属性，不过，如果对电话框添加了required，但没有为pattern属性提供内容，浏览器仍会要求用户填写内容，但任何文本（包括数字、字母、字符等）都会通过验证<br />
+        电子邮件框也可以使用multiple属性，这样就可以输入多个电子邮件地址（以逗号分隔不同的地址）<br />
+        这些输入类型也支持 autocomplete 属性<br />
+        如果包含了 pattern 属性，一定要明确告诉访问者需要遵循的模式<br />
+    </p>
+
+    <h3>创建单选按钮</h3>
+    <p>
+        步骤：<code>&lt;input type=&quot;radio&quot; id=&quot;idlabel&quot; name=&quot;radioset&quot; value=&quot;data&quot; /&gt;</code><br />
+        如果需要，在input标签中输入：<code>checked=&quot;checked&quot;</code>让该单选按钮在页面打开时默认处于激活状态，在一组单选按钮中，只能对一个按钮添加这一属性<br />
+        同一组单选按钮的name属性值必须相同，这样在同一时间只有其中一个能被选中，value属性也很重要，因为对于单选按钮访问者无法输入值<br />
+    </p>
+
+    <h3>创建复选框</h3>
+    <p>
+        步骤：<code>&lt;input type=&quot;checkbox&quot; id=&quot;idlabel name=&quot;boxset&quot;&quot; value=&quot;data&quot; /&gt;</code><br />
+        如果需要，在input标签中输入：<code>checked=&quot;checked&quot;</code>让该单选按钮在页面打开时默认处于激活状态，可以对多个复选框添加这一属性<br />
+        同一组复选框中的name属性值必须相同<br />
+        对于复选框，通常需要为标签设置不同的样式，因为这些标签位于输入元素之后
+    </p>
+
+    <h3>创建文本区域</h3>
+    <p>
+        步骤：<code>&lt;textarea id=&quot;idlabel&quot; name=&quot;dataname&quot;&gt;默认文本&lt;/textarea&gt;</code><br />
+        如果需要，在textare标签间中输入：<code>maxlength=&quot;n&quot; rows=&quot;n&quot; clos=&quot;n&quot; placeholder=&quot;hinttext&quot;</code>这里rows表示文本区域的高度、cols表示文本区域的宽度<br />
+        访问者可以通过拖曳文本区域右下角的斜线改变文本区域的大小，如果设置了<code>textarea { resize: none; }</code>，那么访问者就无法这样操作了<br />　
+    </p>
+
+    <h3>创建选择框</h3>
+    <p>
+        1.创建选择框的步骤：<br >
+        输入：<code>&lt;select id=&quot;idlabel&quot; name=&quot;dataname&quot;&gt; &lt;option value=&quot;optiondata&quot;&gt;内容&lt;/option&gt; &lt;/select&gt;</code><br />
+        如果需要，在select标签中输入：<code>size=&quot;n&quot; multiple=&quot;multiple&quot;</code>这里size表示选择框的高度，以行为单位、multiple表示允许访问者选择一个以上的菜单选择<br />
+        如果需要，在option标签中输入：<code>selected=&quot;selected&quot;</code>，指定该选项被默认选中<br />
+        默认size为1，如果设置siez=0，则相当于size=4，默认选择菜单中的第一个选择，或HTML中指定了selected=&quot;selected&quot;的选项<br />
+        2.对选择框选项进行分组：<br />
+        在希望放在同一子菜单中的第一个组选项中的第一个option元素之前输入：<code>&lt;optgroup label=&quot;submenutitle&quot;&gt;</code><br>
+        在该组的最后一个option元素之后输入：<code>&lt;/optgroup&gt;</code>
+    </p>
+
+    <h3>让访问者上传文件</h3>
+    <p>
+        要让访问者能够上传文件，必须正确地设置enctype属性，对 input 使用 multiple 属性可以允许上传多个文件<br />
+        步骤：在form标签中，输入：<code>enctype=&quot;multipart/form-data&quot;</code>这里enctype属性可以确保文件采用正确的格式上传<br />
+        输入：<code>&lt;input type=&quot;file&quot; id=&quot;idlabel&quot; name=&quot;dataname&quot; /&gt;</code><br />
+        如果需要，在input标签中输入：<code>size=&quot;n&quot; multiple=&quot;multiple&quot;</code>这里设置multiple表示访问者可以上传一个以上的文件<br />
+        对于允许上传的表单，在form标签中mothod不能设置为get<br />
+    </p>
+
+    <h3>创建隐藏字段</h3>
+    <p>
+        隐藏字段可以用于存储表单中的数据，但它不会显示给访问者，可以认为它们是不可见的文本框，但提交表单的时候，隐藏字段的数据会一起传送给服务器<br />
+        步骤：<code>&lt;input type=&quot;hidden&quot; name=&quot;dataname&quot; value=&quot;data&quot; /&gt;</code><br />
+        要创建访问者可见但不可修改的表单元素，有两种方法:(1)使用disabled属性 (2)使用readonly属性，与disabled不同的是，readonly可以获得焦点，并选择和复制里面的文本，但不能修改这些文本，readonly只能应用于文本输入框和文本区域<br />
+    </p>
+
+    <h3>创建提交按钮和重置</h3>
+    <p>
+        1.创建提交按钮或重置按钮的步骤<br />
+        输入：<code>&lt;input type=&quot;submit&quot;(或type=&quot;reset&quot;) value=&quot;submit message&quot; /&gt;</code>这里submit message是将要出现在按钮上的文本<br />
+        如果不填写name属性，则提交按钮的名–值对就不会传给脚本，由于通常不需要这一信息，因此不在input标签里写name属性<br />
+        2.创建带图像的提交按钮的步骤<br />
+        输入：<code>&lt;input type=&quot;image&quot; src=&quot;image.url&quot; alt=&quot;description&quot; /&gt;</code>这里image.url表示图像在服务器上的位置、description表示当图像无法显示时需要出现的文本<br />
+        3.创建结合文本和图像的提交按钮或重置按钮<br />
+        输入：<code>&lt;button type=&quot;submit&quot;(或type=&quot;reset&quot;)&gt;图片左侧文字&lt;image src=&quot;image.url&quot; alt=&quot;description&quot; /&gt;图片右侧文字&lt;/button&gt;</code><br />
+        如果省略value属性，那么根据不同的浏览器，提交按钮就会显示默认的Submit或者Submit Query<br />
+        如果有多个提交按钮，可以为每个按钮设置name属性和value属性，从而让脚本知道用户按下的是哪个按钮，否则，最好省略name属性<br />
+        HTML5对type=&quot;email&quot;和type=&quot;URL&quot;的input添加了自动验证功能，对提交按钮使用formnovalidate属性可以关闭该功能，如<code>&lt;input type=&quot;submit&quot; formnovalidate /&gt;</code>
+    </p>
+
+    <h3>根据状态为表单设置样式</h3>
+    <p>
+        页面一开始加载就会应用:invalid状态，因此，根据你所设置的状态，有可能会出现一些意外的结果，例如，如果规则是<code>input:invalid { background-color:pink; }</code>，那么必填的input字段在用户填写任何内容之前就会显示粉红色的背景（任何标记为required但值为空的字段会被认为处于无效状态），为了将必填字段排除在该规则之外，可以使用:not 伪类，如<code>input:invalid:not(:required) { border:1px solid red; }</code><br />
+    </p>
+    <table cellspacing="0">
+        <caption>伪类</caption>
+        <tr>
+            <th>选择器</th>
+            <th>应用</th>
+        </tr>
+        <tr>
+            <td>:focus</td>
+            <td>获得焦点的字段</td>
+        </tr>
+        <tr>
+            <td>:checked</td>
+            <td>选中的单选按钮或复选框</td>
+        </tr>
+        <tr>
+            <td>:disabled</td>
+            <td>具有disabled属性的字段</td>
+        </tr>
+        <tr>
+            <td>:enable</td>
+            <td>与:disabled相反</td>
+        </tr>
+        <tr>
+            <td>:required</td>
+            <td>具有required属性的字段</td>
+        </tr>
+        <tr>
+            <td>:optional</td>
+            <td>与:required相反</td>
+        </tr>
+        <tr>
+            <td>:invalid</td>
+            <td>其值与pattern属性给出的模式不匹配的字段、或值不是有效电子邮件格式的电子邮件框，值不是有效URL格式的URL框、以及任何标记为required但值为空的字段</td>
+        </tr>
+        <tr>
+            <td>:valid</td>
+            <td>与:invalid相反</td>
+        </tr>
+    </table><br />
+
+
+    <form method="get" action="" enctype="multipart/form-data">
+        <fieldset class="label">
+            <h2>Account</h2>
+            <p>
+                <label for="first-name">First Name*:</label>
+                <input type="text" id="first-name" name="first_name" required="required" />
+            </p>
+            <p>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last_name" />
+            </p>
+            <p>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" />
+            </p>
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="youname@example.com" />
+            </p>
+            <p>
+                <label for="url">Websit URL:</label>
+                <input type="url" id="url" name="url" placeholder="http://www.xyz.com/" />
+            </p>
+            <p>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="enter 11 phone number" pattern="((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)" />
+            </p>
+            <p>
+                <label for="intro">Introduce:</label>
+                <textarea id="intro" name="intro" rows="5" cols="20" placeholder="introduce yourself"></textarea>
+            </p>
+            <p>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" value="China" readonly="readonly" />
+            </p>
+            <p>
+                <label for="university">University:</label>
+                <input type="text" id="university" name="university" value="ZheJiang GongShang University" disabled="disabled" />
+            </p>
+            <p>
+                <label for="city">City:</label>
+                <select id="city" name="city">
+                    <optgroup label="HangZhou">
+                        <option>ShaoXing</option>
+                        <option>WenZhou</option>
+                    </optgroup>
+                    <optgroup label="FuJian">
+                        <option>FuZhou</option>
+                        <option selected="selected">QuanZhou</option>
+                    </optgroup>
+                    <optgroup label="ShanXi">
+                        <option>XiAn</option>
+                        <option>BaoJi</option>
+                    </optgroup>
+                </select>
+            </p>
+            <p>
+                <label for="picture">Picture:</label>
+                <input type="file" id="picture" name="picture" multiple="multiple" />
+            </p>
+            <p>
+                <input type="hidden" name="hidden" value="0" />
+            </p>
+        </fieldset>
+        <fieldset role="search">
+            <p>
+                <label for="search">Search:</label>
+                <input type="search" id="search" name="search"/>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Gender:</legend>
+            <input type="radio" id="gender-male" name="gender" value="male" />
+            <label for="gender-male">Male</label>
+            <input type="radio" id="gender-female" name="gender" value="female" />
+            <label for="gender-female">Female</label>
+        </fieldset>
+        <fieldset>
+            <h2>Hobby</h2>
+            <div>
+                <input type="checkbox" id="soccer" name="hobbies" checked="checked" value="soccer" />
+                <label for="soccer">soccer</label>
+                <input type="checkbox" id="basketball" name="hobbies" value="basketball" />
+                <label for="basketball">basketball</label>
+                <input type="checkbox" id="pingpong" name="hobbies" value="pingpong" />
+                <label for="pingpong">pingpong</label>
+            </div>
+        </fieldset>
+        <button type="submit"><img src="img/submit.png" width="20" />Submit</button>&nbsp;&nbsp;&nbsp;
+        <input type="image" src="img/submit.png" />&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="Reset" class="btn" />
+    </form>
+    <footer role="contentinfo" class="footer">
+        <p><small>&copy;2017&nbsp;阿明&nbsp;浙ICP备17003356号</small></p>
+    </footer>
 </body>
 </html>

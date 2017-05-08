@@ -1,247 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>chapter-17</title>
-  <!--<script src="build/jquery.js"></script>	
-  <script src="build/mediaelement-and-player.min.js"></script>
-  <link rel="stylesheet" href="build/mediaelementplayer.min.css" />-->
-  <style>
-    table {
-		width:90%;
-	}
-    caption {
-		font-size:1.1em;
-	}
-    th {
-		border-top:2px #000 solid;
-		border-bottom:1px #000 solid;
-	}
-	td {
-		padding-left:20px;
-	}
-	th:first-child {
-		width:15%;
-	}
-	tr:last-child td {
-		border-bottom:1px #000 solid;
-	}
-  </style>
+    <meta charset="utf-8" />
+    <title>chapter-17</title>
+    <!--<script src="other/build/jquery.js"></script>	
+    <script src="other/build/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="other/build/mediaelementplayer.min.css" />-->
+    <style>
+        table {
+    		width:90%;
+    	}
+        caption {
+    		font-size:1.1em;
+    	}
+        th {
+    		border-top:2px #000 solid;
+    		border-bottom:1px #000 solid;
+    	}
+    	td {
+    		padding-left:20px;
+    	}
+    	th:first-child {
+    		width:15%;
+    	}
+    	tr:last-child td {
+    		border-bottom:1px #000 solid;
+    	}
+        .footer {
+            margin-top:2em;
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
-<h1 style="text-align:center;">第17章 视频、音频和其他多媒体</h1>
+    <h1 style="text-align:center;">第17章 视频、音频和其他多媒体</h1>
 
-<h3>视频文件格式</h3>
-<p>
-HTML5支持三种视频文件格式：Ogg Theora使用的文件扩展名为.ogg或.ogv、 MP4(H.264)使用的文件扩展名为.mp4或.m4v、 WebM使用的文件扩展名为.webm<br />
-如果想将现有的视频文件转换为其他的文件格式，可以到HandBrake(http://handbrake.fr)下载工具<br />
-开发者至少需要为视频提供两种格式(MP4和WebM)，才能确保获得所有兼容HTML5的浏览器的支持
-</p>
+    <h3>视频文件格式</h3>
+    <p>
+        HTML5支持三种视频文件格式：Ogg Theora使用的文件扩展名为.ogg或.ogv、 MP4(H.264)使用的文件扩展名为.mp4或.m4v、 WebM使用的文件扩展名为.webm<br />
+        如果想将现有的视频文件转换为其他的文件格式，可以到HandBrake(http://handbrake.fr)下载工具<br />
+        开发者至少需要为视频提供两种格式(MP4和WebM)，才能确保获得所有兼容HTML5的浏览器的支持
+    </p>
 
-<h3>在网页中添加单个视频</h3>
-<p>
-步骤：<code>&lt;video src=&quot;my-video.ext&quot;&gt;&lt;/video&gt;</code>这里的my-video.ext是视频文件的位置、名称和扩展名<br />
-<table cellspacing="0">
-  <caption>video属性</caption>
-  <tr>
-    <th>属性</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td>src(源)</td>
-    <td>指定视频文件的URL</td>
-  </tr>
-  <tr>
-    <td>autoplay(自动播放)</td>
-    <td>当视频可以播放时立即开始播放</td>
-  </tr>
-  <tr>
-    <td>controls(控件)</td>
-    <td>添加浏览器为视频设置的默认控件</td>
-  </tr>
-  <tr>
-    <td>muted(静音)</td>
-    <td>让视频静音</td>
-  </tr>
-  <tr>
-    <td>loop(循环)</td>
-    <td>让视频循环播放</td>
-  </tr>
-  <tr>
-    <td>poster(海报)</td>
-    <td>指定视频加载时要显示的图像（而不显示视频的第一帧），接受所需图像文件的URL</td>
-  </tr>
-  <tr>
-    <td>width(宽度)</td>
-    <td>视频的宽度（以像素为单位），通常默认为300</td>
-  </tr>
-  <tr>
-    <td>height(高度)</td>
-    <td>视频的高度（以像素为单位），通常默认为150</td>
-  </tr>
-  <tr>
-    <td>preload(加载)</td>
-    <td>告诉浏览器要加载的视频内容的多少，值可以是：none表示不加载任何视频、metadata表示仅加载视频的元数据（如长度、尺寸等）、auto表示让浏览器决定怎样做（默认值）</td>
-  </tr>
-</table>
-</p>
+    <h3>在网页中添加单个视频</h3>
+    <p>
+        步骤：<code>&lt;video src=&quot;my-video.ext&quot;&gt;&lt;/video&gt;</code>这里的my-video.ext是视频文件的位置、名称和扩展名<br />
+        <table cellspacing="0">
+            <caption>video属性</caption>
+            <tr>
+                <th>属性</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>src(源)</td>
+                <td>指定视频文件的URL</td>
+            </tr>
+            <tr>
+                <td>autoplay(自动播放)</td>
+                <td>当视频可以播放时立即开始播放</td>
+              </tr>
+            <tr>
+                <td>controls(控件)</td>
+                    <td>添加浏览器为视频设置的默认控件</td>
+            </tr>
+            <tr>
+                <td>muted(静音)</td>
+                <td>让视频静音</td>
+            </tr>
+            <tr>
+                <td>loop(循环)</td>
+                <td>让视频循环播放</td>
+            </tr>
+            <tr>
+                <td>poster(海报)</td>
+                <td>指定视频加载时要显示的图像（而不显示视频的第一帧），接受所需图像文件的URL</td>
+            </tr>
+            <tr>
+                <td>width(宽度)</td>
+                <td>视频的宽度（以像素为单位），通常默认为300</td>
+            </tr>
+            <tr>
+                    <td>height(高度)</td>
+                <td>视频的高度（以像素为单位），通常默认为150</td>
+            </tr>
+            <tr>
+                <td>preload(加载)</td>
+                <td>告诉浏览器要加载的视频内容的多少，值可以是：none表示不加载任何视频、metadata表示仅加载视频的元数据（如长度、尺寸等）、auto表示让浏览器决定怎样做（默认值）</td>
+            </tr>
+        </table>
+    </p>
 
-<h3>为视频添加控件和自动播放</h3>
-<p>
-1.为视频文件添加控件：在video标签中添加属性controls=&quot;controls&quot;<br />
-2.为视频添加自动播放：在video标签中添加属性autoplay=&quot;autoplay&quot;<br />
-</p>
+    <h3>为视频添加控件和自动播放</h3>
+    <p>
+        1.为视频文件添加控件：在video标签中添加属性controls=&quot;controls&quot;<br />
+        2.为视频添加自动播放：在video标签中添加属性autoplay=&quot;autoplay&quot;<br />
+    </p>
 
-<h3>为视频指定循环播放和海报图像</h3>
-<p>
-1.为视频添加循环播放：在video标签中添加属性loop=&quot;loop&quot;<br />
-2.为视频指定海报图像：在video标签中添加属性poster=&quot;my-poster.jpg&quot; 这里my-poster.jpg是想用做海报的图像<br />
-</p>
+    <h3>为视频指定循环播放和海报图像</h3>
+    <p>
+        1.为视频添加循环播放：在video标签中添加属性loop=&quot;loop&quot;<br />
+        2.为视频指定海报图像：在video标签中添加属性poster=&quot;my-poster.jpg&quot; 这里my-poster.jpg是想用做海报的图像<br />
+    </p>
 
-<h3>阻止视频预加载</h3>
-<p>
-如果认为用户观看视频的可能性较低，那么可以告诉浏览器不要预先加载该视频，这样页面完全加载时也不会加载的单个WebM视频，仅在用户试着播放该视频时才会加载它<br />
-步骤：在video标签中添加属性preload=&quot;none&quot;<br />
-其他预加载设置：<br />
-preload的默认值是auto，这会让浏览器具有用户将要播放该视频的预期，从而做好准备，让视频可以很快进入播放状态浏览器会预先加载大部分视频甚至整个视频<br />
-在none和auto之间有一个不错的中间值，即preload=&quot;metadata&quot;这样做会让浏览器仅获取视频的基本信息，如尺寸、时长甚至一些关键的帧，在开始播放之前，浏览器不会显示白色的矩形，而且视频的尺寸也会与实际尺寸一致，使用metadata会告诉浏览器，用户的连接速度并不快，因此需要在不妨碍播放的情况下尽可能地保留带宽资源<br />
-</p>
+    <h3>阻止视频预加载</h3>
+    <p>
+        如果认为用户观看视频的可能性较低，那么可以告诉浏览器不要预先加载该视频，这样页面完全加载时也不会加载的单个WebM视频，仅在用户试着播放该视频时才会加载它<br />
+        步骤：在video标签中添加属性preload=&quot;none&quot;<br />
+        其他预加载设置：<br />
+        preload的默认值是auto，这会让浏览器具有用户将要播放该视频的预期，从而做好准备，让视频可以很快进入播放状态浏览器会预先加载大部分视频甚至整个视频<br />
+        在none和auto之间有一个不错的中间值，即preload=&quot;metadata&quot;这样做会让浏览器仅获取视频的基本信息，如尺寸、时长甚至一些关键的帧，在开始播放之前，浏览器不会显示白色的矩形，而且视频的尺寸也会与实际尺寸一致，使用metadata会告诉浏览器，用户的连接速度并不快，因此需要在不妨碍播放的情况下尽可能地保留带宽资源<br />
+    </p>
 
-<h3>使用多种来源的视频和备用文本</h3>
-<p>
-要获得所有兼容HTML5的浏览器的支持，至少需要提供两种格式的视频：MP4和WebM<br />
-通常使用source元素来定义一个以上的媒体元素，一个video元素中可以包含任意数量的source元素，浏览器会加载第一个它支持的source元素引用的文件格式，并忽略其他的来源，无法播放HTML5视频的浏览器则会显示你提供的消息中的备用链接<br />
-步骤：<br />
-<code>&lt;video controls=&quot;controls&quot;&gt;<br />
-&lt;source src=&quot;my-video.mp4&quot; type=&quot;video/mp4&quot; /&gt;<br />
-&lt;source src=&quot;my-video.webm&quot; type=&quot;video/webm&quot; /&gt;<br />
-为旧浏览器输入备用链接或备用文本信息<br />
-&lt;/video&gt;</code><br />
-<table cellspacing="0">
-  <tr>
-    <th>名称</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td>src</td>
-    <td>视频来源的URL</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>用于指定视频的类型，帮助浏览器决定它是否能播放该视频，该属性的值反映的是视频的格式，即编解码器（如 video/mp4、 video/webm、video/ogg）</td>
-  </tr>
-  <tr>
-    <td>media</td>
-    <td>用于为视频来源指定CSS3媒体查询，从而可以为具有不同屏幕尺寸的设备指定不同的（如更小的）视频</td>
-  </tr>
-</table>
-</p>
+    <h3>使用多种来源的视频和备用文本</h3>
+    <p>
+        要获得所有兼容HTML5的浏览器的支持，至少需要提供两种格式的视频：MP4和WebM<br />
+        通常使用source元素来定义一个以上的媒体元素，一个video元素中可以包含任意数量的source元素，浏览器会加载第一个它支持的source元素引用的文件格式，并忽略其他的来源，无法播放HTML5视频的浏览器则会显示你提供的消息中的备用链接<br />
+        步骤：<br />
+        <code>&lt;video controls=&quot;controls&quot;&gt;<br />
+        &lt;source src=&quot;my-video.mp4&quot; type=&quot;video/mp4&quot; /&gt;<br />
+        &lt;source src=&quot;my-video.webm&quot; type=&quot;video/webm&quot; /&gt;<br />
+        为旧浏览器输入备用链接或备用文本信息<br />
+        &lt;/video&gt;</code><br />
+        <table cellspacing="0">
+            <tr>
+                <th>名称</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>src</td>
+                <td>视频来源的URL</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>用于指定视频的类型，帮助浏览器决定它是否能播放该视频，该属性的值反映的是视频的格式，即编解码器（如 video/mp4、 video/webm、video/ogg）</td>
+            </tr>
+            <tr>
+                <td>media</td>
+                <td>用于为视频来源指定CSS3媒体查询，从而可以为具有不同屏幕尺寸的设备指定不同的（如更小的）视频</td>
+            </tr>
+        </table>
+    </p>
 
-<video width="369" height="208" controls="controls" poster="paddle-steamer-poster.jpg" preload="metadata">
-  <source src="paddle-steamer.mp4" type="video/mp4" />
-  <source src="paddle-steamer.webm" type="video/webm" />
-  <p><a href="paddle-steamer.mp4">Download the video</a></p>
-</video>
+    <video width="369" height="208" controls="controls" poster="img/paddle-steamer-poster.jpg" preload="metadata">
+        <source src="img/paddle-steamer.mp4" type="video/mp4" />
+        <source src="img/paddle-steamer.webm" type="video/webm" />
+        <p><a href="img/paddle-steamer.mp4">Download the video</a></p>
+    </video>
 
-<h3>音频文件格式</h3>
-<p>
-HTML5支持的音频文件格式有：Ogg Vorbis使用的文件扩展名为.ogg、 MP3使用的文件扩展名为.mp3、 WAV使用的文件扩展名为.wav、 AAC使用的文件扩展名为.aac、 MP4使用的文件扩展名为.mp4、 Opus使用的文件扩展名是.opus<br />
-对于音频，最好使用格式Ogg Vorbis和MP3确保获得所有兼容HTML5的浏览器的支持<br />
-</p>
+    <h3>音频文件格式</h3>
+    <p>
+        HTML5支持的音频文件格式有：Ogg Vorbis使用的文件扩展名为.ogg、 MP3使用的文件扩展名为.mp3、 WAV使用的文件扩展名为.wav、 AAC使用的文件扩展名为.aac、 MP4使用的文件扩展名为.mp4、 Opus使用的文件扩展名是.opus<br />
+        对于音频，最好使用格式Ogg Vorbis和MP3确保获得所有兼容HTML5的浏览器的支持<br />
+    </p>
 
-<h3>在网页中添加带控件的单个音频文件</h3>
-<p>
-步骤：<code>&lt;audio src=&quot;my-audio.ext&quot; controls=&quot;controls&quot;&gt;&lt;/audio&gt;</code>这里my-audio.ext是音频文件的位置、名称和扩展名<br />
-如果省略了controls属性，音频文件不可见，所以什么都不会显示<br />
-<table cellspacing="0">
-  <caption>音频属性</caption>
-  <tr>
-    <th>名称</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td>src(源)</td>
-    <td>指定音频文件的URL</td>
-  </tr>
-  <tr>
-    <td>autoplay(自动播放)</td>
-    <td>当音频可以播放时立即开始播放</td>
-  </tr>
-  <tr>
-    <td>controls(控件)</td>
-    <td>添加浏览器为音频设置的默认控件</td>
-  </tr>
-  <tr>
-    <td>muted(静音)</td>
-    <td>让音频静音</td>
-  </tr>
-  <tr>
-    <td>loop(循环)</td>
-    <td>让音频循环播放</td>
-  </tr>
-  <tr>
-    <td>preload(预加载)</td>
-    <td>告诉浏览器要加载的音频内容的多少，值可以是：none表示不加载任何音频、metadata表示仅加载音频的元数据（如长度）、auto表示让浏览器决定怎样做（默认值）</td>
-  </tr>
-</table>
-</p>
+    <h3>在网页中添加带控件的单个音频文件</h3>
+    <p>
+        步骤：<code>&lt;audio src=&quot;my-audio.ext&quot; controls=&quot;controls&quot;&gt;&lt;/audio&gt;</code>这里my-audio.ext是音频文件的位置、名称和扩展名<br />
+        如果省略了controls属性，音频文件不可见，所以什么都不会显示<br />
+        <table cellspacing="0">
+            <caption>音频属性</caption>
+            <tr>
+                <th>名称</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>src(源)</td>
+                <td>指定音频文件的URL</td>
+            </tr>
+              <tr>
+                <td>autoplay(自动播放)</td>
+                <td>当音频可以播放时立即开始播放</td>
+            </tr>
+            <tr>
+                <td>controls(控件)</td>
+                <td>添加浏览器为音频设置的默认控件</td>
+            </tr>
+            <tr>
+                <td>muted(静音)</td>
+                <td>让音频静音</td>
+            </tr>
+            <tr>
+                <td>loop(循环)</td>
+                <td>让音频循环播放</td>
+            </tr>
+            <tr>
+                <td>preload(预加载)</td>
+                <td>告诉浏览器要加载的音频内容的多少，值可以是：none表示不加载任何音频、metadata表示仅加载音频的元数据（如长度）、auto表示让浏览器决定怎样做（默认值）</td>
+            </tr>
+        </table>
+    </p>
 
-<h3>自动播放、循环和预加载</h3>
-<p>
-1.为音频文件添加控件并让其自动播放：<code>&lt;audio src=&quot;my-audio.ext&quot; controls=&quot;controls&quot; autoplay=&quot;autoplay&quot;&gt;&lt;/audio&gt;</code><br />
-如果省略了controls属性，音频文件会自动播放，但不会显示在浏览器页面上<br />
-2.让音频文件循环播放：在audio标签中添加属性loop=&quot;loop&quot;<br />
-3.让浏览器仅预加载音频元数据：在audio标签中添加属性preload=&quot;metadata&quot;<br />
-如果audio元素包含了autoplay，会覆盖preload属性的设置，因为只有加载音频文件才能播放<br />
-preload属性的值不会影响浏览器的行为，它只影响请求<br />
-</p>
+    <h3>自动播放、循环和预加载</h3>
+    <p>
+        1.为音频文件添加控件并让其自动播放：<code>&lt;audio src=&quot;my-audio.ext&quot; controls=&quot;controls&quot; autoplay=&quot;autoplay&quot;&gt;&lt;/audio&gt;</code><br />
+        如果省略了controls属性，音频文件会自动播放，但不会显示在浏览器页面上<br />
+        2.让音频文件循环播放：在audio标签中添加属性loop=&quot;loop&quot;<br />
+        3.让浏览器仅预加载音频元数据：在audio标签中添加属性preload=&quot;metadata&quot;<br />
+        如果audio元素包含了autoplay，会覆盖preload属性的设置，因为只有加载音频文件才能播放<br />
+        preload属性的值不会影响浏览器的行为，它只影响请求<br />
+    </p>
 
-<h3>提供带备用内容的多个视频源</h3>
-<p>
-步骤：<br />
-<code>&lt;audio controls=&quot;controls&quot;&gt;<br />
-&lt;source src=&quot;my-audio.ogg&quot; type=&quot;audio/ogg&quot; /&gt;<br />
-&lt;source src=&quot;my-audio.mp3&quot; type=&quot;audio/mp3&quot; /&gt;<br />
-可选步骤（推荐有），对于不支持HTML5音频元素的浏览器创建备用内容或音频下载链接<br />
-&lt;/audio&gt;</code><br />
-浏览器会忽略它不支持的音频格式，只显示第一个它支持的音频格式<br />
-type属性可以帮助浏览器判断它是否能播放某个文件，对音频文件来说，其值总是audio/加上格式本身，包括：audio/ogg、 audio/mp3、 audio/aac、 audio/wav和audio/mp4<br />
-</p>
+    <h3>提供带备用内容的多个视频源</h3>
+    <p>
+        步骤：<br />
+        <code>&lt;audio controls=&quot;controls&quot;&gt;<br />
+        &lt;source src=&quot;my-audio.ogg&quot; type=&quot;audio/ogg&quot; /&gt;<br />
+        &lt;source src=&quot;my-audio.mp3&quot; type=&quot;audio/mp3&quot; /&gt;<br />
+        可选步骤（推荐有），对于不支持HTML5音频元素的浏览器创建备用内容或音频下载链接<br />
+        &lt;/audio&gt;</code><br />
+        浏览器会忽略它不支持的音频格式，只显示第一个它支持的音频格式<br />
+        type属性可以帮助浏览器判断它是否能播放某个文件，对音频文件来说，其值总是audio/加上格式本身，包括：audio/ogg、 audio/mp3、 audio/aac、 audio/wav和audio/mp4<br />
+    </p>
 
-<audio controls="controls" preload="metadata">
-  <source src="piano.ogg" />
-  <source src="piano.mp3" />
-  <p>Your browser doesn't support HTML5 audio, but you can <a href="piano.mp3">download the audio file</a>(MP3, 1.3MB)</p>
-</audio>
+    <audio controls="controls" preload="metadata">
+        <source src="img/piano.ogg" />
+        <source src="img/piano.mp3" />
+        <p>Your browser doesn't support HTML5 audio, but you can <a href="img/piano.mp3">download the audio file</a>(MP3, 1.3MB)</p>
+    </audio>
 
-<h3>添加具有备用Flash的视频和音频</h3>
-<p>
-除了可以提供下载链接作为备用方案，还可以嵌入一个能播放MP4视频文件的Flash备用播放器<br />
-步骤：<br />
-1.访问http://mediaelementjs.com下载ZIP包，将里面的build文件夹粘贴到网站的文件夹中<br />
-2.在head里添加<code><br />
-&lt;script src=&quot;build/jquery.js&quot;&gt;&lt;/script&gt;<br />
-&lt;script src=&quot;build/mediaelement-and-player.min.js&quot;&gt;&lt;/script&gt;<br />
-&lt;link rel=&quot;stylesheet&quot; href=&quot;build/mediaelementplayer.min.css&quot; /&gt;</code><br />
-3.在&lt;/body&gt;前添加<br />
-<code>&lt;script&gt;<br />
-$('audio,video').mediaelementplayer();<br />
-&lt;/script&gt;</code><br />
-这样之后，无论使用哪种浏览器，无论是否针对不支持HTML5视频的浏览器使用Flash版本，视频和音频的播放控件看起来都是一样的<br />
-</p>
+    <h3>添加具有备用Flash的视频和音频</h3>
+    <p>
+        除了可以提供下载链接作为备用方案，还可以嵌入一个能播放MP4视频文件的Flash备用播放器<br />
+        步骤：<br />
+        1.访问http://mediaelementjs.com下载ZIP包，将里面的build文件夹粘贴到网站的文件夹中<br />
+        2.在head里添加<code><br />
+        &lt;script src=&quot;build/jquery.js&quot;&gt;&lt;/script&gt;<br />
+        &lt;script src=&quot;build/mediaelement-and-player.min.js&quot;&gt;&lt;/script&gt;<br />
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;build/mediaelementplayer.min.css&quot; /&gt;</code><br />
+        3.在&lt;/body&gt;前添加<br />
+        <code>&lt;script&gt;<br />
+        $('audio,video').mediaelementplayer();<br />
+        &lt;/script&gt;</code><br />
+        这样之后，无论使用哪种浏览器，无论是否针对不支持HTML5视频的浏览器使用Flash版本，视频和音频的播放控件看起来都是一样的<br />
+    </p>
 
-<h3>设置MIME类型</h3>
-<p>
-在有的浏览器中，如果没有设置正确的MIME类型，媒体文件就不会播放，如果你的网站运行在Apache Web服务器上，可以通过.htaccess文件设置MIME类型，它是一个文本文件，通常与主页一起位于网站的根目录<br />
-步骤：在.htaccess文件中添加如下几行（MIME类型）<br />
-<code>AddType video/ogg .ogv<br />AddType video/mp4 .mp4<br />AddType video/webm .webm<br />AddType audio/ogg .ogg<br />AddType audio/mp3 .mp3</code><br />
-如果你的网站已拥有该文件，可以从Web服务器上下载下来，添加上述MIME类型，再上传到服务器上，如果没有，可以重新创建一个<br />
-</p>
+    <h3>设置MIME类型</h3>
+    <p>
+        在有的浏览器中，如果没有设置正确的MIME类型，媒体文件就不会播放，如果你的网站运行在Apache Web服务器上，可以通过.htaccess文件设置MIME类型，它是一个文本文件，通常与主页一起位于网站的根目录<br />
+        步骤：在.htaccess文件中添加如下几行（MIME类型）<br />
+        <code>AddType video/ogg .ogv<br />AddType video/mp4 .mp4<br />AddType video/webm .webm<br />AddType audio/ogg .ogg<br />AddType audio/mp3 .mp3</code><br />
+        如果你的网站已拥有该文件，可以从Web服务器上下载下来，添加上述MIME类型，再上传到服务器上，如果没有，可以重新创建一个<br />
+    </p>
+    <footer role="contentinfo" class="footer">
+        <p><small>&copy;2017&nbsp;阿明&nbsp;浙ICP备17003356号</small></p>
+    </footer>
 
-<!--
-<script>
-$('audio,video').mediaelementplayer();
-</script>
--->
+    <!--
+    <script>
+    $('audio,video').mediaelementplayer();
+    </script>
+    -->
 </body>
 </html>

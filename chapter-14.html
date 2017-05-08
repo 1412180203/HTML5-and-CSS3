@@ -1,326 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>chapter-14</title>
-  <script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
-  <style>
-    .div1,
-	.div2,
-	.div3,
-	.div4 {
-		width:10em;
-		height:10em;
-		border:0.25em solid;
-		background-color:#FF3;
-		float:left;
-		margin-right:1em;
-	}
-    .div1 {
-		border-color:#00F;
-		-webkit-border-radius:1em;
-		border-radius:1em;
-	}
-	.div2 {
-		border-color:#F00;
-		-webkit-border-top-left-radius:4em;
-		border-top-left-radius:4em;
-	}
-	.div3 {
-		border-color:#900;
-		-webkit-border-radius:4em/1.5em;
-		border-radius:4em/1.5em;
-	}
-	.div4 {
-		border-color:#0F0;
-		-webkit-border-radius:5em;
-		border-radius:5em;
-	}
-	.clear {
-		clear:left;
-	}
-	/*--------------------------------*/
-	.textshadow1 {
-		text-shadow:0.25em -0.25em 0.125em #333;
-	}
-	.textshadow2 {
-		text-shadow:0.03em 0.03em #F00, -0.03em -0.03em #00F;
-	}
-	.textshadow3 {
-		text-shadow:none;
-	}
-	/*--------------------------------*/
-	.boxshadow1 {
-		box-shadow:0.25em -0.25em 0.2em 0.3em #333; 
-	}
-	.boxshadow2 {
-		box-shadow:inset 0.25em -0.25em 0.2em 0.2em #000; 
-	}
-	.boxshadow3 {
-		box-shadow:0.1em -0.2em 0.1em 0.1em #333, inset 0.25em -0.25em 0.1em -0.1em #000;
-		border:none;
-	}
-	.boxshadow4 {
-		box-shadow:none;
-	}
-	/*--------------------------------*/
-	.background {
-		background-color:#000;
-		background-image:url(ufo.png), url(stars.png), url(sky.png);
-		background-position:right top, top, bottom;
-		background-repeat:no-repeat, repeat-x, repeat-x;
-		background-size:200px 200px, 250px 250px, 150px 150px;
-		width:40em;
-		height:20em;
-		border-radius:1.5em;
-		box-shadow:0 0 0.2em 0.1em #00F;
-	}
-	/*--------------------------------*/
-	.line1,
-	.line2,
-	.line3,
-	.line4 {
-		width:10em;
-		height:10em;
-		float:left;
-		margin:0 1em;
-		background-color:#0FF;
-	}
-	.line1 {
-		background:-webkit-linear-gradient(to bottom left, #906, #F60);
-		background:linear-gradient(to bottom left, #906, #F60);
-	}
-	.line2 {
-		background:linear-gradient(135deg, #F00, #FF8000, #FF0, #0F0, #00F, #0FF, #F0F);
-	}
-	.line3 {
-		background:radial-gradient(ellipse 80% 60%, #00F, #FF0);
-	}
-	.line4 {
-		background:linear-gradient(to top, #000 .2em, transparent 0.2em),radial-gradient(5em 5em at 65% 70%, yellow, lime, #00C, #F0F);
-	}
-	.paper {
-		width:10em;
-		background-color:#fff; 
-		background-image:linear-gradient(to top, #7F7F7F .1em, transparent 0.1em);
-		background-size:100% 1em;
-		border:1px #000 solid;
-		border-radius:1.5em;
-		padding:0 0.25em;
-		box-shadow:1px -1px 1px 1px #333;
-	}
-	.paper p{
-		text-indent:2em;
-	}
-	/*--------------------------------*/
-	.opacity {
-		opacity:1;
-	}
-	.opacity:hover {
-		opacity:0.5;
-	}
-	/*--------------------------------*/
-	.more:after {
-		content:" »";
-	}
-	.arrow_box {
-		max-width:250px;
-		display:inline-block;
-		padding:5px;
-		position:relative;
-		background:#CDD7E2;
-		border-radius:10px;
-		border:1px solid #464646;
-	}
-	.arrow_box:before,
-	.arrow_box:after{
-		content:"";
-		position:absolute;
-		left:100%;
-		top:50%;
-		border:solid transparent;
-	}
-	.arrow_box:before{
-		border-width:8px;/*三角形大小+0.414(倍根号2减1)*矩形边框大小，保留整数*/
-		border-left-color:#464646;
-		margin-left:1px;
-		margin-top:-8px;
-	}
-	.arrow_box:after {
-		border-width:8px;
-		border-left-color:#CDD7E2;
-		margin-left:-1px;
-		margin-top:-8px;
-	}
-	/*--------------------------------*/
-	a {
-		color: #1162a4;
-		text-decoration:none;
-	}
-	a:hover {
-		text-decoration:underline;
-	}
-	.documents {
-		list-style:none;
-		margin-top:0;
-		margin-left:0;
-		padding-left:0;
-	}
-	.documents li {
-		margin-top:.45em;
-	}
-	.icon {
-		display:inline-block;
-		line-height:1.1;
-		min-height:16px;
-		padding-left:23px;
-		padding-top:2px;
-		position:relative;
-	}
-	.icon:before {
-		content:"";
-		display:block;
-		background-image:url(sprite.png);
-		width:16px;
-		height:16px;
-		position:absolute;
-		left:0;
-		top:0;
-	}
-	a[href$=".xls"]:before {
-		background-position: -17px 0;
-	}
-	a[href$=".docx"]:before {
-		background-position: -34px 0;
-	}
-  </style>
+    <meta charset="utf-8" />
+    <title>chapter-14</title>
+    <script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <style>
+	    .div1,
+		.div2,
+		.div3,
+		.div4 {
+			width:10em;
+			height:10em;
+			border:0.25em solid;
+			background-color:#FF3;
+			float:left;
+			margin-right:1em;
+		}
+	    .div1 {
+			border-color:#00F;
+			-webkit-border-radius:1em;
+			border-radius:1em;
+		}
+		.div2 {
+			border-color:#F00;
+			-webkit-border-top-left-radius:4em;
+			border-top-left-radius:4em;
+		}
+		.div3 {
+			border-color:#900;
+			-webkit-border-radius:4em/1.5em;
+			border-radius:4em/1.5em;
+		}
+		.div4 {
+			border-color:#0F0;
+			-webkit-border-radius:5em;
+			border-radius:5em;
+		}
+		.clear {
+			clear:left;
+		}
+		/*--------------------------------*/
+		.textshadow1 {
+			text-shadow:0.25em -0.25em 0.125em #333;
+		}
+		.textshadow2 {
+			text-shadow:0.03em 0.03em #F00, -0.03em -0.03em #00F;
+		}
+		.textshadow3 {
+			text-shadow:none;
+		}
+		/*--------------------------------*/
+		.boxshadow1 {
+			box-shadow:0.25em -0.25em 0.2em 0.3em #333; 
+		}
+		.boxshadow2 {
+			box-shadow:inset 0.25em -0.25em 0.2em 0.2em #000; 
+		}
+		.boxshadow3 {
+			box-shadow:0.1em -0.2em 0.1em 0.1em #333, inset 0.25em -0.25em 0.1em -0.1em #000;
+			border:none;
+		}
+		.boxshadow4 {
+			box-shadow:none;
+		}
+		/*--------------------------------*/
+		.background {
+			background-color:#000;
+			background-image:url(img/ufo.png), url(img/stars.png), url(img/sky.png);
+			background-position:right top, top, bottom;
+			background-repeat:no-repeat, repeat-x, repeat-x;
+			background-size:200px 200px, 250px 250px, 150px 150px;
+			width:40em;
+			height:20em;
+			border-radius:1.5em;
+			box-shadow:0 0 0.2em 0.1em #00F;
+		}
+		/*--------------------------------*/
+		.line1,
+		.line2,
+		.line3,
+		.line4 {
+			width:10em;
+			height:10em;
+			float:left;
+			margin:0 1em;
+			background-color:#0FF;
+		}
+		.line1 {
+			background:-webkit-linear-gradient(to bottom left, #906, #F60);
+			background:linear-gradient(to bottom left, #906, #F60);
+		}
+		.line2 {
+			background:linear-gradient(135deg, #F00, #FF8000, #FF0, #0F0, #00F, #0FF, #F0F);
+		}
+		.line3 {
+			background:radial-gradient(ellipse 80% 60%, #00F, #FF0);
+		}
+		.line4 {
+			background:linear-gradient(to top, #000 .2em, transparent 0.2em),radial-gradient(5em 5em at 65% 70%, yellow, lime, #00C, #F0F);
+		}
+		.paper {
+			width:10em;
+			background-color:#fff; 
+			background-image:linear-gradient(to top, #7F7F7F .1em, transparent 0.1em);
+			background-size:100% 1em;
+			border:1px #000 solid;
+			border-radius:1.5em;
+			padding:0 0.25em;
+			box-shadow:1px -1px 1px 1px #333;
+		}
+		.paper p{
+			text-indent:2em;
+		}
+		/*--------------------------------*/
+		.opacity {
+			opacity:1;
+		}
+		.opacity:hover {
+			opacity:0.5;
+		}
+		/*--------------------------------*/
+		.more:after {
+			content:" »";
+		}
+		.arrow_box {
+			max-width:250px;
+			display:inline-block;
+			padding:5px;
+			position:relative;
+			background:#CDD7E2;
+			border-radius:10px;
+			border:1px solid #464646;
+		}
+		.arrow_box:before,
+		.arrow_box:after{
+			content:"";
+			position:absolute;
+			left:100%;
+			top:50%;
+			border:solid transparent;
+		}
+		.arrow_box:before{
+			border-width:8px;/*三角形大小+0.414(倍根号2减1)*矩形边框大小，保留整数*/
+			border-left-color:#464646;
+			margin-left:1px;
+			margin-top:-8px;
+		}
+		.arrow_box:after {
+			border-width:8px;
+			border-left-color:#CDD7E2;
+			margin-left:-1px;
+			margin-top:-8px;
+		}
+		/*--------------------------------*/
+		a {
+			color: #1162a4;
+			text-decoration:none;
+		}
+		a:hover {
+			text-decoration:underline;
+		}
+		.documents {
+			list-style:none;
+			margin-top:0;
+			margin-left:0;
+			padding-left:0;
+		}
+		.documents li {
+			margin-top:.45em;
+		}
+		.icon {
+			display:inline-block;
+			line-height:1.1;
+			min-height:16px;
+			padding-left:23px;
+			padding-top:2px;
+			position:relative;
+		}
+		.icon:before {
+			content:"";
+			display:block;
+			background-image:url(img/sprite.png);
+			width:16px;
+			height:16px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		a[href$=".xls"]:before {
+			background-position: -17px 0;
+		}
+		a[href$=".docx"]:before {
+			background-position: -34px 0;
+		}
+        .footer {
+            margin-top:2em;
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
-<h1 style="text-align:center;">第14章 使用CSS3进行增强</h1>
+	<h1 style="text-align:center;">第14章 使用CSS3进行增强</h1>
 
-<h3>理解厂商前缀</h3>
-<p>
-有时候需要使用前缀来支持旧版本的浏览器，比如<code>-webkit-border-radius:10px;</code>，前缀-webkit支持旧版本的Android、IOS和Safari浏览器<br />
-新版本的浏览器不需要使用前缀，直接使用属性就可以了，下面是一些主流浏览器的前缀：<br />
--webkit- (WebKit/Safari/旧版本的Chrome)、 -moz- (Firefox)、 -ms- (Internet Explorer)、 -o-(Opera)<br />
-在多数情况下，我们一般只需要 -webkit- 前缀<br />
-并非所有的 CSS3 属性都需要使用为浏览器准备的前缀，如text-shadow和opacity<br />
-</p>
+	<h3>理解厂商前缀</h3>
+	<p>
+		有时候需要使用前缀来支持旧版本的浏览器，比如<code>-webkit-border-radius:10px;</code>，前缀-webkit支持旧版本的Android、IOS和Safari浏览器<br />
+		新版本的浏览器不需要使用前缀，直接使用属性就可以了，下面是一些主流浏览器的前缀：<br />
+		-webkit- (WebKit/Safari/旧版本的Chrome)、 -moz- (Firefox)、 -ms- (Internet Explorer)、 -o-(Opera)<br />
+		在多数情况下，我们一般只需要 -webkit- 前缀<br />
+		并非所有的 CSS3 属性都需要使用为浏览器准备的前缀，如text-shadow和opacity<br />
+	</p>
 
-<h3>为元素创建圆角</h3>
-<p>
-1.为元素创建四个相同的圆角：<code>border-radius:r;</code>这里r是圆角的半径大小<br />
-2.为元素创建一个圆角：<code>border-x-y:r;</code>这里x可以是top和bottom表示上下，y可以是left和right表示左右，r是圆角的半径大小<br />
-3.创建椭圆形圆角：<code>border:radius:x/y;</code>这里x是圆角在水平方向上的半径大小，y是圆角在垂直方向上的半径大小<br />
-4.使用<code>border-radius</code>创建圆形：<code>border-radius:r;</code>这里r是元素的半径大小(带长度单位)，r的值应该等于元素高度或宽度的一半<br />
-border-radius属性是不继承的，不支持border-radius的旧浏览器仅会以方角呈现元素<br />
-border-radius 仅影响施加该样式的元素的角，不会影响其子元素的角,因此，如果一个子元素有背景，该背景就有可能显示在一个或多个父元素的角的位置，从而影响圆角样式<br />
-有时元素的背景（这里讲的不是子元素的背景）会透过其圆角，为了避免这种情况，可以在元素的border-radius声明后面增加一条样式规则：<code>background-clip:padding-box;</code><br />
-这里background-clip属性规定背景的绘制区域，属性值可以是border-box背景被裁剪到边框盒、padding-box背景被裁剪到内边距框、content-box背景被裁剪到内容框<br />
-</p>
-<div class="div1 boxshadow1"></div> <div class="div2 boxshadow2"></div> <div class="div3 boxshadow3"></div> <div class="div4 boxshadow4"></div>
-<br class="clear" />
+	<h3>为元素创建圆角</h3>
+	<p>
+		1.为元素创建四个相同的圆角：<code>border-radius:r;</code>这里r是圆角的半径大小<br />
+		2.为元素创建一个圆角：<code>border-x-y:r;</code>这里x可以是top和bottom表示上下，y可以是left和right表示左右，r是圆角的半径大小<br />
+		3.创建椭圆形圆角：<code>border:radius:x/y;</code>这里x是圆角在水平方向上的半径大小，y是圆角在垂直方向上的半径大小<br />
+		4.使用<code>border-radius</code>创建圆形：<code>border-radius:r;</code>这里r是元素的半径大小(带长度单位)，r的值应该等于元素高度或宽度的一半<br />
+		border-radius属性是不继承的，不支持border-radius的旧浏览器仅会以方角呈现元素<br />
+		border-radius 仅影响施加该样式的元素的角，不会影响其子元素的角,因此，如果一个子元素有背景，该背景就有可能显示在一个或多个父元素的角的位置，从而影响圆角样式<br />
+		有时元素的背景（这里讲的不是子元素的背景）会透过其圆角，为了避免这种情况，可以在元素的border-radius声明后面增加一条样式规则：<code>background-clip:padding-box;</code><br />
+		这里background-clip属性规定背景的绘制区域，属性值可以是border-box背景被裁剪到边框盒、padding-box背景被裁剪到内边距框、content-box背景被裁剪到内容框<br />
+	</p>
+	<div class="div1 boxshadow1"></div> <div class="div2 boxshadow2"></div> <div class="div3 boxshadow3"></div> <div class="div4 boxshadow4"></div>
+	<br class="clear" />
 
-<h3>为文本添加阴影</h3>
-<p>
-<span class="textshadow1">1.为元素的文本添加阴影：<code>text:shadow:x-offset y-offset blur-radius color;</code>这里x-offset表示水平偏移量、y-offset表示垂直偏移量、blur-radius表示模糊半径、color表示颜色</span><br />
-<span class="textshadow2">2.为元素的文本添加多重阴影：<code>text-shadow:x-offset y-offset blur-radius color, x-offset y-offset blur-radius color</code>这里blur-radius的值是可选的，用逗号对多个的阴影样式分隔</span><br />
-<span class="textshadow3">3.将text-shadow改回默认值：<code>text-shadow:none;</code></span><br />
-x-offset和y-offset值可以是正的，也可以是负的，blur-radius必须是正的，如果不指定blur-radius，则默认为0<br />
-text-shadow属性不需要使用厂商前缀，text-shadow属性是继承的，如果不对text-shadow的值进行设置，默认为none<br />
-</p>
+	<h3>为文本添加阴影</h3>
+	<p>
+		<span class="textshadow1">1.为元素的文本添加阴影：<code>text:shadow:x-offset y-offset blur-radius color;</code>这里x-offset表示水平偏移量、y-offset表示垂直偏移量、blur-radius表示模糊半径、color表示颜色</span><br />
+		<span class="textshadow2">2.为元素的文本添加多重阴影：<code>text-shadow:x-offset y-offset blur-radius color, x-offset y-offset blur-radius color</code>这里blur-radius的值是可选的，用逗号对多个的阴影样式分隔</span><br />
+		<span class="textshadow3">3.将text-shadow改回默认值：<code>text-shadow:none;</code></span><br />
+		x-offset和y-offset值可以是正的，也可以是负的，blur-radius必须是正的，如果不指定blur-radius，则默认为0<br />
+		text-shadow属性不需要使用厂商前缀，text-shadow属性是继承的，如果不对text-shadow的值进行设置，默认为none<br />
+	</p>
 
-<h3>为其他元素添加阴影</h3>
-<p>
-可以使用box-shadow属性为元素本身添加阴影，box-shadow需要厂商前缀，不理解box-shadow的浏览器会忽略这些CSS样式规则，程序没有阴影的页面<br />
-box-shadow属性接受6个值：带长度单位的x-offset和y-offset、可选的带长度单位的blur-radius、可选的inset关键字、可选的带长度单位的spread值、color值<br />
-如果不指定blur-radius和spread的值，则默认为0，负的spread值会让阴影在元素内进行收缩，让整个阴影比应用样式的元素小一些<br />
-1.为元素添加阴影：<code>(-webkit-)box-shadow:x-offset y-offset blur-radius spread color;</code>括号是可选的，前4个值都是带长度单位的<br />
-2.创建内阴影：<code>(-webkit-)box-shadow:inset x-offset y-offset blur-radius spread color;</code>这里inset关键字可以让阴影位于元素内部<br />
-3.为元素应用多重阴影：<code>(-webkit-)box-shadow:value, value;</code>这里value表示x-offset y-offset blur-radius spread color，多个value用逗号分隔<br />
-4.将box-shadow改回默认值：<code>(-webkit-)box-shadow:none;</code><br />
-box-shadow属性是不继承的，如果不设置属性值，默认none
-</p>
+	<h3>为其他元素添加阴影</h3>
+	<p>
+		可以使用box-shadow属性为元素本身添加阴影，box-shadow需要厂商前缀，不理解box-shadow的浏览器会忽略这些CSS样式规则，程序没有阴影的页面<br />
+		box-shadow属性接受6个值：带长度单位的x-offset和y-offset、可选的带长度单位的blur-radius、可选的inset关键字、可选的带长度单位的spread值、color值<br />
+		如果不指定blur-radius和spread的值，则默认为0，负的spread值会让阴影在元素内进行收缩，让整个阴影比应用样式的元素小一些<br />
+		1.为元素添加阴影：<code>(-webkit-)box-shadow:x-offset y-offset blur-radius spread color;</code>括号是可选的，前4个值都是带长度单位的<br />
+		2.创建内阴影：<code>(-webkit-)box-shadow:inset x-offset y-offset blur-radius spread color;</code>这里inset关键字可以让阴影位于元素内部<br />
+		3.为元素应用多重阴影：<code>(-webkit-)box-shadow:value, value;</code>这里value表示x-offset y-offset blur-radius spread color，多个value用逗号分隔<br />
+		4.将box-shadow改回默认值：<code>(-webkit-)box-shadow:none;</code><br />
+		box-shadow属性是不继承的，如果不设置属性值，默认none
+	</p>
 
-<h3>应用多重背景</h3>
-<p>
-为单个HTML元素指定多个背景是CSS3引入的一个特性，步骤如下：<br />
-1.输入：<code>background-color:b;</code>这里的b是希望为元素应用的备用背景颜色<br />
-2.输入：<code>background-image:u;</code>这里的u是绝对或相对路径图像引用的URL列表，用逗号分隔，图像是分层次重叠在一起的，列表中的第一个图像位于顶部<br />
-3.输入：<code>background-position:p;</code>这里的p是成对的x-offset和y-offset，对应2中的URL，可正负，带长度单位，也可以是关键字如center、top，用逗号分隔<br />
-4.输入：<code>background-repeat:r;</code>这里的r是repeat-x、repeat-y或no-repeat值，对应2中的URL，用逗号分隔<br />
-</p>
-<div class="background"></div>
+	<h3>应用多重背景</h3>
+	<p>
+		为单个HTML元素指定多个背景是CSS3引入的一个特性，步骤如下：<br />
+		1.输入：<code>background-color:b;</code>这里的b是希望为元素应用的备用背景颜色<br />
+		2.输入：<code>background-image:u;</code>这里的u是绝对或相对路径图像引用的URL列表，用逗号分隔，图像是分层次重叠在一起的，列表中的第一个图像位于顶部<br />
+		3.输入：<code>background-position:p;</code>这里的p是成对的x-offset和y-offset，对应2中的URL，可正负，带长度单位，也可以是关键字如center、top，用逗号分隔<br />
+		4.输入：<code>background-repeat:r;</code>这里的r是repeat-x、repeat-y或no-repeat值，对应2中的URL，用逗号分隔<br />
+	</p>
+	<div class="background"></div>
 
-<h3>使用渐变背景</h3>
-<p>
-<strong>1.创建备用背景颜色：<code>background:color;或background-color:color;</code>这里color表示颜色，另外也可以使用图像</strong><br />
-<strong>2.定义线性渐变：<code>background:line-gradient(direction, "指定颜色"或"指定颜色和颜色的停止位置");</code></strong></code><br />
-这里direction表示渐变的方向，可以是：<br />
-(1)to bottom(默认)、 to top、 to right、 to left、 to bottom right、 to bottom left、 to top right、 to top left这样的值<br />
-(2)xdeg，比如0deg表示to top、45deg表示to top right表示渐变的角度<br />
-<strong>3.定义径向渐变：<code>background:radial-gradient(shape size pos, "指定颜色"或"指定颜色和颜色的停止位置");</code></strong></code><br />
-这里shape表示渐变的形状，可以是：circle或ellipse分别表示圆形或椭圆形，是可选的<br />
-这里size表示渐变的尺寸，可以跳过（默认farthest-corner，最远角），这里size可以是：<br />
-(1)同时代表渐变宽度和高度的一个长度值（如200px、7em，不能是百分数），也可以是代表宽度和高度的一对值（如390px 175px或60% 85%）<br />
-(2)size，可以是closest-side、 farthest-side、 closest-corner、 farthest-corner，这些关键字代表相对于渐变的中心，渐变可以伸展到多大的空间<br />
-这里pos表示渐变的位置，可以跳过（默认渐变从元素的中心开始），这里pos可以是：<br />
-(1)at top、 at right、 at left、 at bottem right、 at bottem left、 at top right、 at top left等表示渐变中心位置的值<br />
-(2)表示渐变中心位置的一对坐标，并以at开头，如：at 200px 43px、 at 33% 75%等，仅指定一对<br />
-<strong>4.指定颜色</strong><br />
-输入至少两种颜色，每个颜色之间用逗号分隔，指定的第一个颜色出现在渐变的开始位置，最后一个颜色出现在渐变的结束位置,对于径向渐变，它们分别为最里边的颜色和最外边的颜色<br />
-<strong>5.指定颜色和颜色的停止位置</strong><br />
-根据“指定颜色”中的说明进行操作，如果需要，对每个颜色值指定一个百分数以控制颜色出现在渐变中的位置，这个值可以是负数，也可以是大于100%的数<br />
-渐变具有很强的通用性，可以为一个背景定义多个渐变，每个定义之间使用逗号分隔，通过定义多个渐变，可以创造出很多有趣的效果<br />
-<mark>http://lea.verou.me/css3patterns/</mark>这个网站上有一些渐变的例子可以参考<br />
-可以通过指定background-color或background-image为不支持渐变的浏览器提供后备方案，不过要记住的是，无论浏览器是否使用CSS中的图像，这些图像都会被下载<br />
-</p>
-<div class="line1"></div> <div class="line2"></div> <div class="line3"></div> <div class="line4"></div>
-<br class="clear" /><br />
-<div class="paper"><p>这是一句话这是一句话这是一句话这是一句话这是一句话这是一句话这是一句话</p></div>
+	<h3>使用渐变背景</h3>
+	<p>
+		<strong>1.创建备用背景颜色：<code>background:color;或background-color:color;</code>这里color表示颜色，另外也可以使用图像</strong><br />
+		<strong>2.定义线性渐变：<code>background:line-gradient(direction, "指定颜色"或"指定颜色和颜色的停止位置");</code></strong></code><br />
+		这里direction表示渐变的方向，可以是：<br />
+		(1)to bottom(默认)、 to top、 to right、 to left、 to bottom right、 to bottom left、 to top right、 to top left这样的值<br />
+		(2)xdeg，比如0deg表示to top、45deg表示to top right表示渐变的角度<br />
+		<strong>3.定义径向渐变：<code>background:radial-gradient(shape size pos, "指定颜色"或"指定颜色和颜色的停止位置");</code></strong></code><br />
+		这里shape表示渐变的形状，可以是：circle或ellipse分别表示圆形或椭圆形，是可选的<br />
+		这里size表示渐变的尺寸，可以跳过（默认farthest-corner，最远角），这里size可以是：<br />
+		(1)同时代表渐变宽度和高度的一个长度值（如200px、7em，不能是百分数），也可以是代表宽度和高度的一对值（如390px 175px或60% 85%）<br />
+		(2)size，可以是closest-side、 farthest-side、 closest-corner、 farthest-corner，这些关键字代表相对于渐变的中心，渐变可以伸展到多大的空间<br />
+		这里pos表示渐变的位置，可以跳过（默认渐变从元素的中心开始），这里pos可以是：<br />
+		(1)at top、 at right、 at left、 at bottem right、 at bottem left、 at top right、 at top left等表示渐变中心位置的值<br />
+		(2)表示渐变中心位置的一对坐标，并以at开头，如：at 200px 43px、 at 33% 75%等，仅指定一对<br />
+		<strong>4.指定颜色</strong><br />
+		输入至少两种颜色，每个颜色之间用逗号分隔，指定的第一个颜色出现在渐变的开始位置，最后一个颜色出现在渐变的结束位置,对于径向渐变，它们分别为最里边的颜色和最外边的颜色<br />
+		<strong>5.指定颜色和颜色的停止位置</strong><br />
+		根据“指定颜色”中的说明进行操作，如果需要，对每个颜色值指定一个百分数以控制颜色出现在渐变中的位置，这个值可以是负数，也可以是大于100%的数<br />
+		渐变具有很强的通用性，可以为一个背景定义多个渐变，每个定义之间使用逗号分隔，通过定义多个渐变，可以创造出很多有趣的效果<br />
+		<mark>http://lea.verou.me/css3patterns/</mark>这个网站上有一些渐变的例子可以参考<br />
+		可以通过指定background-color或background-image为不支持渐变的浏览器提供后备方案，不过要记住的是，无论浏览器是否使用CSS中的图像，这些图像都会被下载<br />
+	</p>
+	<div class="line1"></div> <div class="line2"></div> <div class="line3"></div> <div class="line4"></div>
+	<br class="clear" /><br />
+	<div class="paper"><p>这是一句话这是一句话这是一句话这是一句话这是一句话这是一句话这是一句话</p></div>
 
-<h3>为元素设置不透明</h3>
-<p class="opacity">
-使用opacity属性可以修改元素（包括图像）的透明度<br />
-步骤：<code>opacity:o;</code>这里o表示元素的不透明程度（两位小数，不带单位），0表示完全透明，1表示完全不透明<br />
-opacity属性影响的是整个元素（包括其内容），使用 RGBA或HSLA设置的alpha透明背景色仅影响背景的透明度<br />
-无论显示成什么样子，opacity属性并不是继承的，opacity的值小于1的元素的子元素也会受到影响，但这些子元素的opacity值仍为1<br />
-</p>
+	<h3>为元素设置不透明</h3>
+	<p class="opacity">
+		使用opacity属性可以修改元素（包括图像）的透明度<br />
+		步骤：<code>opacity:o;</code>这里o表示元素的不透明程度（两位小数，不带单位），0表示完全透明，1表示完全不透明<br />
+		opacity属性影响的是整个元素（包括其内容），使用 RGBA或HSLA设置的alpha透明背景色仅影响背景的透明度<br />
+		无论显示成什么样子，opacity属性并不是继承的，opacity的值小于1的元素的子元素也会受到影响，但这些子元素的opacity值仍为1<br />
+	</p>
 
-<h3>生成内容的效果</h3>
-<div class="arrow_box">
-生成内容指的是通过 CSS 创建的内容，而不是由HTML生成的，可以使用:before和:after伪元素为页面添加一些设计效果，比如：<br />
-<span class="more">阅读更多</span>
-</div>
+	<h3>生成内容的效果</h3>
+	<div class="arrow_box">
+		生成内容指的是通过 CSS 创建的内容，而不是由HTML生成的，可以使用:before和:after伪元素为页面添加一些设计效果，比如：<br />
+		<span class="more">阅读更多</span>
+	</div>
 
-<h3>使用sprite拼合图像</h3>
-<p>
-浏览器通常很快就可以将文本显示出来，但图像往往会减慢页面的加载速度，在移动设备上尤为明显，可以将多个图像拼合成单个背景图像（sprite），再通过 CSS 控制具体显示图像的哪一部分，其中的秘密就是 backgroundposition 属性<br />
-步骤：<code>icon:before { content:" "; display:block; };</code>通过使用background-position将正确的图标放入正确的位置<br />
-每个sprite都可以包含尺寸不同的图像，这些图像之间的距离也可以不同，可以将它们水平排列，也可以竖直排列<br />
-使用sprite并不一定要使用:before或:after，可以将sprite背景直接用于元素本身<br />
-可以在链接或其他元素的:hover状态中修改sprite的background-position以实现翻转效果<br />
-可以创建为 Retina 显示屏或其他高像素密度显示屏准备的sprite<br />
-www.famfamfam.com/lab/icons/silk/有提供免费Silk图标
-<ul class="documents">
-  <li><a href="test.xls" class="icon">xls文档</a></li>
-  <li><a href="test.docx" class="icon">docx文档</a></li>
-  <li><a href="test.pdf" class="icon">pdf文档</a></li>
-</ul>
-</p>
+	<h3>使用sprite拼合图像</h3>
+	<p>
+		浏览器通常很快就可以将文本显示出来，但图像往往会减慢页面的加载速度，在移动设备上尤为明显，可以将多个图像拼合成单个背景图像（sprite），再通过 CSS 控制具体显示图像的哪一部分，其中的秘密就是 backgroundposition 属性<br />
+		步骤：<code>icon:before { content:" "; display:block; };</code>通过使用background-position将正确的图标放入正确的位置<br />
+		每个sprite都可以包含尺寸不同的图像，这些图像之间的距离也可以不同，可以将它们水平排列，也可以竖直排列<br />
+		使用sprite并不一定要使用:before或:after，可以将sprite背景直接用于元素本身<br />
+		可以在链接或其他元素的:hover状态中修改sprite的background-position以实现翻转效果<br />
+		可以创建为 Retina 显示屏或其他高像素密度显示屏准备的sprite<br />
+		www.famfamfam.com/lab/icons/silk/有提供免费Silk图标
+		<ul class="documents">
+		    <li><a href="test.xls" class="icon">xls文档</a></li>
+		    <li><a href="test.docx" class="icon">docx文档</a></li>
+		    <li><a href="test.pdf" class="icon">pdf文档</a></li>
+		</ul>
+	</p>
 
-<h3>更多CSS3属性</h3>
-<p>
-1.transform属性：向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜，<a href="http://www.w3school.com.cn/cssref/pr_transform.asp" class="more">详情</a><br />
-2.CSS3动画属性：通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript，<a href="http://www.w3school.com.cn/css3/css3_animation.asp" class="more">详情</a><br />
-3.CSS3过渡：通过 CSS3，我们可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果，<a href="http://www.w3school.com.cn/css3/css3_transition.asp" class="more">详情</a><br />
-4.CSS3多列：您能够创建多个列来对文本进行布局，就像报纸那样！为元素添加效果，<a href="http://www.w3school.com.cn/css3/css3_multiple_columns.asp" class="more">详情</a><br />
-5.CSS3用户界面：在 CSS3 中，新的用户界面特性包括重设元素尺寸、盒尺寸以及轮廓等，<a href="http://www.w3school.com.cn/css3/css3_user_interface.asp" class="more">详情</a><br />
-</p>
+	<h3>更多CSS3属性</h3>
+	<p>
+		1.transform属性：向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜，<a href="http://www.w3school.com.cn/cssref/pr_transform.asp" class="more">详情</a><br />
+		2.transition属性：设置过渡，<a href="http://www.w3school.com.cn/cssref/pr_transition.asp" class="more">详情</a><br />
+		3.CSS3动画属性：通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript，<a href="http://www.w3school.com.cn/css3/css3_animation.asp" class="more">详情</a><br />
+		4.CSS3过渡：通过 CSS3，我们可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果，<a href="http://www.w3school.com.cn/css3/css3_transition.asp" class="more">详情</a><br />
+		5.CSS3多列：您能够创建多个列来对文本进行布局，就像报纸那样！为元素添加效果，<a href="http://www.w3school.com.cn/css3/css3_multiple_columns.asp" class="more">详情</a><br />
+		6.CSS3用户界面：在 CSS3 中，新的用户界面特性包括重设元素尺寸、盒尺寸以及轮廓等，<a href="http://www.w3school.com.cn/css3/css3_user_interface.asp" class="more">详情</a><br />
+	</p>
+    <footer role="contentinfo" class="footer">
+        <p><small>&copy;2017&nbsp;阿明&nbsp;浙ICP备17003356号</small></p>
+    </footer>
 
-<script type="text/javascript"> 
-	$youziku.load(".paper", "262e9dfdec6b4df586bd02fc6816448a", "chenwixun-jian");
-	$youziku.draw(); 
-</script>
+	<script type="text/javascript"> 
+		$youziku.load(".paper", "262e9dfdec6b4df586bd02fc6816448a", "chenwixun-jian");
+		$youziku.draw(); 
+	</script>
 </body>
 </html>
