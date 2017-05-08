@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>chapter-13</title>
-  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-  <script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
-  <style>
-    .google {
-		font-family: 'Shadows Into Light', cursive;
-	}
-	.youziku {
-		font-size:1.5em;
-	}
-  </style>
+    <meta charset="utf-8" />
+    <title>chapter-13</title>
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <style>
+        .google {
+    		font-family: 'Shadows Into Light', cursive;
+    	}
+    	.youziku {
+    		font-size:1.5em;
+    	}
+        .footer {
+            margin-top:2em;
+            text-align:center;
+        }
+    </style>
 </head>
 
 <body>
-<h1 style="text-align:center;">第13章 使用Web字体</h1>
+    <h1 style="text-align:center;">第13章 使用Web字体</h1>
 
-<h3>什么是Web字体</h3>
-<p>
-CSS 规则 @font-face 为 Web 字体创造了可能，该样式规则允许 CSS 链接到服务器上的一种字体供网页使用<br />
-常用的Web字体文件格式：<br />
-1.内嵌 OpenType（Embedded OpenType，.eot），内嵌 OpenType 是 Microsoft的一项专有格式，它使用数字版权管理技术防止在未经许可的情况下使用字体<br />
-2.TrueType（.ttf）和 OpenType（.otf），台式机使用的标准字体文件类型，不使用数字版权管理<br />
-3.Web开放字体格式（Web Open Font Format，.woff），这种较新的标准是专为 Web 字体设计的<br />
-4.可缩放矢量图形（Scalable Vector Graphics，.svg），应避免对Web字体文件使用 SVG<br />
-使用 Web 字体，尤其是使用多种 Web 字体可能会增加页面的“重量”，对于所有这些字体来说，在它们显示到页面上之前，都需要下载到用户的计算机上，这会减慢网站加载的速度，尤其是对移动用户来说建议审慎地选择 Web 字体，如果你发现自己使用了好几个 Web 字体，就应该想办法对这些字体进行整合了<br /> 
-</p>
+    <h3>什么是Web字体</h3>
+    <p>
+        CSS 规则 @font-face 为 Web 字体创造了可能，该样式规则允许 CSS 链接到服务器上的一种字体供网页使用<br />
+        常用的Web字体文件格式：<br />
+        1.内嵌 OpenType（Embedded OpenType，.eot），内嵌 OpenType 是 Microsoft的一项专有格式，它使用数字版权管理技术防止在未经许可的情况下使用字体<br />
+        2.TrueType（.ttf）和 OpenType（.otf），台式机使用的标准字体文件类型，不使用数字版权管理<br />
+        3.Web开放字体格式（Web Open Font Format，.woff），这种较新的标准是专为 Web 字体设计的<br />
+        4.可缩放矢量图形（Scalable Vector Graphics，.svg），应避免对Web字体文件使用 SVG<br />
+        使用 Web 字体，尤其是使用多种 Web 字体可能会增加页面的“重量”，对于所有这些字体来说，在它们显示到页面上之前，都需要下载到用户的计算机上，这会减慢网站加载的速度，尤其是对移动用户来说建议审慎地选择 Web 字体，如果你发现自己使用了好几个 Web 字体，就应该想办法对这些字体进行整合了<br /> 
+    </p>
 
-<h3>在哪里能找到Web字体</h3>
-<p>
-在网站上使用 Web 字体有两种方式：自托管和 Web 字体服务<br />
-1.自托管：<br />
-自托管 Web 字体来源于你自己的服务器，就像其他的资源（如图像、 CSS 文件）一样<br />
-一些流行的自托管字体来源有：Font Squirrel（www.fontsquirrel.com） 是寻找可以自行托管的免费 Web 字体的一个流行的网站、MyFonts（http://myfonts.com）、The League of Moveable Type（www.theleagueofmoveabletype.com）（免费）、FontShop（www.fontshop.com）<br />
-2.Web字体服务：<br />
-Web 字体服务通常提供订购 Web 字体的方法，这种方式是指按月或按年支付使用字体的版权费用，而不是彻底买断字体，这些服务托管字体，为用户提供一小段代码放在其网页中，它包含了从远程服务器获取字体文件并将其显示在网站上这一过程所需的全部代码<br />
-一些流行的 Web 字体服务有：Cloud.typography （www.typography.com/cloud/welcome/）、Edge Web Fonts（www.edgefonts.com）（免费）、Fontdeck（http://fontdeck.com）、Fonts.com（www.fonts.com/web-fonts）、Fontspring.com（www.fontspring.com）、Google Fonts（www.google.com/
-fonts）（免费）、Typekit（https://typekit.com）、WebINK（www.webink.com）<br />
-在这类服务中，很多都使用JavaScript嵌入获取Web字体的代码，不过JavaScript会影响页面的性能，在Web字体呈现在页面上之前，用户必须等待JavaScript加载完成
-</p>
+    <h3>在哪里能找到Web字体</h3>
+    <p>
+        在网站上使用 Web 字体有两种方式：自托管和 Web 字体服务<br />
+        1.自托管：<br />
+        自托管 Web 字体来源于你自己的服务器，就像其他的资源（如图像、 CSS 文件）一样<br />
+        一些流行的自托管字体来源有：Font Squirrel（www.fontsquirrel.com） 是寻找可以自行托管的免费 Web 字体的一个流行的网站、MyFonts（http://myfonts.com）、The League of Moveable Type（www.theleagueofmoveabletype.com）（免费）、FontShop（www.fontshop.com）<br />
+        2.Web字体服务：<br />
+        Web 字体服务通常提供订购 Web 字体的方法，这种方式是指按月或按年支付使用字体的版权费用，而不是彻底买断字体，这些服务托管字体，为用户提供一小段代码放在其网页中，它包含了从远程服务器获取字体文件并将其显示在网站上这一过程所需的全部代码<br />
+        一些流行的 Web 字体服务有：Cloud.typography （www.typography.com/cloud/welcome/）、Edge Web Fonts（www.edgefonts.com）（免费）、Fontdeck（http://fontdeck.com）、Fonts.com（www.fonts.com/web-fonts）、Fontspring.com（www.fontspring.com）、Google Fonts（www.google.com/
+        fonts）（免费）、Typekit（https://typekit.com）、WebINK（www.webink.com）<br />
+        在这类服务中，很多都使用JavaScript嵌入获取Web字体的代码，不过JavaScript会影响页面的性能，在Web字体呈现在页面上之前，用户必须等待JavaScript加载完成
+    </p>
 
-<h3>Web字体的使用</h3>
-<p>
-1.Goole Fonts(https://fonts.google.com/):谷歌 Web 字体服务，英文，比如：<span class="google">this is a sentence</span><br />
-2.有字库(http://www.youziku.com/):中文字体，比如：<span class="youziku">这是一句话</span><br />
-3.Iconfont(http://iconfont.cn/):阿里巴巴矢量图标库，比如：<img src="search.png" width="32" />搜索<br />
-</p>
+    <h3>Web字体的使用</h3>
+    <p>
+        1.Goole Fonts(https://fonts.google.com/):谷歌 Web 字体服务，英文，比如：<span class="google">this is a sentence</span><br />
+        2.有字库(http://www.youziku.com/):中文字体，比如：<span class="youziku">这是一句话</span><br />
+        3.Iconfont(http://iconfont.cn/):阿里巴巴矢量图标库，比如：<img src="img/search.png" width="32" />搜索<br />
+    </p>
+    <footer role="contentinfo" class="footer">
+        <p><small>&copy;2017&nbsp;阿明&nbsp;浙ICP备17003356号</small></p>
+    </footer>
 
-<script type="text/javascript">
-    $youziku.load(".youziku", "302c2e97d31a43799bbdc1112da4a65b", "minijianyingbikaishu");
-    $youziku.draw();
-</script>
+    <script type="text/javascript">
+        $youziku.load(".youziku", "302c2e97d31a43799bbdc1112da4a65b", "minijianyingbikaishu");
+        $youziku.draw();
+    </script>
 </body>
 </html>

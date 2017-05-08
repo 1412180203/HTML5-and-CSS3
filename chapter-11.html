@@ -1,256 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>chapter-11</title>
-  <style>
-    .container {
-		width:30em;
-		height:3em;
-		padding:0.5em;
-		border:5px solid #000;
-	}
-	.box1,.box2 {
-		width:50%;
-		height:100%;
-		box-sizing:border-box;
-		float:left;
-	}
-	.box1 {
-		border:0.5em solid #00F;
-	}
-	.box2 {
-		border:0.5em solid #F00;
-	}
-	/*--------------------------------*/
-	.inline {
-		display:inline;
-		background-color:#0FF;
-		border:1px solid #000;
-		width:1000px;
-		height:30px;
-	}
-	.inlineblock {
-		display:inline-block;
-		background-color:#9F0;
-		border:1px solid #000;
-		width:500px;
-		height:30px;
-	}
-	/*--------------------------------*/
-	.widthmargin {
-		display:block;
-		width:900px;
-		margin:0 auto;
-	}
-	/*--------------------------------*/
-	.padding {
-		padding:0px 15px 0px;
-	}
-	/*--------------------------------*/
-	.bsnone {
-		border:3px #000 none;
-	}
-	.bsdotted {
-		border:3px #000 dotted;
-	}
-	.bsdashed {
-		border:3px #000 dashed;
-	}
-	.bssolid {
-		border:3px #000 solid;
-	}
-	.bsdouble {
-		border:3px #000 double;
-	}
-	.bsgroove {
-		border:3px #000 groove;
-	}
-	.bsridge {
-		border:3px #000 ridge;
-	}
-	.bsinset {
-		border:3px #000 inset;
-	}
-	.bsoutset {
-		border:3px #000 outset;
-	}
-	/*--------------------------------*/
-	.floatleft {
-		width:10em;
-		height:3em;
-		float:left;
-		background-color:#0FC;
-	}
-	/*--------------------------------*/
-	.clearleft {
-		display:block;
-		clear:left;
-	}
-	/*--------------------------------*/
-	.fixa {
-		color:#FF5959;
-		text-decoration:none;
-		display:inline-block;
-		position:relative;
-		font-weight:bold;
-	}
-	.fixspan {
-		color:#F00;
-		display:none;
-		position:absolute;
-		top:-2px;
-		left:-2px;
-		font-weight:bold;
-	}
-	.fixa:hover .fixspan {
-		display:inline-block;
-	}
-	/*--------------------------------*/
-	.ofvisible,
-	.ofhidden,
-	.ofscroll,
-	.ofauto {
-		width:100px;
-		height:100px;
-		border:1px #000 solid;
-		margin:0 10px;
-		float:left;
-	}
-	.ofvisible {
-		overflow:visible;
-	}
-	.ofhidden {
-		overflow:hidden;
-	}
-	.ofscroll {
-		overflow:scroll;
-	}
-	.ofauto {
-		overflow:auto;
-	}
-	.clear {
-		clear:left;
-	}
-  </style>
+    <meta charset="utf-8" />
+    <title>chapter-11</title>
+    <style>
+	    .container {
+			width:30em;
+			height:3em;
+			padding:0.5em;
+			border:5px solid #000;
+		}
+		.box1,.box2 {
+			width:50%;
+			height:100%;
+			box-sizing:border-box;
+			float:left;
+		}
+		.box1 {
+			border:0.5em solid #00F;
+		}
+		.box2 {
+			border:0.5em solid #F00;
+		}
+		/*--------------------------------*/
+		.inline {
+			display:inline;
+			background-color:#0FF;
+			border:1px solid #000;
+			width:1000px;
+			height:30px;
+		}
+		.inlineblock {
+			display:inline-block;
+			background-color:#9F0;
+			border:1px solid #000;
+			width:500px;
+			height:30px;
+		}
+		/*--------------------------------*/
+		.widthmargin {
+			display:block;
+			width:900px;
+			margin:0 auto;
+		}
+		/*--------------------------------*/
+		.padding {
+			padding:0px 15px 0px;
+		}
+		/*--------------------------------*/
+		.bsnone {
+			border:3px #000 none;
+		}
+		.bsdotted {
+			border:3px #000 dotted;
+		}
+		.bsdashed {
+			border:3px #000 dashed;
+		}
+		.bssolid {
+			border:3px #000 solid;
+		}
+		.bsdouble {
+			border:3px #000 double;
+		}
+		.bsgroove {
+			border:3px #000 groove;
+		}
+		.bsridge {
+			border:3px #000 ridge;
+		}
+		.bsinset {
+			border:3px #000 inset;
+		}
+		.bsoutset {
+			border:3px #000 outset;
+		}
+		/*--------------------------------*/
+		.floatleft {
+			width:10em;
+			height:3em;
+			float:left;
+			background-color:#0FC;
+		}
+		/*--------------------------------*/
+		.clearleft {
+			display:block;
+			clear:left;
+		}
+		/*--------------------------------*/
+		.fixa {
+			color:#FF5959;
+			text-decoration:none;
+			display:inline-block;
+			position:relative;
+			font-weight:bold;
+		}
+		.fixspan {
+			color:#F00;
+			display:none;
+			position:absolute;
+			top:-2px;
+			left:-2px;
+			font-weight:bold;
+		}
+		.fixa:hover .fixspan {
+			display:inline-block;
+		}
+		/*--------------------------------*/
+		.ofvisible,
+		.ofhidden,
+		.ofscroll,
+		.ofauto {
+			width:100px;
+			height:100px;
+			border:1px #000 solid;
+			margin:0 10px;
+			float:left;
+		}
+		.ofvisible {
+			overflow:visible;
+		}
+		.ofhidden {
+			overflow:hidden;
+		}
+		.ofscroll {
+			overflow:scroll;
+		}
+		.ofauto {
+			overflow:auto;
+		}
+		.clear {
+			clear:left;
+		}
+        .footer {
+            margin-top:2em;
+            text-align:center;
+        }
+    </style>
 </head>
 
 <body>
-<h1 style="text-align:center;">第11章 用CSS进行布局</h1>
+	<h1 style="text-align:center;">第11章 用CSS进行布局</h1>
 
-<h3>开始布局的注意事项</h3>
-<p>
-1.内容与显示分离<br />
-2.布局方法：网站设计主要有两大类型：固定宽带和响应式<br />
-对于固定布局，整个页面和每一栏都有基于像素的宽度，响应式页面也称为流式页面，它使用百分数定义宽度，允许页面随显示环境的改变进行放大或缩小<br />
-3.浏览器注意事项：并非所有的访问者都使用同样的浏览器，建议在开发过程中用几个浏览器对页面定期进行测试，这样在最后进行全面测试时，碰到的问题就会少一些<br />
-</p>
+	<h3>开始布局的注意事项</h3>
+	<p>
+		1.内容与显示分离<br />
+		2.布局方法：网站设计主要有两大类型：固定宽带和响应式<br />
+		对于固定布局，整个页面和每一栏都有基于像素的宽度，响应式页面也称为流式页面，它使用百分数定义宽度，允许页面随显示环境的改变进行放大或缩小<br />
+		3.浏览器注意事项：并非所有的访问者都使用同样的浏览器，建议在开发过程中用几个浏览器对页面定期进行测试，这样在最后进行全面测试时，碰到的问题就会少一些<br />
+	</p>
 
-<h3>构建页面</h3>
-<p>
-高效网页的核心是结构良好、语义化的HTML<br />
-1.恰当地使用article、aside、nav、section、header、footer和div等元素将页面划分成不同的逻辑区块，根据需要，对它们应用ARIA地标角色<br />
-2.按照一定的顺序放置内容，确保页面在不使用CSS的情况下也是合理的，将最重要的内容放在最上面，这样搜索引擎就能更好地对网站进行索引<br />
-3.以一致的方式使用标题元素（h1~h6），从而明确地标识页面上这些区块的信息，并对它们按优先级排序<br />
-4.使用合适的语义标记剩余的内容，如段落、图、列表<br />
-5.如果有必要，使用注释来标识页面不同的区域及内容<br />
+	<h3>构建页面</h3>
+	<p>
+		高效网页的核心是结构良好、语义化的HTML<br />
+		1.恰当地使用article、aside、nav、section、header、footer和div等元素将页面划分成不同的逻辑区块，根据需要，对它们应用ARIA地标角色<br />
+		2.按照一定的顺序放置内容，确保页面在不使用CSS的情况下也是合理的，将最重要的内容放在最上面，这样搜索引擎就能更好地对网站进行索引<br />
+		3.以一致的方式使用标题元素（h1~h6），从而明确地标识页面上这些区块的信息，并对它们按优先级排序<br />
+		4.使用合适的语义标记剩余的内容，如段落、图、列表<br />
+		5.如果有必要，使用注释来标识页面不同的区域及内容<br />
+	</p>
 
-</p>
+	<h3>在旧版浏览器中为HTML5元素添加样式</h3>
+	<p>
+		1.大多数浏览器默认将它们无法识别的元素作为行内元素处理，所以可以将代码：<code>article, aside, figcaption, figure, footer, header, main, nav, section { display:block; }</code>添加到网站的主样式表文件<br >
+		2.有两种方式可以实现在Internet Explorer9之前的IE中为新的HTML5元素设置样式（只能选择一种，不能两种都用）<br />
+		(1)在head元素中添加代码<code>&lt;!--[if lt IE 9]&gt; &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt; &lt;![endif]--&gt;</code>，这段代码会从外部网站（googlecode.com）加载该JavaScript文件，其中<code>&lt;!--[if lt IE 9]&gt;&lt;![endif]--&gt;</code>表示只有IE9以下版本可识别，通常，最好在页面结束的位置加载JavaScript，不过，HTML5 shiv是少有的必须在head中加载JavaScript的情况之一，否则，它就不起作用<br />
+		(2)更好的方式是将该JavaScript文件放在你自己的网站上，这样可以避免在googlecode.com上文件出问题时，网站不会在旧版本的IE中崩溃，可以通过<code>https://github.com/aFarkas/html5shiv/</code>下载HTML5 shiv的ZIP文件，再将ZIP文件里的dist文件夹下的html5shiv.js复制到你的网站的某个子目录（如名为js的目录），然后在head元素中添加代码<code>&lt;!--[if lt IE 9]&gt; &lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt; &lt;![endif]--&gt;</code>
+	</p>
 
-<h3>在旧版浏览器中为HTML5元素添加样式</h3>
-<p>
-1.大多数浏览器默认将它们无法识别的元素作为行内元素处理，所以可以将代码：<code>article, aside, figcaption, figure, footer, header, main, nav, section { display:block; }</code>添加到网站的主样式表文件<br >
-2.有两种方式可以实现在Internet Explorer9之前的IE中为新的HTML5元素设置样式（只能选择一种，不能两种都用）<br />
-(1)在head元素中添加代码<code>&lt;!--[if lt IE 9]&gt; &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt; &lt;![endif]--&gt;</code>，这段代码会从外部网站（googlecode.com）加载该JavaScript文件，其中<code>&lt;!--[if lt IE 9]&gt;&lt;![endif]--&gt;</code>表示只有IE9以下版本可识别，通常，最好在页面结束的位置加载JavaScript，不过，HTML5 shiv是少有的必须在head中加载JavaScript的情况之一，否则，它就不起作用<br />
-(2)更好的方式是将该JavaScript文件放在你自己的网站上，这样可以避免在googlecode.com上文件出问题时，网站不会在旧版本的IE中崩溃，可以通过<code>https://github.com/aFarkas/html5shiv/</code>下载HTML5 shiv的ZIP文件，再将ZIP文件里的dist文件夹下的html5shiv.js复制到你的网站的某个子目录（如名为js的目录），然后在head元素中添加代码<code>&lt;!--[if lt IE 9]&gt; &lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt; &lt;![endif]--&gt;</code>
-</p>
+	<h3>对默认样式进行重置或标准化</h3>
+	<p>
+		每个浏览器都有内置的默认样式表，不同的浏览器之间会存在一定的差异，HTML会遵照默认样式吧显示，所以开发人员在应用自己的CSS之间需要抹平这些差异，方法如下：<br >
+		(1)使用CSS重置开始主样式表，比如<code>http://meyerweb.com/eric/tools/css/reset/</code>的重置样式表，这可以有效地将所有默认样式都设为“零”<br >
+		(2)使用位于<code>http://necolas.github.com/normalize.css/</code>的开始主样式表，这个并非对所有样式进行重置，而是对默认样式进行微调，这样它们在不同的浏览器中具有相似的外观<br />
+		使用上面的样式不一定要保留它们提供的所有CSS，有些HTML元素在你的网站并未使用就不必在你的样式表中包含这些多余的CSS了<br >
+		并非一定要用到这两种方法中的一种，也可以保留浏览器的默认样式，并自己编写相应的CSS<br />
+	</p>
 
-<h3>对默认样式进行重置或标准化</h3>
-<p>
-每个浏览器都有内置的默认样式表，不同的浏览器之间会存在一定的差异，HTML会遵照默认样式吧显示，所以开发人员在应用自己的CSS之间需要抹平这些差异，方法如下：<br >
-(1)使用CSS重置开始主样式表，比如<code>http://meyerweb.com/eric/tools/css/reset/</code>的重置样式表，这可以有效地将所有默认样式都设为“零”<br >
-(2)使用位于<code>http://necolas.github.com/normalize.css/</code>的开始主样式表，这个并非对所有样式进行重置，而是对默认样式进行微调，这样它们在不同的浏览器中具有相似的外观<br />
-使用上面的样式不一定要保留它们提供的所有CSS，有些HTML元素在你的网站并未使用就不必在你的样式表中包含这些多余的CSS了<br >
-并非一定要用到这两种方法中的一种，也可以保留浏览器的默认样式，并自己编写相应的CSS<br />
-</p>
+	<h3>盒模型</h3>
+	<p>
+		CSS处理网页时，它认为每个元素都包含在一个不可见的盒子里，这就是盒模型，这里盒子由内容区域、内容区域周围的空间（内边距，padding）、内边距的外边缘（边框，border）和边框外面将元素与相邻元素隔开的不可见区域（外边距，margin）构成<br />
+		每个元素都有自己的盒子，它们都有一些决定该元素所在空间及其外观的要素<br />
+		CSS中的宽度指示的是内边距里内容区域的宽度，如左下图<br />
+		可以对元素设置<code>box-sizing:border-box;</code>，这时内容宽度、内边距和边距都包含在宽度里面，如右下图<br />
+		<img src="img/box1.PNG" width="297" />&nbsp;&nbsp;&nbsp;<img src="img/box2.PNG" width="302" />
+	</p>
+	<div class="container"><div class="box1">左半部分</div><div class="box2">右半部分</div></div>
 
-<h3>盒模型</h3>
-<p>
-CSS处理网页时，它认为每个元素都包含在一个不可见的盒子里，这就是盒模型，这里盒子由内容区域、内容区域周围的空间（内边距，padding）、内边距的外边缘（边框，border）和边框外面将元素与相邻元素隔开的不可见区域（外边距，margin）构成<br />
-每个元素都有自己的盒子，它们都有一些决定该元素所在空间及其外观的要素<br />
-CSS中的宽度指示的是内边距里内容区域的宽度，如左下图<br />
-可以对元素设置<code>box-sizing:border-box;</code>，这时内容宽度、内边距和边距都包含在宽度里面，如右下图<br />
-<img src="box1.PNG" width="297" />&nbsp;&nbsp;&nbsp;<img src="box2.PNG" width="302" />
-</p>
-<div class="container"><div class="box1">左半部分</div><div class="box2">右半部分</div></div>
+	<h3>控制元素的显示类型和可见性</h3>
+	<p>
+		1.指定元素的显示方式：<code>display:value;</code>这里value可以是：block让元素显示为块级元素（就像开始新的段落）、inline让元素显示为行内元素（不同于开始新的段落）、inline-block让元素显示为行内元素，同时具有块级元素的特征、none隐藏元素，并将其从文档流中完全移除<br />
+		<span class="inline">设置inlined的元素会忽略任何width、height、margin-top、margin-bottom和padding设置，</span><span class="inlineblock">不过设置为inline-block的元素可以使用这些属性</span><br />
+		默认情况下，元素会按照它们在HTML中自上而下出现的次序显示，这称为文档流，并在每个非行内元素的开头和结尾换行<br />
+		设置display:inline;的元素不接受padding设置，但padding-top和padding-bottom会越界进入相邻元素的区域，而不是局限于该元素本身的空间<br />
+		2.控制元素可见性：<code>visibility:value;</code>这里的value可以是：hidden让元素不可见，但在文档流中保留它、visible让元素显示出来、collapse当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局，被行或列占据的空间会留给其他内容使用，如果此值被用在其他的元素上，会呈现为&quot;hidden&quot;<br />
+		与display属性不同的是，使用visibility隐藏元素时，元素及其内容应该出现的位置会留下一片空白区域<br />
+		设置为display:none;或visibility:hidden;的元素里的所有内容（包括所有的后代）也会受到影响<br />
+	</p>
 
-<h3>控制元素的显示类型和可见性</h3>
-<p>
-1.指定元素的显示方式：<code>display:value;</code>这里value可以是：block让元素显示为块级元素（就像开始新的段落）、inline让元素显示为行内元素（不同于开始新的段落）、inline-block让元素显示为行内元素，同时具有块级元素的特征、none隐藏元素，并将其从文档流中完全移除<br />
-<span class="inline">设置inlined的元素会忽略任何width、height、margin-top、margin-bottom和padding设置，</span><span class="inlineblock">不过设置为inline-block的元素可以使用这些属性</span><br />
-默认情况下，元素会按照它们在HTML中自上而下出现的次序显示，这称为文档流，并在每个非行内元素的开头和结尾换行<br />
-设置display:inline;的元素不接受padding设置，但padding-top和padding-bottom会越界进入相邻元素的区域，而不是局限于该元素本身的空间<br />
-2.控制元素可见性：<code>visibility:value;</code>这里的value可以是：hidden让元素不可见，但在文档流中保留它、visible让元素显示出来、collapse当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局，被行或列占据的空间会留给其他内容使用，如果此值被用在其他的元素上，会呈现为&quot;hidden&quot;<br />
-与display属性不同的是，使用visibility隐藏元素时，元素及其内容应该出现的位置会留下一片空白区域<br />
-设置为display:none;或visibility:hidden;的元素里的所有内容（包括所有的后代）也会受到影响<br />
-</p>
+	<h3>设置元素的高度和宽度</h3>
+	<p>
+		1.设置元素宽度和高度<br />
+		步骤：<code>width:<var>w</var>; height:<var>h</var>;</code>这里w和h是元素内容区域的宽度和高度，可以代表长度或父元素的百分数，或默认的auto<br />
+		对定宽页面使用像素，对响应式Web设计使用百分数，width和height不是继承的<br />
+		有些属性在前面带有<code>-webkit-或-moz-</code>，可以让这些规则在旧的Android和iOS设备上起作用，同时在Firefox上也能正常工作，比如：<code>-webkit-box-sizeing:border-box;</code>
+		还有<code>min-width、min-height、max-width和max-height</code>属性用来设置最小和最大尺寸，max-width属性是为流式布局设置宽度限制的绝佳工具<br />
+		2.宽度、外边距和auto<br />
+		如果不显示设置宽度和高度，浏览器就会使用auto，块级元素的宽度是父元素给元素留出的宽度，图像的宽度是实际尺寸，行内元素忽略width属性<br />
+		<span class="widthmargin">如果手动设置width，并将左右外边距设为auto，那么两个外边距就将设为相等的最大值，这样会导致元素居中</span>
+		最好避免在样式表中指定高度，除非你确定元素的内容不会变得更高，如果希望元素至少具有某一特定高度，可以设置min-height
+	</p>
 
-<h3>设置元素的高度和宽度</h3>
-<p>
-1.设置元素宽度和高度<br />
-步骤：<code>width:<var>w</var>; height:<var>h</var>;</code>这里w和h是元素内容区域的宽度和高度，可以代表长度或父元素的百分数，或默认的auto<br />
-对定宽页面使用像素，对响应式Web设计使用百分数，width和height不是继承的<br />
-有些属性在前面带有<code>-webkit-或-moz-</code>，可以让这些规则在旧的Android和iOS设备上起作用，同时在Firefox上也能正常工作，比如：<code>-webkit-box-sizeing:border-box;</code>
-还有<code>min-width、min-height、max-width和max-height</code>属性用来设置最小和最大尺寸，max-width属性是为流式布局设置宽度限制的绝佳工具<br />
-2.宽度、外边距和auto<br />
-如果不显示设置宽度和高度，浏览器就会使用auto，块级元素的宽度是父元素给元素留出的宽度，图像的宽度是实际尺寸，行内元素忽略width属性<br />
-<span class="widthmargin">如果手动设置width，并将左右外边距设为auto，那么两个外边距就将设为相等的最大值，这样会导致元素居中</span>
-最好避免在样式表中指定高度，除非你确定元素的内容不会变得更高，如果希望元素至少具有某一特定高度，可以设置min-height
-</p>
+	<h3>在元素周围添加内边距</h3>
+	<p class="padding">
+		内边距就是元素内容周围、边框以内的空间，内边距不是继承的<br >
+		步骤：<code>padding:value;</code>这里value表示带单位的长度（通常为em或像素）或父元素宽度的百分数可以是：一个值表示上下左右的内边距、两个值表示上下，左右的内边距、三个值表示上，左右，下的内边距、四个值表示上，右，下，左的内边距<br />
+		也可以使用<code>padding-top:、padding-right:、padding-bottom:、padding-left:</code>单独为一个边添加内边距<br />
+	</p>
 
-<h3>在元素周围添加内边距</h3>
-<p class="padding">
-内边距就是元素内容周围、边框以内的空间，内边距不是继承的<br >
-步骤：<code>padding:value;</code>这里value表示带单位的长度（通常为em或像素）或父元素宽度的百分数可以是：一个值表示上下左右的内边距、两个值表示上下，左右的内边距、三个值表示上，左右，下的内边距、四个值表示上，右，下，左的内边距<br />
-也可以使用<code>padding-top:、padding-right:、padding-bottom:、padding-left:</code>单独为一个边添加内边距<br />
+	<h3>设置边框</h3>
+	<p>
+		可以在元素周围创建边框，或针对某一边设置边框，并设置它的厚度、风格和颜色<br />
+		1.定义边框风格：<code>border-style:value;</code>这里value可以是：<span class="bsnone">none取消边框</span>、<span class="bsdotted">dotted点线</span>、<span class="bsdashed">dashed虚线</span>、<span class="bssolid">solid实线</span>、<span class="bsdouble">double双线</span>、<span class="bsgroove">groove槽线</span>、<span class="bsridge">ridge脊线</span>、<span class="bsinset">inset凹边</span>、<span class="bsoutset">outset凸边</span><br />
+		2.设置边框宽度：<code>border-width:n;</code>这里n是需要的宽度，含单位<br />
+		3.设置边框颜色：<code>border-color:color;</code>这里color可以是颜色名称、十六进制值、RGB、HSL、RGBA、HSLA颜色<br />
+		4.使用简记法同时设置多个边框属性：输入border，如果需要，输入-top、-right、-bottom、-left将边框效果限制在某一条，如果需要，输入-style、-width、-color仅使用单个属性设置边框，输入：恰当的值<br />
+		border简写属性及各个边框属性（border-width、border-style、border-color）均可接受一至四个值<br />
+		要让边框显示出来，至少必须定义边框样式，默认值是border-style:none;不显示边框，边框是不继承的<br />
+		通过CSS3的border-image属性，可以使用图片来创建边框，详情请查看W3School<br />
+	</p>
 
-</p>
+	<h3>设置元素周围的外边距</h3>
+	<p>
+		外边距是元素与相邻元素之前的透明空间<br >
+		步骤：<code>margin:x;</code>这里x是要添加的空间量，可以表示为长度、相对父元素宽度的百分数或auto，auto值依赖于width属性的值<br />
+		也可以输入：<code>margin-top:或margin-right:或margin-bottom:或margin-left:</code>为元素的某一条边应用外边距<br />
+		外边距不是继承的，属性值可以是一至四个<br />
+		<strong>当em值用于内边距和外边距时，它的值是相对于元素的字体大小的，而不是相对于父元素的字体大小，em值=要指定的字体大小/元素的字体大小</strong><br />
+		对于内边距和外边距的设置，建议使用相对单位<br />
+	</p>
 
-<h3>设置边框</h3>
-<p>
-可以在元素周围创建边框，或针对某一边设置边框，并设置它的厚度、风格和颜色<br />
-1.定义边框风格：<code>border-style:value;</code>这里value可以是：<span class="bsnone">none取消边框</span>、<span class="bsdotted">dotted点线</span>、<span class="bsdashed">dashed虚线</span>、<span class="bssolid">solid实线</span>、<span class="bsdouble">double双线</span>、<span class="bsgroove">groove槽线</span>、<span class="bsridge">ridge脊线</span>、<span class="bsinset">inset凹边</span>、<span class="bsoutset">outset凸边</span><br />
-2.设置边框宽度：<code>border-width:n;</code>这里n是需要的宽度，含单位<br />
-3.设置边框颜色：<code>border-color:color;</code>这里color可以是颜色名称、十六进制值、RGB、HSL、RGBA、HSLA颜色<br />
-4.使用简记法同时设置多个边框属性：输入border，如果需要，输入-top、-right、-bottom、-left将边框效果限制在某一条，如果需要，输入-style、-width、-color仅使用单个属性设置边框，输入：恰当的值<br />
-border简写属性及各个边框属性（border-width、border-style、border-color）均可接受一至四个值<br />
-要让边框显示出来，至少必须定义边框样式，默认值是border-style:none;不显示边框，边框是不继承的<br />
-通过CSS3的border-image属性，可以使用图片来创建边框，详情请查看W3School<br />
-</p>
+	<h3>使元素浮动</h3>
+	<p>
+		可以通过float属性使元素浮动在文本或其他元素上，可以使用这种技术让文本环绕在图像或者其他元素周围，可以使用这种技术创建多栏布局等<br />
+		步骤：<code>float:value;</code>这里value的值可以是：left让元素浮动到左边，其他内容围绕在它右边、right让元素浮动到右边，其他内容围绕在它左边、none默认值让元素完全不浮动<br />
+		float属性不是继承的，浮动元素不会影响其父元素的高度<br />
+	</p>
 
-<h3>设置元素周围的外边距</h3>
-<p>
-外边距是元素与相邻元素之前的透明空间<br >
-步骤：<code>margin:x;</code>这里x是要添加的空间量，可以表示为长度、相对父元素宽度的百分数或auto，auto值依赖于width属性的值<br />
-也可以输入：<code>margin-top:或margin-right:或margin-bottom:或margin-left:</code>为元素的某一条边应用外边距<br />
-外边距不是继承的，属性值可以是一至四个<br />
-<strong>当em值用于内边距和外边距时，它的值是相对于元素的字体大小的，而不是相对于父元素的字体大小，em值=要指定的字体大小/元素的字体大小</strong><br />
-对于内边距和外边距的设置，建议使用相对单位<br />
-</p>
-
-<h3>使元素浮动</h3>
-可以通过float属性使元素浮动在文本或其他元素上，可以使用这种技术让文本环绕在图像或者其他元素周围，可以使用这种技术创建多栏布局等<br />
-步骤：<code>float:value;</code>这里value的值可以是：left让元素浮动到左边，其他内容围绕在它右边、right让元素浮动到右边，其他内容围绕在它左边、none默认值让元素完全不浮动<br />
-float属性不是继承的，浮动元素不会影响其父元素的高度<br />
-<p>
-
-</p>
-
-<h3>控制元素浮动的位置</h3>
-<p>
-我们可以控制浮动什么时候停止<br />
-步骤：<code>clear:value;</code>这里value的值可以是：left阻止元素浮动在该元素的左边、right阻止元素浮动在该元素的右边、both阻止元素浮动在该元素的左右两边、none默认值，允许元素浮动在该元素的左右两边<br />
-如果要让浮动元素的祖先元素在高度上包含浮动元素，并消除浮动，可以使用clearfix，代码如下：
+	<h3>控制元素浮动的位置</h3>
+	<p>
+		我们可以控制浮动什么时候停止<br />
+		步骤：<code>clear:value;</code>这里value的值可以是：left阻止元素浮动在该元素的左边、right阻止元素浮动在该元素的右边、both阻止元素浮动在该元素的左右两边、none默认值，允许元素浮动在该元素的左右两边<br />
+		如果要让浮动元素的祖先元素在高度上包含浮动元素，并消除浮动，可以使用clearfix，代码如下：
 <pre>
 	.clearfix:before,
 	.clearfix:after {
@@ -261,83 +262,86 @@ float属性不是继承的，浮动元素不会影响其父元素的高度<br />
 		clear:both;
 	}
 </pre>
-也可以对浮动元素的父元素使用overflow属性以替代clearfix方法，代码：<code>overflow:hidden;</code>，有时候<code>overflow:hidden;</code>会将内容截断，对此要多加注意，有时使用<code>overflow:auto;</code>也有效，但这样可能会出现一个滚动条<br />
-应该将clear属性添加到不希望环绕浮动对象的元素上，而clearfix和overflow是应用于浮动元素的父元素或祖先元素的<br /><br />
-</p>
-<div class="floatleft">这是一个左浮动</div>文本围绕在浮动元素周围<span class="clearleft">这是取消左浮动的元素</span>
+		也可以对浮动元素的父元素使用overflow属性以替代clearfix方法，代码：<code>overflow:hidden;</code>，有时候<code>overflow:hidden;</code>会将内容截断，对此要多加注意，有时使用<code>overflow:auto;</code>也有效，但这样可能会出现一个滚动条<br />
+		应该将clear属性添加到不希望环绕浮动对象的元素上，而clearfix和overflow是应用于浮动元素的父元素或祖先元素的<br /><br />
+	</p>
+	<div class="floatleft">这是一个左浮动</div>文本围绕在浮动元素周围<span class="clearleft">这是取消左浮动的元素</span>
 
-<h3>对元素进行相对定位</h3>
-<p>
-每个元素在页面的文档流中都有一个自然位置，相对于这个原始位置对元素进行移动就称为相对定位<br />
-步骤：指明采用相对位置<code>position:relative;</code>给出偏移量<code>top:d; right:d; bottom:d; left:d;</code>这里的d是希望元素从它自然位置偏移的距离，可以表示为绝对值<br />
-其他元素不会受偏移的影响，设置了相对定位的内容可能与其他内容重叠<br />
-</p>
+	<h3>对元素进行相对定位</h3>
+	<p>
+		每个元素在页面的文档流中都有一个自然位置，相对于这个原始位置对元素进行移动就称为相对定位<br />
+		步骤：指明采用相对位置<code>position:relative;</code>给出偏移量<code>top:d; right:d; bottom:d; left:d;</code>这里的d是希望元素从它自然位置偏移的距离，可以表示为绝对值<br />
+		其他元素不会受偏移的影响，设置了相对定位的内容可能与其他内容重叠<br />
+	</p>
 
-<h3>对元素进行绝对定位</h3>
-<p>
-通过对元素进行绝对定位，即指定它们相对于body或最近的已定位祖先元素的精确位置，可以让元素脱离正常的文档流，与相对定位不同，绝对定位的元素不会在原先的位置留下空白<br />
-步骤：<code>position:absolute;</code>根据情况指定<code>top、right、bottom、left</code>的值<br />
-<mark>根据需要，对希望成为绝对定位参照体的祖先元素添加 <code>position:relative;</code>如果没有这一步，将对元素相对于body计算偏移量，例如可以设置超链接：<a href="index.html" class="fixa">返回首页<span class="fixspan">返回首页</span></a></mark><br />
-由于绝对定位的元素脱离了文档流，因此它们可能会相互重叠，或与其他元素重叠<br />
-如果不为绝对定位的元素指定偏移量，这个元素将显示在它自然位置上，但不会影响后续元素在文档流中的位置，也就是说后面的元素将会忽略它
-</p>
+	<h3>对元素进行绝对定位</h3>
+	<p>
+		通过对元素进行绝对定位，即指定它们相对于body或最近的已定位祖先元素的精确位置，可以让元素脱离正常的文档流，与相对定位不同，绝对定位的元素不会在原先的位置留下空白<br />
+		步骤：<code>position:absolute;</code>根据情况指定<code>top、right、bottom、left</code>的值<br />
+		<mark>根据需要，对希望成为绝对定位参照体的祖先元素添加 <code>position:relative;</code>如果没有这一步，将对元素相对于body计算偏移量，例如可以设置超链接：<a href="index.html" class="fixa">返回首页<span class="fixspan">返回首页</span></a></mark><br />
+		由于绝对定位的元素脱离了文档流，因此它们可能会相互重叠，或与其他元素重叠<br />
+		如果不为绝对定位的元素指定偏移量，这个元素将显示在它自然位置上，但不会影响后续元素在文档流中的位置，也就是说后面的元素将会忽略它
+	</p>
 
-<h3>对元素进行固定定位</h3>
-<p>
-当访问者滚动浏览器窗口时，页面内容通常随之上下移动，如果对元素设置固定定位，它就会固定在浏览器窗口中，不会上下移动
-步骤：<code>position:fixed;</code>固定定位在很多移动浏览器中效果不佳，如果希望网页能很好地适应移动设备，最好不要使用固定定位<br />
-对元素设置<code>position:static;</code>可以覆盖相对定位、绝对定位和固定定位的设置，static是元素的默认值，定位不是继承的<br />
-</p>
+	<h3>对元素进行固定定位</h3>
+	<p>
+		当访问者滚动浏览器窗口时，页面内容通常随之上下移动，如果对元素设置固定定位，它就会固定在浏览器窗口中，不会上下移动
+		步骤：<code>position:fixed;</code>固定定位在很多移动浏览器中效果不佳，如果希望网页能很好地适应移动设备，最好不要使用固定定位<br />
+		对元素设置<code>position:static;</code>可以覆盖相对定位、绝对定位和固定定位的设置，static是元素的默认值，定位不是继承的<br />
+	</p>
 
-<h3>在栈中定位元素</h3>
-<p>
-使用相对定位、绝对定位或固定定位时，对于相互重叠的元素，可以用z-index属性指定它们的叠放次序<br />
-对于定位元素，z-index最高的数显示在最上面，不管该元素在HTML中出现的次序，相同的出现晚的在上面，对于默认的position:static;z-index属性值默认为0不会变<br />
-步骤：<code>z-index:n;</code>这里的n表示元素在定位过的对象堆中的层次的数字，z-index属性不是继承的<br />
-</p>
+	<h3>在栈中定位元素</h3>
+	<p>
+		使用相对定位、绝对定位或固定定位时，对于相互重叠的元素，可以用z-index属性指定它们的叠放次序<br />
+		对于定位元素，z-index最高的数显示在最上面，不管该元素在HTML中出现的次序，相同的出现晚的在上面，对于默认的position:static;z-index属性值默认为0不会变<br />
+		步骤：<code>z-index:n;</code>这里的n表示元素在定位过的对象堆中的层次的数字，z-index属性不是继承的<br />
+	</p>
 
-<h3>处理溢出</h3>
-<p>
-元素并不总是包含在它们自己的盒子里，这可能是因为盒子不够大，也可能是因为使用负外边距或绝对定位让内容处于盒子的外面，还可能是对元素设置了显示高度，它的内容太高而无法装入盒子内容，无论是哪种情况，都可以使用overflow属性控制元素在盒子外面的部分<br />
-步骤：<code>overflow:value;</code>这里value的值可以是：visible默认值让元素盒子中的所有内容可见、hidden隐藏元素盒子容纳不了的内容、scroll无论元素是否需要，都在元素上添加滚动条、auto让滚动条仅在访问者访问溢出内容时出现，overflow属性不是继承的<br />
-</p>
-<div class="ofvisible">这是visible的效果<br />这是visible的效果<br />这是visible的效果</div>
-<div class="ofhidden">这是hidden的效果<br />这是hidden的效果<br />这是hidden的效果</div>
-<div class="ofscroll">这是scroll的效果<br /></div>
-<div class="ofauto">这是auto的效果<br />这是auto的效果<br />这是auto的效果<br /></div>
-<br class="clear" /><br />
+	<h3>处理溢出</h3>
+	<p>
+		元素并不总是包含在它们自己的盒子里，这可能是因为盒子不够大，也可能是因为使用负外边距或绝对定位让内容处于盒子的外面，还可能是对元素设置了显示高度，它的内容太高而无法装入盒子内容，无论是哪种情况，都可以使用overflow属性控制元素在盒子外面的部分<br />
+		步骤：<code>overflow:value;</code>这里value的值可以是：visible默认值让元素盒子中的所有内容可见、hidden隐藏元素盒子容纳不了的内容、scroll无论元素是否需要，都在元素上添加滚动条、auto让滚动条仅在访问者访问溢出内容时出现，overflow属性不是继承的<br />
+	</p>
+	<div class="ofvisible">这是visible的效果<br />这是visible的效果<br />这是visible的效果</div>
+	<div class="ofhidden">这是hidden的效果<br />这是hidden的效果<br />这是hidden的效果</div>
+	<div class="ofscroll">这是scroll的效果<br /></div>
+	<div class="ofauto">这是auto的效果<br />这是auto的效果<br />这是auto的效果<br /></div>
+	<br class="clear" /><br />
 
-<h3>垂直对齐元素</h3>
-<p>
-可以使用除默认对齐方式以外的多种方式对齐元素，让它们在页面上显得较为整齐<br />
-步骤：<code>vertical-align:value;</code>这里value可以是：
-baseline：使元素的基准线对齐父元素的基准线<br />
-middle：使元素位于父元素中央<br />
-sub：使元素成为父元素的下标<br />
-super：使元成为父元素的下标<br />
-text-top：使元素的顶部对齐父元素的顶部<br />
-text-bottom：使元素的底部对齐父元素的底部<br />
-top：使元素的顶部对齐当前行里最高元素的顶部<br />
-bottom：使元素的底部对齐当前行里最低元素的底部<br />
-或者输入元素行高的百分比可以是整数也可以是负数<br />
-或者输入某个值分别按照特定的值向上或者向下移动元素<br />
-可以使用vertical-align设置表格单元格中内容对齐方式，默认是中间对齐，而不像表格以外的内容那样与基线对齐
-</p>
+	<h3>垂直对齐元素</h3>
+	<p>
+		可以使用除默认对齐方式以外的多种方式对齐元素，让它们在页面上显得较为整齐<br />
+		步骤：<code>vertical-align:value;</code>这里value可以是：
+		baseline：使元素的基准线对齐父元素的基准线<br />
+		middle：使元素位于父元素中央<br />
+		sub：使元素成为父元素的下标<br />
+		super：使元成为父元素的下标<br />
+		text-top：使元素的顶部对齐父元素的顶部<br />
+		text-bottom：使元素的底部对齐父元素的底部<br />
+		top：使元素的顶部对齐当前行里最高元素的顶部<br />
+		bottom：使元素的底部对齐当前行里最低元素的底部<br />
+		或者输入元素行高的百分比可以是整数也可以是负数<br />
+		或者输入某个值分别按照特定的值向上或者向下移动元素<br />
+		可以使用vertical-align设置表格单元格中内容对齐方式，默认是中间对齐，而不像表格以外的内容那样与基线对齐
+	</p>
 
-<h3>修改鼠标指针</h3>
-<p>
-一般情况下，浏览器负责控制鼠标指针的形状，可以使用CSS修改指针的形状<br />
-步骤：<code>cursor:value;</code>这里value可以是：<br />
-<span style="cursor:pointer;">pointer：指示停留在链接上时通常显示的指针形状</span><br />
-<span style="cursor:default;">default：指示箭头</span><br />
-<span style="cursor:crosshair;">crosshair：指示十字线</span><br />
-<span style="cursor:move;">move：指示某对象可被移动</span><br />
-<span style="cursor:wait;">wait：指示程序正忙</span><br />
-<span style="cursor:help;">help：指示可用的帮助</span><br />
-<span style="cursor:text;">text：指示文本</span><br />
-<span style="cursor:auto;">auto：显示特定情形下通常使用的指针形状</span><br />
-<span style="cursor:nw-resize;">x-resize：显示双向箭头，这里x是其中一个箭头需要指向的方向，可用是n北、nw西北、e东等等</span><br />
-不同的浏览器、不同的系统的指针形状可能有细微的差异<br />
-</p>
+	<h3>修改鼠标指针</h3>
+	<p>
+		一般情况下，浏览器负责控制鼠标指针的形状，可以使用CSS修改指针的形状<br />
+		步骤：<code>cursor:value;</code>这里value可以是：<br />
+		<span style="cursor:pointer;">pointer：指示停留在链接上时通常显示的指针形状</span><br />
+		<span style="cursor:default;">default：指示箭头</span><br />
+		<span style="cursor:crosshair;">crosshair：指示十字线</span><br />
+		<span style="cursor:move;">move：指示某对象可被移动</span><br />
+		<span style="cursor:wait;">wait：指示程序正忙</span><br />
+		<span style="cursor:help;">help：指示可用的帮助</span><br />
+		<span style="cursor:text;">text：指示文本</span><br />
+		<span style="cursor:auto;">auto：显示特定情形下通常使用的指针形状</span><br />
+		<span style="cursor:nw-resize;">x-resize：显示双向箭头，这里x是其中一个箭头需要指向的方向，可用是n北、nw西北、e东等等</span><br />
+		不同的浏览器、不同的系统的指针形状可能有细微的差异<br />
+	</p>
+    <footer role="contentinfo" class="footer">
+        <p><small>&copy;2017&nbsp;阿明&nbsp;浙ICP备17003356号</small></p>
+    </footer>
 </body>
 </html>
